@@ -841,6 +841,208 @@
     }
   </style>
 
+  <!-- Home page color overrides - Branding: #005283 (dark blue) and #FFC319 (yellow/gold) -->
+  <style>
+    :root {
+      --_colors---primary--accent: #FFC319;
+      --_colors---primary--blue: #005283;
+    }
+    
+    /* ===== BODY AND PAGE WRAPPER - Keep white background ===== */
+    body,
+    .page-wrapper {
+      background-color: #ffffff !important;
+    }
+    
+    /* ===== DARK SECTIONS - Use #005283 instead of black ===== */
+    .section_home-services,
+    .home-services_component,
+    .home-services_item,
+    .section_pricing,
+    .pricing_component,
+    .section_cta,
+    .cta_component {
+      background-color: #005283 !important;
+    }
+    
+    /* ===== TEXT ON DARK BLUE BACKGROUNDS - Use white ===== */
+    .section_home-services h1,
+    .section_home-services h2,
+    .section_home-services h3,
+    .section_home-services h4,
+    .section_home-services p,
+    .home-services_title,
+    .home-services_item-head,
+    .section_pricing h1,
+    .section_pricing h2,
+    .section_pricing h3,
+    .pricing_heading,
+    .pricing_plan-name,
+    .section_cta h1,
+    .section_cta h2,
+    .section_cta h3,
+    .cta_content h2,
+    .text-color-white,
+    .home-services_text-wrap p {
+      color: #ffffff !important;
+    }
+    
+    /* ===== TEXT ON LIGHT BACKGROUNDS - Use #005283 ===== */
+    .section_home-header h1,
+    .section_home-header h2,
+    .section_home-header h3,
+    .section_brands h2,
+    .section_brands h3,
+    .section_brands h4,
+    .section_work-list h2,
+    .section_work-list h3,
+    .heading-style-h1,
+    .heading-style-h2,
+    .heading-style-h3,
+    .heading-style-h4,
+    .heading-style-display,
+    .brands_item-name,
+    .work-list_title {
+      color: #005283 !important;
+    }
+    
+    /* ===== ACCENT ELEMENTS - Use #FFC319 (yellow/gold) ===== */
+    [style*="background-color: var(--_colors---primary--accent)"],
+    [style*="background-color: #f3350c"],
+    .button-secondary.w-variant-f874b9ba-24b5-50ff-0733-53dd5363b8cf,
+    .home-header_contact-dot,
+    .label_dot,
+    .button-line_dot,
+    .button_dot,
+    .navbar_link-dot,
+    .menu_link-dot,
+    .work-list_dot,
+    .home-header_service-line {
+      background-color: #FFC319 !important;
+    }
+    
+    /* Accent text colors */
+    .text-color-accent,
+    [style*="color: var(--_colors---primary--accent)"],
+    .home-header_label,
+    .label_wrap .text-style-label,
+    .home-header_mark,
+    .home-header_mark-2 {
+      color: #FFC319 !important;
+    }
+    
+    /* ===== INTERACTIVE ELEMENTS - Use #005283 ===== */
+    .w-button,
+    [style*="background-color: #3898ec"],
+    [style*="border-color: #3898ec"],
+    [style*="box-shadow"][style*="#3898ec"],
+    .button-secondary:not(.w-variant-f874b9ba-24b5-50ff-0733-53dd5363b8cf):not(.white) {
+      background-color: #005283 !important;
+      border-color: #005283 !important;
+      color: #ffffff !important;
+    }
+    
+    [style*="box-shadow"][style*="#3898ec"] {
+      box-shadow: 0 0 3px 1px #005283 !important;
+    }
+    
+    /* ===== NAVBAR - Dark blue with white text ===== */
+    .navbar,
+    .navbar_component {
+      background-color: rgba(0, 82, 131, 0.95) !important;
+      backdrop-filter: blur(10px) !important;
+    }
+    
+    .navbar_link-text,
+    .navbar_logo-wrap,
+    .navbar_creative-text {
+      color: #ffffff !important;
+    }
+    
+    /* ===== FOOTER - Dark blue background ===== */
+    .footer,
+    .footer_component {
+      background-color: #005283 !important;
+    }
+    
+    .footer_link,
+    .footer_copyright,
+    .footer_template-link {
+      color: #ffffff !important;
+    }
+    
+    .footer_link:hover {
+      color: #FFC319 !important;
+    }
+    
+    /* ===== BODY TEXT COLORS ===== */
+    /* Grey text on light backgrounds - use dark blue with opacity */
+    .text-color-grey-400,
+    .text-color-grey-500,
+    .text-size-grey-400,
+    .home-about_text-wrap p,
+    .brands_item-desc,
+    .section_home-header p,
+    .section_brands p,
+    .section_work-list p,
+    .section_home-grid p,
+    .section_home-about p,
+    .section_testimonials p,
+    .section_blog-list p {
+      color: #005283 !important;
+      opacity: 0.8 !important;
+    }
+    
+    /* Service text on light backgrounds */
+    .home-header_service-text {
+      color: #005283 !important;
+    }
+    
+    .home-header_subhead {
+      color: #ffffff !important;
+    }
+    
+    /* ===== BUTTON GRADIENTS - Use both colors ===== */
+    .button-grad_ball.ball-1 {
+      background-color: #005283 !important;
+      background-image: linear-gradient(to right, #005283, #FFC319) !important;
+    }
+    
+    .button-grad_ball.gradient__ball--2 {
+      background-image: linear-gradient(78deg, #005283, #FFC319) !important;
+    }
+    
+    /* ===== LINKS AND HOVER STATES ===== */
+    a:hover,
+    .navbar_link:hover,
+    .menu_link:hover,
+    .footer_link:hover {
+      color: #FFC319 !important;
+    }
+    
+    /* ===== BORDERS AND DIVIDERS ===== */
+    .line,
+    .navbar_line {
+      background-color: #FFC319 !important;
+    }
+    
+    /* ===== FOCUS STATES ===== */
+    .w-backgroundvideo-backgroundvideoplaypausebutton:focus-visible,
+    *:focus-visible {
+      outline-color: #005283 !important;
+    }
+    
+    /* ===== DIRECT COLOR REPLACEMENTS IN INLINE STYLES ===== */
+    [style*="#f3350c"] {
+      background-color: #FFC319 !important;
+    }
+    
+    [style*="#3898ec"] {
+      background-color: #005283 !important;
+      border-color: #005283 !important;
+    }
+  </style>
+
   <!-- Lennis script and styles -->
   <script src="lenis%401.3.4/dist/lenis.min.js"></script>
   <link rel="stylesheet" href="lenis%401.3.4/dist/lenis.css">
@@ -1119,7 +1321,7 @@
                 <div class="home-header_contact-infos">
                   <div style="width:100%;opacity:1" class="home-header_contact-texts">
                     <div class="home-header_contact-cta">Contact Mark</div>
-                    <div class="home-header_contact-text">Business director at Alture®</div>
+                    <div class="home-header_contact-text">Business director at BBC</div>
                   </div>
                   <div style="width:100%;height:0px;display:none;opacity:0" class="home-header_infos">
                     <div class="home-header_infos-in">
@@ -1603,7 +1805,7 @@
                   day.&quot;</blockquote>
                 <div class="home-about_quote-author">
                   <div class="home-about_author">Otto Silva</div>
-                  <div class="home-about_title">Co-founder of Alture®</div>
+                  <div class="home-about_title">Co-founder of BBC</div>
                 </div>
               </div><img src="6840876d4d1ed0e8e2a330b9/6848c70609210c8d01d82882_logo-white.svg" loading="lazy"
                 alt="logo" class="home-about_logo">
@@ -2501,7 +2703,7 @@
               <div class="cta_content">
                 <div data-w-id="a96576e7-0ca7-fa5e-89ee-4643797a680f" class="text-align-center">
                   <div class="text-color-white">
-                    <h2 class="heading-style-h1 font-weight-medium">Start your project with Alture®</h2>
+                    <h2 class="heading-style-h1 font-weight-medium">Start your project with BBC</h2>
                   </div>
                 </div>
                 <div class="spacer-large"></div>
@@ -2562,7 +2764,7 @@
     </main>
     <footer class="footer">
       <div class="padding-global is-tiny">
-        <div class="footer_wrap">
+        <div class="footer_wrap" style="background-color: #005283 !important;">
           <div class="footer_component">
             <div class="footer_main">
               <div class="footer_links-groups">
@@ -2624,7 +2826,7 @@
                   href="template/instructions.html" class="footer_template-link">Instructions</a></div>
             </div>
           </div>
-          <div class="footer_brand">BBC<span class="footer_mark">®</span></div>
+          <div class="footer_brand" style="color: #FFC319 !important;">BBC<span class="footer_mark">®</span></div>
         </div>
       </div>
     </footer>
