@@ -6236,7 +6236,7 @@ blockquote {
 
 .brand_wrap {
   z-index: 102;
-  background-color: var(--_colors---primary--black);
+  background-color: #005283;
   flex-flow: column;
   justify-content: center;
   align-items: center;
@@ -6248,7 +6248,7 @@ blockquote {
 }
 
 .brand_logo {
-  width: var(--fixed--7rem);
+  width: var(--fixed--16rem);
 }
 
 .brand_lines {

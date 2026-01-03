@@ -1,19 +1,18 @@
 ﻿<!DOCTYPE html>
-<!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Tue Sep 30 2025 20:04:32 GMT+0000 (Coordinated Universal Time) -->
 <html data-wf-page="6870741a642afb21f86b96b5" data-wf-site="6840876d4d1ed0e8e2a330b9" lang="en">
 
 <head>
   <meta charset="utf-8">
-  <title>Instructions</title>
+  <title>Instructions | Brand Brewing Company </title>
   <meta content="Instructions" name="description">
-  <meta content="Instructions" property="og:title">
-  <meta content="Instructions" property="og:description">
-  <meta content="Instructions" property="twitter:title">
-  <meta content="Instructions" property="twitter:description">
+  <meta content="Instructions | Brand Brewing Company" property="og:title">
+  <meta content="Instructions | Brand Brewing Company" property="og:description">
+  <meta content="Instructions | Brand Brewing Company" property="twitter:title">
+  <meta content="Instructions | Brand Brewing Company" property="twitter:description">
   <meta property="og:type" content="website">
   <meta content="summary_large_image" name="twitter:card">
   <meta content="width=device-width, initial-scale=1" name="viewport">
-  <meta content="Webflow" name="generator">
+  <meta content="Brand Brewing Company" name="generator">
   <link href="../6840876d4d1ed0e8e2a330b9/css/alture-template.webflow.shared.ef0833b7b.css" rel="stylesheet"
     type="text/css">
   <script
@@ -141,7 +140,7 @@
                           <div class="menu_buttons"><a href="https://webflow.com/templates/designers/templatesupply"
                               data-wf--button--variant="grey" data-w-id="059e00b0-f64e-1901-eae8-f1971aea4566"
                               class="button-secondary w-inline-block">
-                             
+
                               <div class="button-line_space blue-dark-36"></div>
                               <div class="button-line_dot blue-dark-37">
                                 <div class="button_dot"></div>
@@ -217,139 +216,6 @@
                   <h1 class="heading-style-h3">Call to action image trail animation (GSAP)</h1>
                 </div>
               </div>
-              <div class="instructions_rich-text w-richtext">
-                <p>This page explains how to manage and customize the CTA mouse trail animation included in the
-                  template. You’ll learn how to update the images used in the effect, add the section to new pages,
-                  adjust the animation behavior, and safely modify the component without breaking its functionality.
-                  Whether you want to enhance the visuals or turn off the effect temporarily, everything you need is
-                  covered below.</p>
-                <figure style="max-width:1463px" class="w-richtext-align-fullwidth w-richtext-figure-type-image">
-                  <div><img src="../6840876d4d1ed0e8e2a330b9/68753d68d02b49d028e5572d_image%20143.webp" loading="lazy"
-                      alt=""></div>
-                  <figcaption>CTA mouse trail animation</figcaption>
-                </figure>
-                <h2>1. Updating the images</h2>
-                <p>To change the images used in the animation:</p>
-                <ul role="list">
-                  <li>Open the <strong>CTA section</strong> component in Webflow by double-clicking the component on a
-                    page.</li>
-                  <li>Use the <strong>Navigator</strong> panel to locate the element named
-                    <code>.interaction_cms_list</code>.</li>
-                  <li>Inside it, you’ll find several <code>.interaction_cms_item</code> elements, each containing an
-                    image with the class <code>.interaction_cms-img_img</code>.</li>
-                  <li>Select any image, go to the <strong>Settings</strong> tab in the right sidebar, and click
-                    <strong>Replace image</strong> to upload a new one.</li>
-                  <li>To add more images, simply <strong>duplicate</strong> any <code>.interaction_cms_item</code> and
-                    update the image inside.</li>
-                </ul>
-                <p>⚠️ The animation cycles through these images in order, so more images = more variation.</p>
-                <h2>2. Adding the section and activating the animation</h2>
-                <p>To use the CTA animation on another page:</p>
-                <ol role="list">
-                  <li><strong>Add the CTA section</strong> component to your page from the Symbols or Components panel.
-                  </li>
-                  <li>Go to the page’s <strong>Settings</strong> (click the gear icon in the page list).</li>
-                  <li>Scroll to the <strong>Before &lt;/body&gt; tag</strong> section and paste in the GSAP animation
-                    script.</li>
-                </ol>
-                <p>✅ Here is the full animation code in case you need:</p>
-                <pre contenteditable="false" class="w-code-block"
-                  style="display:block;overflow-x:auto;background:#2b2b2b;color:#f8f8f2;padding:0.5em"><code class="language-javascript" style="white-space:pre"><span>&lt;!-- Mouse trail CTA animation powered by GSAP --&gt;
-</span><span></span><span class="xml" style="color:#ffa07a">&lt;</span><span class="xml"
-  style="color:#ffa07a">script</span><span class="xml" style="color:#ffa07a">&gt;</span><span class="xml javascript">
-</span><span class="xml javascript">  $(</span><span class="xml javascript" style="color:#abe338">&quot;.section_cta&quot;</span><span class="xml javascript">).each(</span><span class="xml javascript hljs-function" style="color:#dcc6e0">function</span><span class="xml javascript hljs-function"> (</span><span class="xml javascript hljs-function">) </span><span class="xml javascript">{
-</span><span class="xml javascript">    </span><span class="xml javascript" style="color:#d4d0ab">// Select key elements inside each CTA section</span><span class="xml javascript">
-</span><span class="xml javascript">    </span><span class="xml javascript" style="color:#dcc6e0">let</span><span class="xml javascript"> visualWrap = $(</span><span class="xml javascript" style="color:#f5ab35">this</span><span class="xml javascript">).find(</span><span class="xml javascript" style="color:#abe338">&quot;.interaction_visual_wrap&quot;</span><span class="xml javascript">); </span><span class="xml javascript" style="color:#d4d0ab">// Container where the image clones will be animated</span><span class="xml javascript">
-</span><span class="xml javascript">    </span><span class="xml javascript" style="color:#dcc6e0">let</span><span class="xml javascript"> template = $(</span><span class="xml javascript" style="color:#f5ab35">this</span><span class="xml javascript">).find(</span><span class="xml javascript" style="color:#abe338">&quot;.interaction_img_wrap&quot;</span><span class="xml javascript">); </span><span class="xml javascript" style="color:#d4d0ab">// Image template to clone</span><span class="xml javascript">
-</span><span class="xml javascript">    </span><span class="xml javascript" style="color:#dcc6e0">let</span><span class="xml javascript"> cmsItem = $(</span><span class="xml javascript" style="color:#f5ab35">this</span><span class="xml javascript">).find(</span><span class="xml javascript" style="color:#abe338">&quot;.interaction_cms_item&quot;</span><span class="xml javascript">); </span><span class="xml javascript" style="color:#d4d0ab">// All CMS items with images</span><span class="xml javascript">
-</span><span class="xml javascript">    </span><span class="xml javascript" style="color:#dcc6e0">let</span><span class="xml javascript"> activeItem = cmsItem.first(); </span><span class="xml javascript" style="color:#d4d0ab">// Start with the first CMS item</span><span class="xml javascript">
-</span><span class="xml javascript">
-</span><span class="xml javascript">    </span><span class="xml javascript" style="color:#d4d0ab">// Function to get the next image URL (loops through CMS items)</span><span class="xml javascript">
-</span><span class="xml javascript">    </span><span class="xml javascript hljs-function" style="color:#dcc6e0">function</span><span class="xml javascript hljs-function"> </span><span class="xml javascript hljs-function" style="color:#00e0e0">getNextUrl</span><span class="xml javascript hljs-function">(</span><span class="xml javascript hljs-function">) </span><span class="xml javascript">{
-</span><span class="xml javascript">      activeItem = activeItem.next(); </span><span class="xml javascript" style="color:#d4d0ab">// Move to the next item</span><span class="xml javascript">
-</span><span class="xml javascript">      </span><span class="xml javascript" style="color:#dcc6e0">if</span><span class="xml javascript"> (activeItem.length === </span><span class="xml javascript" style="color:#f5ab35">0</span><span class="xml javascript">) activeItem = cmsItem.first(); </span><span class="xml javascript" style="color:#d4d0ab">// Loop back if at the end</span><span class="xml javascript">
-</span><span class="xml javascript">      </span><span class="xml javascript" style="color:#dcc6e0">return</span><span class="xml javascript"> activeItem.find(</span><span class="xml javascript" style="color:#abe338">&quot;img&quot;</span><span class="xml javascript">).attr(</span><span class="xml javascript" style="color:#abe338">&quot;src&quot;</span><span class="xml javascript">); </span><span class="xml javascript" style="color:#d4d0ab">// Return the image URL</span><span class="xml javascript">
-</span><span class="xml javascript">    }
-</span><span class="xml javascript">
-</span><span class="xml javascript">    </span><span class="xml javascript" style="color:#d4d0ab">// Track mouse position</span><span class="xml javascript">
-</span><span class="xml javascript">    </span><span class="xml javascript" style="color:#dcc6e0">let</span><span class="xml javascript"> xPosition = </span><span class="xml javascript" style="color:#f5ab35">0</span><span class="xml javascript">;
-</span><span class="xml javascript">    </span><span class="xml javascript" style="color:#dcc6e0">let</span><span class="xml javascript"> yPosition = </span><span class="xml javascript" style="color:#f5ab35">0</span><span class="xml javascript">;
-</span><span class="xml javascript">
-</span><span class="xml javascript">    </span><span class="xml javascript" style="color:#d4d0ab">// Mouse move handler</span><span class="xml javascript">
-</span><span class="xml javascript">    $(</span><span class="xml javascript" style="color:#f5ab35">this</span><span class="xml javascript">).on(</span><span class="xml javascript" style="color:#abe338">&quot;mousemove&quot;</span><span class="xml javascript">, </span><span class="xml javascript hljs-function" style="color:#dcc6e0">function</span><span class="xml javascript hljs-function"> (</span><span class="xml javascript hljs-function" style="color:#f5ab35">e</span><span class="xml javascript hljs-function">) </span><span class="xml javascript">{
-</span><span class="xml javascript">      </span><span class="xml javascript" style="color:#dcc6e0">let</span><span class="xml javascript"> xDistance = xPosition;
-</span><span class="xml javascript">      </span><span class="xml javascript" style="color:#dcc6e0">let</span><span class="xml javascript"> yDistance = yPosition;
-</span><span class="xml javascript">
-</span><span class="xml javascript">      </span><span class="xml javascript" style="color:#d4d0ab">// Only trigger animation if mouse moved significantly</span><span class="xml javascript">
-</span><span class="xml javascript">      </span><span class="xml javascript" style="color:#dcc6e0">if</span><span class="xml javascript"> (</span><span class="xml javascript" style="color:#f5ab35">Math</span><span class="xml javascript">.abs(xPosition - e.pageX) &gt; </span><span class="xml javascript" style="color:#f5ab35">100</span><span class="xml javascript"> || </span><span class="xml javascript" style="color:#f5ab35">Math</span><span class="xml javascript">.abs(yPosition - e.pageY) &gt; </span><span class="xml javascript" style="color:#f5ab35">100</span><span class="xml javascript">) {
-</span><span class="xml javascript">        xPosition = e.pageX;
-</span><span class="xml javascript">        yPosition = e.pageY;
-</span><span class="xml javascript">
-</span><span class="xml javascript">        </span><span class="xml javascript" style="color:#d4d0ab">// Clone the image template and append to the visual container</span><span class="xml javascript">
-</span><span class="xml javascript">        </span><span class="xml javascript" style="color:#dcc6e0">let</span><span class="xml javascript"> imageWrap = template.clone().appendTo(visualWrap);
-</span><span class="xml javascript">        imageWrap.find(</span><span class="xml javascript" style="color:#abe338">&quot;img&quot;</span><span class="xml javascript">).attr(</span><span class="xml javascript" style="color:#abe338">&quot;src&quot;</span><span class="xml javascript">, getNextUrl()); </span><span class="xml javascript" style="color:#d4d0ab">// Set image source</span><span class="xml javascript">
-</span><span class="xml javascript">
-</span><span class="xml javascript">        </span><span class="xml javascript" style="color:#d4d0ab">// Create GSAP timeline animation</span><span class="xml javascript">
-</span><span class="xml javascript">        </span><span class="xml javascript" style="color:#dcc6e0">let</span><span class="xml javascript"> tl = gsap.timeline({ 
-</span><span class="xml javascript">          </span><span class="xml javascript hljs-attr">onComplete</span><span class="xml javascript">: </span><span class="xml javascript hljs-function">() =&gt;</span><span class="xml javascript"> { imageWrap.remove(); } </span><span class="xml javascript" style="color:#d4d0ab">// Remove the clone after animation completes</span><span class="xml javascript">
-</span><span class="xml javascript">        });
-</span><span class="xml javascript">
-</span><span class="xml javascript">        </span><span class="xml javascript" style="color:#d4d0ab">// Fade in the image clone</span><span class="xml javascript">
-</span><span class="xml javascript">        tl.fromTo(imageWrap, { </span><span class="xml javascript hljs-attr">opacity</span><span class="xml javascript">: </span><span class="xml javascript" style="color:#f5ab35">0</span><span class="xml javascript"> }, { </span><span class="xml javascript hljs-attr">opacity</span><span class="xml javascript">: </span><span class="xml javascript" style="color:#f5ab35">1</span><span class="xml javascript">, </span><span class="xml javascript hljs-attr">duration</span><span class="xml javascript">: </span><span class="xml javascript" style="color:#f5ab35">0.2</span><span class="xml javascript"> });
-</span><span class="xml javascript">
-</span><span class="xml javascript">        </span><span class="xml javascript" style="color:#d4d0ab">// Animate movement from previous to current mouse position</span><span class="xml javascript">
-</span><span class="xml javascript">        tl.fromTo(
-</span><span class="xml javascript">          imageWrap, 
-</span><span class="xml javascript">          { </span><span class="xml javascript hljs-attr">x</span><span class="xml javascript">: xDistance, </span><span class="xml javascript hljs-attr">y</span><span class="xml javascript">: yDistance - </span><span class="xml javascript" style="color:#f5ab35">window</span><span class="xml javascript">.scrollY }, 
-</span><span class="xml javascript">          { </span><span class="xml javascript hljs-attr">x</span><span class="xml javascript">: xPosition, </span><span class="xml javascript hljs-attr">y</span><span class="xml javascript">: yPosition - </span><span class="xml javascript" style="color:#f5ab35">window</span><span class="xml javascript">.scrollY, </span><span class="xml javascript hljs-attr">duration</span><span class="xml javascript">: </span><span class="xml javascript" style="color:#f5ab35">0.5</span><span class="xml javascript"> }, 
-</span><span class="xml javascript">          </span><span class="xml javascript" style="color:#abe338">&quot;&lt;&quot;</span><span class="xml javascript"> </span><span class="xml javascript" style="color:#d4d0ab">// Start at same time as previous animation</span><span class="xml javascript">
-</span><span class="xml javascript">        );
-</span><span class="xml javascript">
-</span><span class="xml javascript">        </span><span class="xml javascript" style="color:#d4d0ab">// Fade out and shrink the image</span><span class="xml javascript">
-</span><span class="xml javascript">        tl.to(imageWrap.find(</span><span class="xml javascript" style="color:#abe338">&quot;img&quot;</span><span class="xml javascript">), { </span><span class="xml javascript hljs-attr">opacity</span><span class="xml javascript">: </span><span class="xml javascript" style="color:#f5ab35">0</span><span class="xml javascript">, </span><span class="xml javascript hljs-attr">scale</span><span class="xml javascript">: </span><span class="xml javascript" style="color:#f5ab35">0.6</span><span class="xml javascript">, </span><span class="xml javascript hljs-attr">duration</span><span class="xml javascript">: </span><span class="xml javascript" style="color:#f5ab35">0.2</span><span class="xml javascript"> });
-</span><span class="xml javascript">      }
-</span><span class="xml javascript">    });
-</span><span class="xml javascript">  });
-</span><span class="xml javascript"></span><span class="xml" style="color:#ffa07a">&lt;/</span><span class="xml" style="color:#ffa07a">script</span><span class="xml" style="color:#ffa07a">&gt;</span></code></pre>
-                <h3>3. Disabling the animation (optional)</h3>
-                <p>If you want to <strong>temporarily disable</strong> the animation but keep the code:</p>
-                <ul role="list">
-                  <li>Wrap the entire script in an HTML comment like this:</li>
-                </ul>
-                <pre contenteditable="false" class="w-code-block"
-                  style="display:block;overflow-x:auto;background:#2b2b2b;color:#f8f8f2;padding:0.5em"><code class="language-javascript" style="white-space:pre"><span>&lt;!-- 
-</span>ALL THE CODE HERE
---&gt;</code></pre>
-                <p>This will stop the animation from running but retain the code for later use.</p>
-                <h2>4. Classes you should not change</h2>
-                <p>To ensure the animation works correctly, <strong>do not rename or remove</strong> the following
-                  classes:</p>
-                <ul role="list">
-                  <li><code>.section_cta</code></li>
-                  <li><code>.interaction_visual_wrap</code></li>
-                  <li><code>.interaction_img_wrap</code></li>
-                  <li><code>.interaction_cms_list</code></li>
-                  <li><code>.interaction_cms_item</code></li>
-                  <li><code>.interaction_cms-img_img</code></li>
-                </ul>
-                <p>❗Changing these class names may break the functionality of the script, since they are directly
-                  referenced in the code. We recommend you not changing any class inside the component to avoid bugs on
-                  the animation.</p>
-                <h2>5. Customizing the animation behavior</h2>
-                <p>You can fine-tune the animation by editing values inside the script:</p>
-                <ul role="list">
-                  <li><strong>Opacity fade in/out:</strong><br><code>opacity: 0 → 1</code> and back to <code>0</code>
-                  </li>
-                  <li><strong>Movement speed:</strong><br>Adjust <code>duration: 0.5</code> to increase or decrease how
-                    quickly the image moves</li>
-                  <li><strong>Scale effect:</strong><br>Change <code>scale: 0.6</code> to make the image shrink more or
-                    less during the fade-out</li>
-                  <li><strong>Trigger distance:</strong><br>The line <code>Math.abs(xPosition - e.pageX) &gt; 100</code>
-                    controls how far the mouse must move before a new animation is triggered</li>
-                </ul>
-                <p>🛠 Feel free to experiment with values to match your site’s motion style. Just keep a backup of the
-                  original if needed.</p>
-              </div>
             </div>
           </div>
         </div>
@@ -358,85 +224,6 @@
       <div class="padding-global">
         <div class="line"></div>
       </div>
-      <section class="section_resources">
-        <div class="padding-section-medium"></div>
-        <div class="padding-global">
-          <div class="container-xxsmall">
-            <div class="resources_component smaller-gap">
-              <div class="resources_section">
-                <div class="resources_heading">
-                  <h1 class="heading-style-h3">Lenis smooth scroll</h1>
-                </div>
-              </div>
-              <div class="instructions_rich-text w-richtext">
-                <p>This template uses <strong>Lenis</strong> to create a smooth, modern scrolling experience across all
-                  pages. Lenis replaces the browser’s default scroll behavior with a more fluid and refined motion,
-                  enhancing the feel of animations and transitions throughout the site. </p>
-                <p>This is handled entirely through custom code added in your <strong>Site Settings</strong>.</p>
-                <h2>1. Where the code is added</h2>
-                <h3>Head tag</h3>
-                <p>In your Webflow <strong>Site Settings</strong>, under the <strong>Custom Code → Head</strong>
-                  section, the following code loads the Lenis script and stylesheet:</p>
-                <pre contenteditable="false" class="w-code-block"
-                  style="display:block;overflow-x:auto;background:#2b2b2b;color:#f8f8f2;padding:0.5em"><code class="language-javascript" style="white-space:pre"><span>&lt;!-- Lenis script and styles --&gt;
-</span><span></span><span class="xml" style="color:#ffa07a">&lt;</span><span class="xml" style="color:#ffa07a">script</span><span class="xml" style="color:#ffa07a"> </span><span class="xml hljs-attr" style="color:#ffa07a">src</span><span class="xml" style="color:#ffa07a">=</span><span class="xml" style="color:#abe338">&quot;https://unpkg.com/lenis@1.3.4/dist/lenis.min.js&quot;</span><span class="xml" style="color:#ffa07a">&gt;</span><span class="xml" style="color:#ffa07a">&lt;/</span><span class="xml" style="color:#ffa07a">script</span><span class="xml" style="color:#ffa07a">&gt;</span><span> 
-</span><span></span><span class="xml" style="color:#ffa07a">&lt;</span><span class="xml" style="color:#ffa07a">link</span><span class="xml" style="color:#ffa07a"> </span><span class="xml hljs-attr" style="color:#ffa07a">rel</span><span class="xml" style="color:#ffa07a">=</span><span class="xml" style="color:#abe338">&quot;stylesheet&quot;</span><span class="xml" style="color:#ffa07a"> </span><span class="xml hljs-attr" style="color:#ffa07a">href</span><span class="xml" style="color:#ffa07a">=</span><span class="xml" style="color:#abe338">&quot;https://unpkg.com/lenis@1.3.4/dist/lenis.css&quot;</span><span class="xml" style="color:#ffa07a">&gt;</span></code></pre>
-                <p>This makes the Lenis library available globally across your project.</p>
-                <h3>Before &lt;/body&gt; tag</h3>
-                <p>Also in <strong>Site Settings</strong>, scroll to the <strong>Custom Code → Before &lt;/body&gt;
-                    tag</strong> section and you&#x27;ll see the initialization script:</p>
-                <pre contenteditable="false" class="w-code-block"
-                  style="display:block;overflow-x:auto;background:#2b2b2b;color:#f8f8f2;padding:0.5em"><code class="language-javascript" style="white-space:pre"><span>&lt;!-- Lenis setup --&gt;
-</span><span></span><span class="xml" style="color:#ffa07a">&lt;</span><span class="xml" style="color:#ffa07a">script</span><span class="xml" style="color:#ffa07a">&gt;</span><span class="xml javascript">
-</span><span class="xml javascript"></span><span class="xml javascript" style="color:#d4d0ab">// Initialize Lenis</span><span class="xml javascript">
-</span><span class="xml javascript"></span><span class="xml javascript" style="color:#dcc6e0">const</span><span class="xml javascript"> lenis = </span><span class="xml javascript" style="color:#dcc6e0">new</span><span class="xml javascript"> Lenis({
-</span><span class="xml javascript">  </span><span class="xml javascript hljs-attr">smooth</span><span class="xml javascript">: </span><span class="xml javascript" style="color:#f5ab35">true</span><span class="xml javascript">,
-</span><span class="xml javascript">  </span><span class="xml javascript hljs-attr">lerp</span><span class="xml javascript">: </span><span class="xml javascript" style="color:#f5ab35">0.1</span><span class="xml javascript">,
-</span><span class="xml javascript">  </span><span class="xml javascript hljs-attr">wheelMultiplier</span><span class="xml javascript">: </span><span class="xml javascript" style="color:#f5ab35">1</span><span class="xml javascript">,
-</span><span class="xml javascript">  </span><span class="xml javascript hljs-attr">infinite</span><span class="xml javascript">: </span><span class="xml javascript" style="color:#f5ab35">false</span><span class="xml javascript">,
-</span><span class="xml javascript">});
-</span><span class="xml javascript">
-</span><span class="xml javascript"></span><span class="xml javascript" style="color:#d4d0ab">// Use requestAnimationFrame to continuously update the scroll</span><span class="xml javascript">
-</span><span class="xml javascript"></span><span class="xml javascript hljs-function" style="color:#dcc6e0">function</span><span class="xml javascript hljs-function"> </span><span class="xml javascript hljs-function" style="color:#00e0e0">raf</span><span class="xml javascript hljs-function">(</span><span class="xml javascript hljs-function" style="color:#f5ab35">time</span><span class="xml javascript hljs-function">) </span><span class="xml javascript">{
-</span><span class="xml javascript">  lenis.raf(time);
-</span><span class="xml javascript">  requestAnimationFrame(raf);
-</span><span class="xml javascript">}
-</span><span class="xml javascript">
-</span><span class="xml javascript">requestAnimationFrame(raf);
-</span><span class="xml javascript"></span><span class="xml" style="color:#ffa07a">&lt;/</span><span class="xml" style="color:#ffa07a">script</span><span class="xml" style="color:#ffa07a">&gt;</span></code></pre>
-                <p>This script starts the smooth scrolling effect and keeps it running as the user interacts with the
-                  page.</p>
-                <h3>2. How to disable the animation (optional)</h3>
-                <p>To temporarily <strong>disable Lenis</strong> without deleting your code:</p>
-                <ul role="list">
-                  <li><strong>Comment out both script blocks</strong> like this:</li>
-                </ul>
-                <pre contenteditable="false" class="w-code-block"
-                  style="display:block;overflow-x:auto;background:#2b2b2b;color:#f8f8f2;padding:0.5em"><code class="language-javascript" style="white-space:pre"><span>&lt;!-- 
-</span>ALL THE CODE HERE
---&gt;</code></pre>
-                <p>This will stop the animation from running but retain the code for later use. You can also just delete
-                  the entire code and put it back again if you want to have the smooth scroll in the future.</p>
-                <h3>3. How to adjust the scroll speed</h3>
-                <p>The scroll behavior can be fine-tuned inside the second script:</p>
-                <pre contenteditable="false" class="w-code-block"
-                  style="display:block;overflow-x:auto;background:#2b2b2b;color:#f8f8f2;padding:0.5em"><code class="language-javascript" style="white-space:pre"><span>lerp: </span><span style="color:#f5ab35">0.1</span><span>,</span></code></pre>
-                <p>This controls how smooth and slow the scroll feels:</p>
-                <ul role="list">
-                  <li><strong>Lower values</strong> (e.g. <code>0.05</code>) = <strong>slower and smoother</strong></li>
-                  <li><strong>Higher values</strong> (e.g. <code>0.2</code>) = <strong>snappier and faster</strong></li>
-                </ul>
-                <p>You can also tweak:</p>
-                <pre contenteditable="false" class="w-code-block"
-                  style="display:block;overflow-x:auto;background:#2b2b2b;color:#f8f8f2;padding:0.5em"><code class="language-javascript" style="white-space:pre"><span>wheelMultiplier: </span><span style="color:#f5ab35">1</span><span>,</span></code></pre>
-                <p>This controls how sensitive scroll input is on the mouse/touchpad. Increase the value to make it
-                  scroll farther with each scroll input.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="padding-section-medium"></div>
-      </section>
     </div>
     <footer class="footer">
       <div class="padding-global is-tiny">
@@ -493,22 +280,10 @@
             </div>
             <div class="footer_legal-links">
               <div id="w-node-_49f89e0f-c321-7bff-a29b-8acdeddf7dfe-eddf7dc2" class="footer_legal-wrap">
-                <div class="footer_copyright">© 2025 Alture</div>
+                <div class="footer_copyright">© 2025 Brand Brewing Company</div>
                 <div class="footer_legal-divider"></div>
-                <div class="footer_copyright">Powered by <a href="https://webflow.com/" target="_blank"
-                    class="footer_template-link">Webflow</a></div>
-                <div class="footer_legal-divider"></div>
-                <div class="footer_copyright"> Created by <a href="https://www.template.supply/" target="_blank"
-                    class="footer_template-link">Template Supply</a></div>
               </div>
-              <div id="w-node-_49f89e0f-c321-7bff-a29b-8acdeddf7e0b-eddf7dc2" class="footer_template-links"><a
-                  href="style-guide.html" class="footer_template-link">Style guide</a><a href="licenses.html"
-                  class="footer_template-link">Licenses</a><a href="changelog.html"
-                  class="footer_template-link">Changelog</a><a href="instructions.html" aria-current="page"
-                  class="footer_template-link w--current">Instructions</a></div>
-            </div>
-          </div>
-          <div class="footer_brand">Alture<span class="footer_mark">®</span></div>
+          <div class="footer_brand">Brand Brewing Company<span class="footer_mark">®</span></div>
         </div>
       </div>
     </footer>
