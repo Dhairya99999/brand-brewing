@@ -917,8 +917,12 @@
     .navbar_link-dot,
     .menu_link-dot,
     .work-list_dot,
-    .home-header_service-line {
+    .home-header_service-line,
+    .navbar_works-number-wrap,
+    .work-list_number,
+    .home-services_number {
       background-color: #FFC319 !important;
+      color: #005283 !important;
     }
     
     /* Accent text colors */
@@ -936,10 +940,11 @@
     [style*="background-color: #3898ec"],
     [style*="border-color: #3898ec"],
     [style*="box-shadow"][style*="#3898ec"],
-    .button-secondary:not(.w-variant-f874b9ba-24b5-50ff-0733-53dd5363b8cf):not(.white) {
-      background-color: #005283 !important;
+    .button-secondary:not(.w-variant-f874b9ba-24b5-50ff-0733-53dd5363b8cf):not(.white),
+    .hamburger_line {
+      background-color: #FFC319 !important;
       border-color: #005283 !important;
-      color: #ffffff !important;
+      color: #005283 !important;
     }
     
     [style*="box-shadow"][style*="#3898ec"] {
@@ -1003,6 +1008,20 @@
       color: #FFC319 !important;
     }
     
+    /* ===== FOOTER PAGES - Single line layout ===== */
+    .footer_lists {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: wrap !important;
+      gap: 1.5rem !important;
+    }
+    
+    .footer_links-list {
+      display: flex !important;
+      flex-direction: row !important;
+      gap: 1.5rem !important;
+    }
+    
     /* ===== BODY TEXT COLORS ===== */
     /* Grey text on light backgrounds - use dark blue with opacity */
     .text-color-grey-400,
@@ -1044,14 +1063,17 @@
     a:hover,
     .navbar_link:hover,
     .menu_link:hover,
-    .footer_link:hover {
+    .footer_link:hover,
+    .footer_link-label,
+    .field-label {
+
       color: #FFC319 !important;
     }
     
     /* ===== BORDERS AND DIVIDERS ===== */
     .line,
     .navbar_line {
-      background-color: #FFC319 !important;
+      background-color: #ffffff !important;
     }
     
     /* ===== FOCUS STATES ===== */
@@ -1099,7 +1121,7 @@
                 </div>
                 <div class="menu">
                   <div class="menu_in">
-                    <div class="menu_content">
+                    <div class="menu_content" style="background-color: #005283 !important;">
                       <div class="menu_links"><a href="index.htm" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
                           aria-current="page" class="menu_link w-inline-block w--current">
                           <div class="menu_link-texts">
@@ -1349,11 +1371,11 @@
                       <div class="button_text _1">Get in touch</div>
                       <div class="button_text _2">Get in touch</div>
                     </div>
-                    <div class="button-line_space blue-dark-36"></div>
+                    <!-- <div class="button-line_space blue-dark-36"></div>
                     <div class="button-line_dot blue-dark-37">
                       <div class="button_dot"></div>
                       <div class="button_dot-scale"></div>
-                    </div>
+                    </div> -->
                   </a></div>
               </div>
             </div>
@@ -1705,11 +1727,11 @@
                   <div class="button_text _1">View all projects</div>
                   <div class="button_text _2">View all projects</div>
                 </div>
-                <div class="button-line_space blue-dark-36"></div>
+                <!-- <div class="button-line_space blue-dark-36"></div>
                 <div class="button-line_dot blue-dark-37">
                   <div class="button_dot"></div>
                   <div class="button_dot-scale"></div>
-                </div>
+                </div> -->
               </a></div>
           </div>
         </div>
@@ -1813,11 +1835,11 @@
                   <div class="button_text _1">View pricing</div>
                   <div class="button_text _2 w-variant-52580813-754d-cbf1-ebf9-3d524b86b25c">View pricing</div>
                 </div>
-                <div class="button-line_space blue-dark-36 w-variant-52580813-754d-cbf1-ebf9-3d524b86b25c"></div>
+                <!-- <div class="button-line_space blue-dark-36 w-variant-52580813-754d-cbf1-ebf9-3d524b86b25c"></div>
                 <div class="button-line_dot blue-dark-37">
                   <div class="button_dot"></div>
                   <div class="button_dot-scale"></div>
-                </div>
+                </div> -->
               </a>
             </div>
           </div>
@@ -2056,11 +2078,11 @@
                         <div class="button_text _1">Get in touch</div>
                         <div class="button_text _2">Get in touch</div>
                       </div>
-                      <div class="button-line_space blue-dark-36"></div>
+                      <!-- <div class="button-line_space blue-dark-36"></div>
                       <div class="button-line_dot blue-dark-37">
                         <div class="button_dot"></div>
                         <div class="button_dot-scale"></div>
-                      </div>
+                      </div> -->
                     </a>
                   </div>
                 </div>
@@ -2089,11 +2111,11 @@
               <script type="application/json" class="w-json">{
   "items": [
     {
-      "url": "https://youtube.com/watch?v=p1CLeATYZUQ",
-      "originalUrl": "https://youtube.com/watch?v=p1CLeATYZUQ",
+      "url": "https://youtube.com/watch?v=EXiTSWWX5HI",
+      "originalUrl": "https://youtube.com/watch?v=EXiTSWWX5HI",
       "width": 940,
       "height": 528,
-      "html": "<iframe class=\"embedly-embed\" src=\"//cdn.embedly.com/widgets/media.html?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dp1CLeATYZUQ&type=text%2Fhtml&schema=youtube&display_name=YouTube&src=https%3A%2F%2Fwww.youtube.com%2Fembed%2Fp1CLeATYZUQ%3Ffeature%3Doembed\" width=\"940\" height=\"528\" scrolling=\"no\" title=\"YouTube embed\" frameborder=\"0\" allow=\"autoplay; fullscreen; encrypted-media; picture-in-picture;\" allowfullscreen=\"true\"></iframe>",
+      "html": "<iframe class=\"embedly-embed\" src=\"//cdn.embedly.com/widgets/media.html?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DEXiTSWWX5HI&type=text%2Fhtml&schema=youtube&display_name=YouTube&src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FEXiTSWWX5HI%3Ffeature%3Doembed\" width=\"940\" height=\"528\" scrolling=\"no\" title=\"YouTube embed\" frameborder=\"0\" allow=\"autoplay; fullscreen; encrypted-media; picture-in-picture;\" allowfullscreen=\"true\"></iframe>",
       "type": "video"
     }
   ],
@@ -2248,7 +2270,7 @@
                   <div class="number_block">
                     <div class="number_wrap">
                       <div class="number_group">
-                        <div class="number_number">$</div>
+                        <div class="number_number">2</div>
                       </div>
                       <div class="number_group _1">
                         <div class="number_main">
@@ -2265,21 +2287,23 @@
                       </div>
                       <div class="number_group _2">
                         <div class="number_main">
-                          <div class="number_number">3</div>
+                          <div class="number_number">8</div>
                         </div>
                         <div
                           style="-webkit-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
                           class="number_others _2">
                           <div class="number_number">1</div>
                           <div class="number_number">2</div>
-                          <div class="number_number final-number">3</div>
+                          <div class="number_number">3</div>
+                          <div class="number_number">4</div>
+                          <div class="number_number">5</div>
+                          <div class="number_number">6</div>
+                          <div class="number_number">7</div>
+                          <div class="number_number final-number">8</div>
                         </div>
                       </div>
-                      <div class="number_group">
-                        <div class="number_number">M</div>
-                      </div>
                     </div>
-                    <p class="number_desc">Revenue influenced by our work</p>
+                    <p class="number_desc">Projects completed</p>
                   </div>
                   <div class="number_block">
                     <div class="number_wrap">
@@ -2403,8 +2427,8 @@
                         <div class="pricing_value-wrap">
                           <h2 class="pricing_plan-name">Standard</h2>
                           <div class="pricing_value">
-                            <div class="pricing_money"><span class="pricing_dollar">$</span>3450</div>
-                            <div class="pricing_plan-info">/project</div>
+                            <div class="pricing_money">24</div>
+                            <div class="pricing_plan-info">hours</div>
                           </div>
                         </div>
                         <ul role="list" class="pricing_features">
@@ -2466,8 +2490,8 @@
                         <div class="pricing_value-wrap">
                           <h2 class="pricing_plan-name">Pro</h2>
                           <div class="pricing_value">
-                            <div class="pricing_money"><span class="pricing_dollar">$</span>6850</div>
-                            <div class="pricing_plan-info">/monthly</div>
+                            <div class="pricing_money">48</div>
+                            <div class="pricing_plan-info">hours</div>
                           </div>
                         </div>
                         <ul role="list" class="pricing_features">
@@ -2681,11 +2705,11 @@
                       <div class="button_text _1">View all</div>
                       <div class="button_text _2">View all</div>
                     </div>
-                    <div class="button-line_space blue-dark-36"></div>
+                    <!-- <div class="button-line_space blue-dark-36"></div>
                     <div class="button-line_dot blue-dark-37">
                       <div class="button_dot"></div>
                       <div class="button_dot-scale"></div>
-                    </div>
+                    </div> -->
                   </a></div>
               </div>
               <div class="spacer-large"></div>
@@ -2749,12 +2773,12 @@
               <div class="footer_links-groups">
                 <div id="w-node-_49f89e0f-c321-7bff-a29b-8acdeddf7dc8-eddf7dc2" class="footer_group">
                   <div class="footer_link-label">Pages</div>
-                  <div class="footer_lists">
-                    <div class="footer_links-list"><a href="index.htm" aria-current="page"
+                  <div class="footer_lists" style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 1.5rem;">
+                    <a href="index.htm" aria-current="page"
                         class="footer_link w--current">Home</a>
-                        <a href="index.htm" class="footer_link">Works</a></div>
-                    <div class="footer_links-list"><a href="index.htm" class="footer_link">Blog</a>
-                        <a href="index.htm" class="footer_link">Contact</a></div>
+                    <a href="index.htm" class="footer_link">Works</a>
+                    <a href="index.htm" class="footer_link">Blog</a>
+                    <a href="index.htm" class="footer_link">Contact</a>
                   </div>
                 </div>
               </div>
