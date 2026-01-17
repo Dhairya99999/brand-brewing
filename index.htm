@@ -846,11 +846,11 @@
     }
   </style>
 
-  <!-- Home page color overrides - Branding: #005283 (dark blue) and #FFC319 (yellow/gold) -->
+  <!-- Home page color overrides - Branding: #234A9E (dark blue) and #FFC319 (yellow/gold) -->
   <style>
     :root {
       --_colors---primary--accent: #FFC319;
-      --_colors---primary--blue: #005283;
+      --_colors---primary--blue: #234A9E;
     }
     
     /* ===== BODY AND PAGE WRAPPER - Keep white background ===== */
@@ -859,7 +859,7 @@
       background-color: #ffffff !important;
     }
     
-    /* ===== DARK SECTIONS - Use #005283 instead of black ===== */
+    /* ===== DARK SECTIONS - Use #234A9E instead of black ===== */
     .section_home-services,
     .home-services_component,
     .home-services_item,
@@ -867,7 +867,7 @@
     .pricing_component,
     .section_cta,
     .cta_component {
-      background-color: #005283 !important;
+      background-color: #234A9E !important;
     }
     
     /* ===== TEXT ON DARK BLUE BACKGROUNDS - Use white ===== */
@@ -892,7 +892,7 @@
       color: #ffffff !important;
     }
     
-    /* ===== TEXT ON LIGHT BACKGROUNDS - Use #005283 ===== */
+    /* ===== TEXT ON LIGHT BACKGROUNDS - Use #234A9E ===== */
     .section_home-header h1,
     .section_home-header h2,
     .section_home-header h3,
@@ -908,7 +908,7 @@
     .heading-style-display,
     .brands_item-name,
     .work-list_title {
-      color: #005283 !important;
+      color: #234A9E !important;
     }
     
     /* ===== ACCENT ELEMENTS - Use #FFC319 (yellow/gold) ===== */
@@ -927,7 +927,7 @@
     .work-list_number,
     .home-services_number {
       background-color: #FFC319 !important;
-      color: #005283 !important;
+      color: #234A9E !important;
     }
     
     /* Accent text colors */
@@ -940,7 +940,7 @@
       color: #FFC319 !important;
     }
     
-    /* ===== INTERACTIVE ELEMENTS - Use #005283 ===== */
+    /* ===== INTERACTIVE ELEMENTS - Use #234A9E ===== */
     .w-button,
     [style*="background-color: #3898ec"],
     [style*="border-color: #3898ec"],
@@ -948,18 +948,30 @@
     .button-secondary:not(.w-variant-f874b9ba-24b5-50ff-0733-53dd5363b8cf):not(.white),
     .hamburger_line {
       background-color: #FFC319 !important;
-      border-color: #005283 !important;
-      color: #005283 !important;
+      border-color: #234A9E !important;
+      color: #234A9E !important;
+    }
+    
+    /* ===== BUTTON SHAPES - Change from oval to square/rectangle ===== */
+    .button-secondary,
+    .button-gradient,
+    .w-button {
+      border-radius: 4px !important;
+    }
+    
+    .button-secondary::before,
+    .button-gradient::before {
+      border-radius: 4px !important;
     }
     
     [style*="box-shadow"][style*="#3898ec"] {
-      box-shadow: 0 0 3px 1px #005283 !important;
+      box-shadow: 0 0 3px 1px #234A9E !important;
     }
     
     /* ===== NAVBAR - Dark blue with white text ===== */
     .navbar,
     .navbar_component {
-      background-color: #005283 !important;
+      background-color: #234A9E !important;
       backdrop-filter: blur(10px) !important;
     }
     
@@ -969,10 +981,10 @@
       color: #ffffff !important;
     }
     
-    /* ===== CENTERED LOGO IN NAVBAR ===== */
+    /* ===== NAVBAR LAYOUT - Logo left, text center, hamburger right ===== */
     .navbar_content {
       display: flex !important;
-      justify-content: center !important;
+      justify-content: space-between !important;
       align-items: center !important;
       position: relative !important;
       width: 100% !important;
@@ -997,34 +1009,286 @@
       right: 0 !important;
     }
     
+    /* ===== HAMBURGER LOGO STYLING ===== */
+    .hamburger-logo {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 0.5rem !important;
+      cursor: pointer !important;
+      transition: transform 0.3s ease !important;
+      position: relative !important;
+    }
+    
+    .hamburger-logo:hover {
+      transform: scale(1.1) !important;
+    }
+    
+    /* Logo default state (menu closed) */
+    .hamburger-logo-img {
+      max-height: 50px !important;
+      height: 50px !important;
+      width: auto !important;
+      object-fit: contain !important;
+      display: block !important;
+      /* Remove transition to avoid conflicts with animation */
+      transition: none !important;
+      transform: rotate(0deg) scale(1) !important;
+      opacity: 1 !important;
+      filter: brightness(1) !important;
+      will-change: transform, opacity, filter !important;
+    }
+    
+    /* Logo when menu is open - will be toggled by JavaScript */
+    .hamburger-logo-img.menu-open {
+      transform: rotate(360deg) scale(0.8) !important;
+      opacity: 0.6 !important;
+      filter: brightness(1.5) contrast(1.2) !important;
+    }
+    
+    /* Smooth, elegant rotation animation for opening */
+    @keyframes logo-rotate-open {
+      0% {
+        transform: rotate(0deg) scale(1) !important;
+        opacity: 1 !important;
+        filter: brightness(1) saturate(1) !important;
+      }
+      30% {
+        transform: rotate(90deg) scale(1.1) !important;
+        opacity: 0.9 !important;
+        filter: brightness(1.2) saturate(1.1) !important;
+      }
+      60% {
+        transform: rotate(270deg) scale(0.95) !important;
+        opacity: 0.85 !important;
+        filter: brightness(1.3) saturate(1.2) !important;
+      }
+      100% {
+        transform: rotate(360deg) scale(0.9) !important;
+        opacity: 0.8 !important;
+        filter: brightness(1.4) saturate(1.3) !important;
+      }
+    }
+    
+    /* Smooth, elegant rotation animation for closing */
+    @keyframes logo-rotate-close {
+      0% {
+        transform: rotate(360deg) scale(0.9) !important;
+        opacity: 0.8 !important;
+        filter: brightness(1.4) saturate(1.3) !important;
+      }
+      30% {
+        transform: rotate(270deg) scale(0.95) !important;
+        opacity: 0.85 !important;
+        filter: brightness(1.3) saturate(1.2) !important;
+      }
+      60% {
+        transform: rotate(90deg) scale(1.05) !important;
+        opacity: 0.95 !important;
+        filter: brightness(1.1) saturate(1.05) !important;
+      }
+      100% {
+        transform: rotate(0deg) scale(1) !important;
+        opacity: 1 !important;
+        filter: brightness(1) saturate(1) !important;
+      }
+    }
+    
+    /* Apply opening animation - smooth and elegant */
+    .hamburger-logo-img.animating-open {
+      animation: logo-rotate-open 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+      transition: none !important;
+    }
+    
+    /* Apply closing animation - smooth and elegant */
+    .hamburger-logo-img.animating-close {
+      animation: logo-rotate-close 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+      transition: none !important;
+    }
+    
     /* ===== FOOTER - Dark blue background ===== */
     .footer,
     .footer_component {
-      background-color: #005283 !important;
+      background-color: #234A9E !important;
+    }
+    
+    .footer_wrap {
+      background-color: #234A9E !important;
+      border-radius: 24px !important;
+      padding: 4rem 3rem !important;
+      position: relative !important;
+      overflow: hidden !important;
+    }
+    
+    .footer_wrap::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      height: 1px !important;
+      background: linear-gradient(90deg, transparent, rgba(255, 195, 25, 0.3), transparent) !important;
     }
     
     .footer_link,
     .footer_copyright,
     .footer_template-link {
-      color: #ffffff !important;
+      color: rgba(255, 255, 255, 0.9) !important;
+      transition: color 0.3s ease !important;
     }
     
     .footer_link:hover {
       color: #FFC319 !important;
+      transform: translateX(4px) !important;
     }
     
-    /* ===== FOOTER PAGES - Single line layout ===== */
+    .footer_link-label {
+      color: #FFC319 !important;
+      font-weight: 600 !important;
+      font-size: 1rem !important;
+      margin-bottom: 1rem !important;
+      letter-spacing: 0.05em !important;
+    }
+    
+    /* ===== FOOTER PAGES - Column layout ===== */
     .footer_lists {
       display: flex !important;
-      flex-direction: row !important;
-      flex-wrap: wrap !important;
-      gap: 1.5rem !important;
+      flex-direction: column !important;
+      gap: 0.75rem !important;
     }
     
     .footer_links-list {
       display: flex !important;
-      flex-direction: row !important;
-      gap: 1.5rem !important;
+      flex-direction: column !important;
+      gap: 0.75rem !important;
+    }
+    
+    /* Footer groups styling */
+    .footer_group {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 1rem !important;
+    }
+    
+    .footer_links-groups {
+      display: grid !important;
+      grid-template-columns: 1.5fr 1fr 1fr !important;
+      gap: 3rem !important;
+      width: 100% !important;
+    }
+    
+    /* Footer about text */
+    .footer_about-text {
+      max-width: 100% !important;
+    }
+    
+    .footer_about-text p {
+      color: rgba(255, 255, 255, 0.85) !important;
+      font-size: 0.95rem !important;
+      line-height: 1.7 !important;
+      margin: 0 !important;
+    }
+    
+    /* Footer secondary section */
+    .footer_secondary {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 2rem !important;
+      align-items: flex-end !important;
+    }
+    
+    /* Footer social icons */
+    .footer_social {
+      display: flex !important;
+      gap: 1rem !important;
+    }
+    
+    .footer_social-link {
+      transition: transform 0.3s ease, opacity 0.3s ease !important;
+    }
+    
+    .footer_social-link:hover {
+      transform: translateY(-3px) scale(1.1) !important;
+      opacity: 0.8 !important;
+    }
+    
+    .footer_social-icon {
+      filter: brightness(0) invert(1) !important;
+      transition: filter 0.3s ease !important;
+    }
+    
+    .footer_social-link:hover .footer_social-icon {
+      filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(0deg) !important;
+    }
+    
+    /* Footer newsletter */
+    .footer_newsletter {
+      min-width: 280px !important;
+    }
+    
+    .footer_newsletter-form {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 1rem !important;
+    }
+    
+    .footer_field {
+      background-color: rgba(255, 255, 255, 0.1) !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      border-radius: 8px !important;
+      color: #ffffff !important;
+      padding: 0.875rem 1rem !important;
+    }
+    
+    .footer_field::placeholder {
+      color: rgba(255, 255, 255, 0.6) !important;
+    }
+    
+    .footer_field:focus {
+      border-color: #FFC319 !important;
+      outline: none !important;
+      background-color: rgba(255, 255, 255, 0.15) !important;
+    }
+    
+    .footer_newsletter-button {
+      background-color: #FFC319 !important;
+      color: #234A9E !important;
+      border-radius: 8px !important;
+      font-weight: 600 !important;
+      transition: all 0.3s ease !important;
+    }
+    
+    .footer_newsletter-button:hover {
+      background-color: #ffd649 !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 4px 12px rgba(255, 195, 25, 0.3) !important;
+    }
+    
+    /* Footer brand text */
+    .footer_brand {
+      color: #FFC319 !important;
+      opacity: 0.15 !important;
+      font-size: 15vw !important;
+      font-weight: 700 !important;
+      position: absolute !important;
+      bottom: -5vw !important;
+      right: 2rem !important;
+      pointer-events: none !important;
+      z-index: 0 !important;
+    }
+    
+    /* Footer legal section */
+    .footer_legal-links {
+      border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+      padding-top: 2rem !important;
+      margin-top: 3rem !important;
+      position: relative !important;
+      z-index: 1 !important;
+    }
+    
+    .footer_copyright {
+      color: rgba(255, 255, 255, 0.7) !important;
+      font-size: 0.875rem !important;
     }
     
     /* ===== BODY TEXT COLORS ===== */
@@ -1039,15 +1303,39 @@
     .section_work-list p,
     .section_home-grid p,
     .section_home-about p,
+    /* Remove extra spacing from testimonials section */
+    .section_testimonials {
+      padding-bottom: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    
+    .testimonials_component {
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    
+    .testimonials_main {
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    
+    /* Hide the old testimonials_items that might be creating space */
+    .testimonials_items {
+      display: none !important;
+      height: 0 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    
     .section_testimonials p,
     .section_blog-list p {
-      color: #005283 !important;
+      color: #234A9E !important;
       opacity: 0.8 !important;
     }
     
     /* Service text on light backgrounds */
     .home-header_service-text {
-      color: #005283 !important;
+      color: #234A9E !important;
     }
     
     .home-header_subhead {
@@ -1056,12 +1344,12 @@
     
     /* ===== BUTTON GRADIENTS - Use both colors ===== */
     .button-grad_ball.ball-1 {
-      background-color: #005283 !important;
-      background-image: linear-gradient(to right, #005283, #FFC319) !important;
+      background-color: #234A9E !important;
+      background-image: linear-gradient(to right, #234A9E, #FFC319) !important;
     }
     
     .button-grad_ball.gradient__ball--2 {
-      background-image: linear-gradient(78deg, #005283, #FFC319) !important;
+      background-image: linear-gradient(78deg, #234A9E, #FFC319) !important;
     }
     
     /* ===== LINKS AND HOVER STATES ===== */
@@ -1081,10 +1369,17 @@
       background-color: #ffffff !important;
     }
     
+    /* Make navbar line full width */
+    .navbar_line {
+      width: 100vw !important;
+      margin-left: calc(-50vw + 50%) !important;
+      position: relative !important;
+    }
+    
     /* ===== FOCUS STATES ===== */
     .w-backgroundvideo-backgroundvideoplaypausebutton:focus-visible,
     *:focus-visible {
-      outline-color: #005283 !important;
+      outline-color: #234A9E !important;
     }
     
     /* ===== DIRECT COLOR REPLACEMENTS IN INLINE STYLES ===== */
@@ -1093,8 +1388,194 @@
     }
     
     [style*="#3898ec"] {
-      background-color: #005283 !important;
-      border-color: #005283 !important;
+      background-color: #234A9E !important;
+      border-color: #234A9E !important;
+    }
+    
+    /* ===== HERO SECTION - Increase image sizes ===== */
+    .interaction_cms-img_img {
+      transform: scale(1.3) !important;
+      transition: transform 0.3s ease !important;
+    }
+    
+    .interaction_cms_item:hover .interaction_cms-img_img {
+      transform: scale(1.5) !important;
+    }
+    
+    /* Smooth scroll behavior */
+    html {
+      scroll-behavior: smooth !important;
+    }
+    
+    .works-scroll-btn {
+      cursor: pointer !important;
+    }
+    
+    /* ===== SERVICES - Keep heading visible on left ===== */
+    .section_home-services .head-grid {
+      position: sticky !important;
+      top: 100px !important;
+      align-self: flex-start !important;
+      z-index: 5 !important;
+    }
+    
+    .section_home-services .head-grid h2 {
+      position: sticky !important;
+      top: 100px !important;
+    }
+    
+    /* ===== TESTIMONIALS MARQUEE ===== */
+    .testimonials_marquee-wrapper {
+      overflow: hidden !important;
+      width: 100% !important;
+      position: relative !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      margin-top: 2rem !important;
+      margin-bottom: 0 !important;
+    }
+    
+    .testimonials_marquee {
+      display: flex !important;
+      width: max-content !important;
+      white-space: nowrap !important;
+      overflow: visible !important;
+      position: relative !important;
+      flex-wrap: nowrap !important;
+      animation: marquee-scroll 40s linear infinite !important;
+      will-change: transform !important;
+    }
+    
+    .testimonials_marquee-track {
+      display: flex !important;
+      gap: 1.5rem !important;
+      flex-shrink: 0 !important;
+      width: max-content !important;
+      min-width: max-content !important;
+    }
+    
+    .testimonials_marquee-track[aria-hidden="true"] {
+      position: relative !important;
+    }
+    
+    @keyframes marquee-scroll {
+      0% {
+        transform: translateX(-50%) !important;
+      }
+      100% {
+        transform: translateX(0) !important;
+      }
+    }
+    
+    .testimonials_marquee:hover {
+      animation-play-state: paused !important;
+    }
+    
+    /* Ensure marquee is always visible and moving */
+    .testimonials_marquee-wrapper,
+    .testimonials_marquee,
+    .testimonials_marquee-track {
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+    
+    .testimonials_card-marquee {
+      min-width: 360px !important;
+      max-width: 400px !important;
+      width: 380px !important;
+      flex-shrink: 0 !important;
+      padding: 1.75rem !important;
+      margin: 0 !important;
+      background: linear-gradient(135deg, rgba(35, 74, 158, 0.95) 0%, rgba(35, 74, 158, 0.85) 100%) !important;
+      border-radius: 16px !important;
+      border: 2px solid rgba(255, 195, 25, 0.3) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 195, 25, 0.1) inset !important;
+      backdrop-filter: blur(10px) !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+      box-sizing: border-box !important;
+      overflow: hidden !important;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      hyphens: auto !important;
+      height: auto !important;
+    }
+    
+    .testimonials_card-marquee:hover {
+      transform: translateY(-4px) !important;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 195, 25, 0.4) inset !important;
+      border-color: rgba(255, 195, 25, 0.5) !important;
+    }
+    
+    .testimonials_card-marquee .testimonials_wrap {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 1.25rem !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow: hidden !important;
+      box-sizing: border-box !important;
+    }
+    
+    .testimonials_card-marquee .testimonials_quote {
+      color: #ffffff !important;
+      font-size: 1rem !important;
+      line-height: 1.5 !important;
+      margin: 0 !important;
+      font-style: italic !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.01em !important;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      hyphens: auto !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    
+    .testimonials_card-marquee .testimonials_author {
+      color: #FFC319 !important;
+      font-weight: 600 !important;
+      font-size: 1rem !important;
+      letter-spacing: 0.02em !important;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      max-width: 100% !important;
+    }
+    
+    .testimonials_card-marquee .testimonials_title {
+      color: rgba(255, 255, 255, 0.85) !important;
+      font-size: 0.9rem !important;
+      font-weight: 400 !important;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      max-width: 100% !important;
+    }
+    
+    .testimonials_card-marquee .testimonials_title strong {
+      color: #FFC319 !important;
+      font-weight: 600 !important;
+    }
+    
+    .testimonials_card-marquee .testimonials_stars {
+      display: flex !important;
+      gap: 0.3rem !important;
+      margin-bottom: 0.75rem !important;
+      flex-shrink: 0 !important;
+    }
+    
+    .testimonials_card-marquee .testimonials_star {
+      width: 18px !important;
+      height: 18px !important;
+      filter: brightness(1.2) !important;
+      flex-shrink: 0 !important;
+    }
+    
+    .testimonials_card-marquee .testimonials_author-wrap {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      overflow: hidden !important;
     }
   </style>
 
@@ -1115,18 +1596,17 @@
         <div class="navbar_component">
           <div class="navbar_content">
             <div class="navbar_logo-center">
-              <img src="/logo.jpg" loading="lazy" alt="BBC Logo" class="navbar_center-logo">
+              <h3 class="heading-style-h3 font-weight-medium" style="color: #FFC319 !important;">Brand Brewing Company</h3>
             </div>
             <div class="navbar_links-menu">
               <div class="menu_component">
                 <div fs-scrolldisable-media="(max-width: 767px)" fs-scrolldisable-element="toggle"
-                  data-w-id="5fdd110c-b4dc-4c3b-f311-33bd343dda78" class="hamburger">
-                  <div class="hamburger_line _1"></div>
-                  <div class="hamburger_line _2"></div>
+                  data-w-id="5fdd110c-b4dc-4c3b-f311-33bd343dda78" class="hamburger hamburger-logo">
+                  <img src="/logo.jpg" loading="lazy" alt="BBC Logo" class="hamburger-logo-img">
                 </div>
                 <div class="menu">
                   <div class="menu_in">
-                    <div class="menu_content" style="background-color: #005283 !important;">
+                    <div class="menu_content" style="background-color: #234A9E !important;">
                       <div class="menu_links"><a href="index.htm" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
                           aria-current="page" class="menu_link w-inline-block w--current">
                           <div class="menu_link-texts">
@@ -1157,6 +1637,9 @@
                           </div>
                           <div class="menu_link-dot"></div>
                         </a></div>
+                      <div class="menu_about-text" style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 2rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                        <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; line-height: 1.6; margin: 0;">ABOUT THE COMPANY. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Brand Brewing Company is dedicated to crafting exceptional brand experiences that resonate with audiences and drive meaningful connections.</p>
+                      </div>
                       <div class="menu_actions">
                         <div class="menu_social-wrap">
                           <div class="menu_buttons">
@@ -1203,15 +1686,6 @@
                               loading="lazy" alt="" class="menu_contact-arrow">
                           </div>
                         </a>
-                        <div class="menu_legal"><a href="index.htm"
-                            data-w-id="08715bc4-c4b7-73ba-45ba-b2d079cf51c2" class="menu_legal-link w-inline-block">
-                            <div class="menu_legal-text">Privacy Policy</div>
-                            <div class="menu_legal-line grey"></div>
-                          </a><a href="index.htm" data-w-id="08715bc4-c4b7-73ba-45ba-b2d079cf51c2"
-                            class="menu_legal-link w-inline-block">
-                            <div class="menu_legal-text">Terms of use</div>
-                            <div class="menu_legal-line grey"></div>
-                          </a></div>
                       </div>
                       <div data-w-id="5fdd110c-b4dc-4c3b-f311-33bd343ddaa2" class="menu_close"><img
                           src="6840876d4d1ed0e8e2a330b9/68474e628bed528dd7a4be9e_close.svg" loading="lazy" alt=""
@@ -1369,12 +1843,12 @@
                   </div>
                 </div>
                 <div class="spacer-large"></div>
-                <div data-w-id="a96576e7-0ca7-fa5e-89ee-4643797a6814" class="fade-in"><a href="index.htm"
+                <div data-w-id="a96576e7-0ca7-fa5e-89ee-4643797a6814" class="fade-in"><a href="#works-section"
                     data-wf--button--variant="white" data-w-id="059e00b0-f64e-1901-eae8-f1971aea4566"
-                    class="button-secondary w-variant-084c35ac-0c40-f906-a9cd-0d43386a2d5d w-inline-block">
+                    class="button-secondary w-variant-084c35ac-0c40-f906-a9cd-0d43386a2d5d w-inline-block works-scroll-btn">
                     <div class="button_texts">
-                      <div class="button_text _1">Get in touch</div>
-                      <div class="button_text _2">Get in touch</div>
+                      <div class="button_text _1">Works</div>
+                      <div class="button_text _2">Works</div>
                     </div>
                     <!-- <div class="button-line_space blue-dark-36"></div>
                     <div class="button-line_dot blue-dark-37">
@@ -1427,6 +1901,132 @@
         <div class="padding-section-medium"></div>
         <div class="padding-global">
           <div class="container-medium">
+            <div data-w-id="f47586ce-ea30-5c4f-ed5b-579217ab53c9" class="testimonials_numbers">
+              <div class="testimonials_numbers-main">
+                <div class="number_block">
+                  <div class="number_wrap">
+                    <div class="number_group">
+                      <div class="number_number">2</div>
+                    </div>
+                    <div class="number_group _1">
+                      <div class="number_main">
+                        <div class="number_number">4</div>
+                      </div>
+                      <div
+                        style="-webkit-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                        class="number_others _1">
+                        <div class="number_number">1</div>
+                        <div class="number_number">2</div>
+                        <div class="number_number">3</div>
+                        <div class="number_number final-number">4</div>
+                      </div>
+                    </div>
+                    <div class="number_group _2">
+                      <div class="number_main">
+                        <div class="number_number">8</div>
+                      </div>
+                      <div
+                        style="-webkit-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                        class="number_others _2">
+                        <div class="number_number">1</div>
+                        <div class="number_number">2</div>
+                        <div class="number_number">3</div>
+                        <div class="number_number">4</div>
+                        <div class="number_number">5</div>
+                        <div class="number_number">6</div>
+                        <div class="number_number">7</div>
+                        <div class="number_number final-number">8</div>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="number_desc">Projects completed</p>
+                </div>
+                <div class="number_block">
+                  <div class="number_wrap">
+                    <div class="number_group _3">
+                      <div class="number_main">
+                        <div class="number_number">8</div>
+                      </div>
+                      <div
+                        style="-webkit-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                        class="number_others _3">
+                        <div class="number_number">6</div>
+                        <div class="number_number">7</div>
+                        <div class="number_number final-number">8</div>
+                      </div>
+                    </div>
+                    <div class="number_group _4">
+                      <div class="number_main">
+                        <div class="number_number">6</div>
+                      </div>
+                      <div
+                        style="-webkit-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                        class="number_others _4">
+                        <div class="number_number">4</div>
+                        <div class="number_number">5</div>
+                        <div class="number_number">6</div>
+                        <div class="number_number final-number">7</div>
+                      </div>
+                    </div>
+                    <div class="number_group">
+                      <div class="number_number">K</div>
+                    </div>
+                  </div>
+                  <p class="number_desc">Leads generated for our clients</p>
+                </div>
+                <div class="number_block">
+                  <div class="number_wrap">
+                    <div class="number_group _5">
+                      <div class="number_main">
+                        <div class="number_number">2</div>
+                      </div>
+                      <div
+                        style="-webkit-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                        class="number_others _5">
+                        <div class="number_number">1</div>
+                        <div class="number_number">1</div>
+                        <div class="number_number">1</div>
+                        <div class="number_number">1</div>
+                        <div class="number_number final-number">2</div>
+                      </div>
+                    </div>
+                    <div class="number_group _6">
+                      <div class="number_main">
+                        <div class="number_number">6</div>
+                      </div>
+                      <div
+                        style="-webkit-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                        class="number_others _6">
+                        <div class="number_number">1</div>
+                        <div class="number_number">2</div>
+                        <div class="number_number">3</div>
+                        <div class="number_number">4</div>
+                        <div class="number_number">5</div>
+                        <div class="number_number final-number">6</div>
+                      </div>
+                    </div>
+                    <div class="number_group _7">
+                      <div class="number_main">
+                        <div class="number_number">8</div>
+                      </div>
+                      <div
+                        style="-webkit-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                        class="number_others _7">
+                        <div class="number_number">2</div>
+                        <div class="number_number">3</div>
+                        <div class="number_number">4</div>
+                        <div class="number_number">5</div>
+                        <div class="number_number">6</div>
+                        <div class="number_number">7</div>
+                        <div class="number_number final-number">8</div>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="number_desc">Brands we&#x27;ve partnered with</p>
+                </div>
+              </div>
+            </div>
+            <div class="spacer-large"></div>
             <div class="head-grid">
               <div data-w-id="815e1567-e8d8-3887-7b4f-e61b59defca3" class="label_wrap">
                 <div class="label_dot"></div>
@@ -1447,66 +2047,34 @@
             <div class="brands_item-block">
               <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68483fd8df02d2a2a16059d2_logo-1.svg"
                   loading="lazy" alt="" class="brands_item-logo"></div>
-              <div class="brands_item-texts">
-                <h4 class="brands_item-name">Loreipsum</h4>
-                <p class="brands_item-desc">Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
             </div>
             <div class="brands_item-block">
               <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848402b2b7a4408294ff7c4_logo-2.svg"
                   loading="lazy" alt="" class="brands_item-logo"></div>
-              <div class="brands_item-texts">
-                <h4 class="brands_item-name">Loreipsum</h4>
-                <p class="brands_item-desc">Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
             </div>
             <div class="brands_item-block">
               <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848403301c0b927354b0f45_logo-3.svg"
                   loading="lazy" alt="" class="brands_item-logo"></div>
-              <div class="brands_item-texts">
-                <h4 class="brands_item-name">Loreipsum</h4>
-                <p class="brands_item-desc">Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
             </div>
             <div class="brands_item-block">
               <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848403a5135f3b8335421d2_logo-4.svg"
                   loading="lazy" alt="" class="brands_item-logo"></div>
-              <div class="brands_item-texts">
-                <h4 class="brands_item-name">Loreipsum</h4>
-                <p class="brands_item-desc">Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
             </div>
             <div class="brands_item-block">
               <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484040114a88fbe9ea899b_logo-5.svg"
                   loading="lazy" alt="" class="brands_item-logo"></div>
-              <div class="brands_item-texts">
-                <h4 class="brands_item-name">Loreipsum</h4>
-                <p class="brands_item-desc">Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
             </div>
             <div class="brands_item-block">
               <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484048be11ba231a546a2e_logo-6.svg"
                   loading="lazy" alt="" class="brands_item-logo"></div>
-              <div class="brands_item-texts">
-                <h4 class="brands_item-name">Loreipsum</h4>
-                <p class="brands_item-desc">Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
             </div>
             <div class="brands_item-block">
               <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484050852d017199f1ad66_logo-7.svg"
                   loading="lazy" alt="" class="brands_item-logo"></div>
-              <div class="brands_item-texts">
-                <h4 class="brands_item-name">Loreipsum</h4>
-                <p class="brands_item-desc">Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
             </div>
             <div class="brands_item-block">
               <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484058d2638513af23d247_logo-8.svg"
                   loading="lazy" alt="" class="brands_item-logo"></div>
-              <div class="brands_item-texts">
-                <h4 class="brands_item-name">Loreipsum</h4>
-                <p class="brands_item-desc">Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
             </div>
           </div>
           <div
@@ -1515,66 +2083,34 @@
             <div class="brands_item-block">
               <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68483fd8df02d2a2a16059d2_logo-1.svg"
                   loading="lazy" alt="" class="brands_item-logo"></div>
-              <div class="brands_item-texts">
-                <h4 class="brands_item-name">Loreipsum</h4>
-                <p class="brands_item-desc">Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
             </div>
             <div class="brands_item-block">
               <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848402b2b7a4408294ff7c4_logo-2.svg"
                   loading="lazy" alt="" class="brands_item-logo"></div>
-              <div class="brands_item-texts">
-                <h4 class="brands_item-name">Loreipsum</h4>
-                <p class="brands_item-desc">Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
             </div>
             <div class="brands_item-block">
               <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848403301c0b927354b0f45_logo-3.svg"
                   loading="lazy" alt="" class="brands_item-logo"></div>
-              <div class="brands_item-texts">
-                <h4 class="brands_item-name">Loreipsum</h4>
-                <p class="brands_item-desc">Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
             </div>
             <div class="brands_item-block">
               <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848403a5135f3b8335421d2_logo-4.svg"
                   loading="lazy" alt="" class="brands_item-logo"></div>
-              <div class="brands_item-texts">
-                <h4 class="brands_item-name">Loreipsum</h4>
-                <p class="brands_item-desc">Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
             </div>
             <div class="brands_item-block">
               <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484040114a88fbe9ea899b_logo-5.svg"
                   loading="lazy" alt="" class="brands_item-logo"></div>
-              <div class="brands_item-texts">
-                <h4 class="brands_item-name">Loreipsum</h4>
-                <p class="brands_item-desc">Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
             </div>
             <div class="brands_item-block">
               <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484048be11ba231a546a2e_logo-6.svg"
                   loading="lazy" alt="" class="brands_item-logo"></div>
-              <div class="brands_item-texts">
-                <h4 class="brands_item-name">Loreipsum</h4>
-                <p class="brands_item-desc">Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
             </div>
             <div class="brands_item-block">
               <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484050852d017199f1ad66_logo-7.svg"
                   loading="lazy" alt="" class="brands_item-logo"></div>
-              <div class="brands_item-texts">
-                <h4 class="brands_item-name">Loreipsum</h4>
-                <p class="brands_item-desc">Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
             </div>
             <div class="brands_item-block">
               <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484058d2638513af23d247_logo-8.svg"
                   loading="lazy" alt="" class="brands_item-logo"></div>
-              <div class="brands_item-texts">
-                <h4 class="brands_item-name">Loreipsum</h4>
-                <p class="brands_item-desc">Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
             </div>
           </div>
           <div
@@ -1583,72 +2119,39 @@
             <div class="brands_item-block">
               <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68483fd8df02d2a2a16059d2_logo-1.svg"
                   loading="lazy" alt="" class="brands_item-logo"></div>
-              <div class="brands_item-texts">
-                <h4 class="brands_item-name">Loreipsum</h4>
-                <p class="brands_item-desc">Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
             </div>
             <div class="brands_item-block">
               <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848402b2b7a4408294ff7c4_logo-2.svg"
                   loading="lazy" alt="" class="brands_item-logo"></div>
-              <div class="brands_item-texts">
-                <h4 class="brands_item-name">Loreipsum</h4>
-                <p class="brands_item-desc">Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
             </div>
             <div class="brands_item-block">
               <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848403301c0b927354b0f45_logo-3.svg"
                   loading="lazy" alt="" class="brands_item-logo"></div>
-              <div class="brands_item-texts">
-                <h4 class="brands_item-name">Loreipsum</h4>
-                <p class="brands_item-desc">Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
             </div>
             <div class="brands_item-block">
               <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848403a5135f3b8335421d2_logo-4.svg"
                   loading="lazy" alt="" class="brands_item-logo"></div>
-              <div class="brands_item-texts">
-                <h4 class="brands_item-name">Loreipsum</h4>
-                <p class="brands_item-desc">Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
             </div>
             <div class="brands_item-block">
               <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484040114a88fbe9ea899b_logo-5.svg"
                   loading="lazy" alt="" class="brands_item-logo"></div>
-              <div class="brands_item-texts">
-                <h4 class="brands_item-name">Loreipsum</h4>
-                <p class="brands_item-desc">Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
             </div>
             <div class="brands_item-block">
               <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484048be11ba231a546a2e_logo-6.svg"
                   loading="lazy" alt="" class="brands_item-logo"></div>
-              <div class="brands_item-texts">
-                <h4 class="brands_item-name">Loreipsum</h4>
-                <p class="brands_item-desc">Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
             </div>
             <div class="brands_item-block">
               <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484050852d017199f1ad66_logo-7.svg"
                   loading="lazy" alt="" class="brands_item-logo"></div>
-              <div class="brands_item-texts">
-                <h4 class="brands_item-name">Loreipsum</h4>
-                <p class="brands_item-desc">Lorem ipsum dolor sit amet, consectetur.</p>
-              </div>
             </div>
             <div class="brands_item-block">
               <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484058d2638513af23d247_logo-8.svg"
                   loading="lazy" alt="" class="brands_item-logo"></div>
-              <div class="brands_item-texts">
-                <h4 class="brands_item-name">Loreipsum</h4>
-                <p class="brands_item-desc">Lorem ipsum dolor sit amet, consectetur.</p>
               </div>
             </div>
           </div>
-        </div>
-        <div class="padding-section-medium"></div>
       </section>
-      <section class="section_work-list">
+      <section id="works-section" class="section_work-list">
         <div class="padding-global is-tiny">
           <div data-w-id="f8cd9a3a-3e01-4e7f-30db-ecd0dcc6e07a" class="line"></div>
         </div>
@@ -1741,6 +2244,38 @@
           </div>
         </div>
         <div class="padding-section-medium"></div>
+      </section>
+      <section class="section_showreel">
+        <div data-w-id="54958a20-ac41-e719-19b6-10b9a9315b9a" class="showreel_wrap">
+          <div class="showreel_scroll-note">Keep scrolling</div>
+          <div class="showreel_sticky"><a href="#" class="showreel_lightbox w-inline-block w-lightbox">
+              <h2 class="showreel_heading _1">©2025</h2>
+              <div class="showreel_img-wrap"><img loading="eager"
+                  src="6840876d4d1ed0e8e2a330b9/685eb0a110893c006586f6a6_showreel.png"
+                  alt="A man standing in the middle of a dark room." class="showreel_img">
+                <div class="showreel_play-wrapper">
+                  <h2 class="showreel_play-text">Play showreel</h2>
+                  <div class="showreel_play-icon-wrap"><img
+                      src="6840876d4d1ed0e8e2a330b9/685d6bd2d86ca0c4d42844bb_play-icon.svg" loading="lazy" alt=""
+                      class="showreel_play-icon"></div>
+                </div>
+              </div>
+              <h2 class="showreel_heading _2">Showreel</h2>
+              <script type="application/json" class="w-json">{
+  "items": [
+    {
+      "url": "https://youtube.com/watch?v=EXiTSWWX5HI",
+      "originalUrl": "https://youtube.com/watch?v=EXiTSWWX5HI",
+      "width": 940,
+      "height": 528,
+      "html": "<iframe class=\"embedly-embed\" src=\"//cdn.embedly.com/widgets/media.html?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DEXiTSWWX5HI&type=text%2Fhtml&schema=youtube&display_name=YouTube&src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FEXiTSWWX5HI%3Ffeature%3Doembed\" width=\"940\" height=\"528\" scrolling=\"no\" title=\"YouTube embed\" frameborder=\"0\" allow=\"autoplay; fullscreen; encrypted-media; picture-in-picture;\" allowfullscreen=\"true\"></iframe>",
+      "type": "video"
+    }
+  ],
+  "group": ""
+}</script>
+            </a></div>
+        </div>
       </section>
       <section class="section_home-grid">
         <div class="padding-global is-tiny">
@@ -1929,15 +2464,6 @@
                     <h2 class="text-weight-medium">Services</h2>
                   </div>
                   <div class="home-services_head">
-                    <div class="home-services_icons"><img
-                        src="6840876d4d1ed0e8e2a330b9/6848ab85cf257420c02231d5_close-white.svg" loading="lazy" alt=""
-                        class="home-services_icon"><img
-                        src="6840876d4d1ed0e8e2a330b9/6848ab85cf257420c02231d5_close-white.svg" loading="lazy" alt=""
-                        class="home-services_icon"><img
-                        src="6840876d4d1ed0e8e2a330b9/6848ab85cf257420c02231d5_close-white.svg" loading="lazy" alt=""
-                        class="home-services_icon"><img
-                        src="6840876d4d1ed0e8e2a330b9/6848ab85cf257420c02231d5_close-white.svg" loading="lazy" alt=""
-                        class="home-services_icon"></div>
                     <div class="text-color-white">
                       <div class="heading-style-h2 text-weight-medium">(04)</div>
                     </div>
@@ -2097,38 +2623,6 @@
           </div>
         </div>
       </section>
-      <section class="section_showreel">
-        <div data-w-id="54958a20-ac41-e719-19b6-10b9a9315b9a" class="showreel_wrap">
-          <div class="showreel_scroll-note">Keep scrolling</div>
-          <div class="showreel_sticky"><a href="#" class="showreel_lightbox w-inline-block w-lightbox">
-              <h2 class="showreel_heading _1">©2025</h2>
-              <div class="showreel_img-wrap"><img loading="eager"
-                  src="6840876d4d1ed0e8e2a330b9/685eb0a110893c006586f6a6_showreel.png"
-                  alt="A man standing in the middle of a dark room." class="showreel_img">
-                <div class="showreel_play-wrapper">
-                  <h2 class="showreel_play-text">Play showreel</h2>
-                  <div class="showreel_play-icon-wrap"><img
-                      src="6840876d4d1ed0e8e2a330b9/685d6bd2d86ca0c4d42844bb_play-icon.svg" loading="lazy" alt=""
-                      class="showreel_play-icon"></div>
-                </div>
-              </div>
-              <h2 class="showreel_heading _2">Showreel</h2>
-              <script type="application/json" class="w-json">{
-  "items": [
-    {
-      "url": "https://youtube.com/watch?v=EXiTSWWX5HI",
-      "originalUrl": "https://youtube.com/watch?v=EXiTSWWX5HI",
-      "width": 940,
-      "height": 528,
-      "html": "<iframe class=\"embedly-embed\" src=\"//cdn.embedly.com/widgets/media.html?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DEXiTSWWX5HI&type=text%2Fhtml&schema=youtube&display_name=YouTube&src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FEXiTSWWX5HI%3Ffeature%3Doembed\" width=\"940\" height=\"528\" scrolling=\"no\" title=\"YouTube embed\" frameborder=\"0\" allow=\"autoplay; fullscreen; encrypted-media; picture-in-picture;\" allowfullscreen=\"true\"></iframe>",
-      "type": "video"
-    }
-  ],
-  "group": ""
-}</script>
-            </a></div>
-        </div>
-      </section>
       <section class="section_testimonials">
         <div class="padding-section-medium"></div>
         <div class="padding-global">
@@ -2148,7 +2642,7 @@
                     </div>
                   </div>
                   <div class="spacer-xlarge is-tablet-medium hide-mobile-portrait"></div>
-                  <div data-w-id="d7f2e80d-58c0-9304-80ac-8f9f71925b91" class="testimonials_data">
+                  <!-- <div data-w-id="d7f2e80d-58c0-9304-80ac-8f9f71925b91" class="testimonials_data">
                     <div class="testimonials_data-head">
                       <div class="testimonials_data-head-text">Some data about our clients</div>
                       <div data-w-id="e952acc8-9e73-4313-aab0-82f6889542df" class="line"></div>
@@ -2182,9 +2676,257 @@
                         </div>
                       </div>
                     </div>
+                  </div> -->
+                  </div>
+                <div class="testimonials_marquee-wrapper">
+                  <div class="testimonials_marquee">
+                    <div class="testimonials_marquee-track">
+                      <div class="testimonials_card-marquee">
+                        <div class="testimonials_wrap">
+                          <div class="testimonials_stars"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"></div>
+                          <blockquote class="testimonials_quote">"Working with Brand Brewing Company transformed our brand identity completely. Their attention to detail and creative vision exceeded all expectations."</blockquote>
+                          <div class="testimonials_author-wrap">
+                            <div class="testimonials_author">Alexandra Chen</div>
+                            <div class="testimonials_title">Marketing Director at <strong>TechFlow</strong>®</div>
+                </div>
+                        </div>
+                      </div>
+                      <div class="testimonials_card-marquee">
+                        <div class="testimonials_wrap">
+                          <div class="testimonials_stars"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"></div>
+                          <blockquote class="testimonials_quote">"The team at BBC understood our vision from day one. They delivered a stunning rebrand that perfectly captured our company's essence."</blockquote>
+                          <div class="testimonials_author-wrap">
+                            <div class="testimonials_author">David Martinez</div>
+                            <div class="testimonials_title">Founder & CEO at <strong>InnovateLab</strong>®</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="testimonials_card-marquee">
+                        <div class="testimonials_wrap">
+                          <div class="testimonials_stars"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"></div>
+                          <blockquote class="testimonials_quote">"Exceptional service and outstanding results. BBC helped us create a cohesive brand experience across all touchpoints."</blockquote>
+                          <div class="testimonials_author-wrap">
+                            <div class="testimonials_author">Emily Rodriguez</div>
+                            <div class="testimonials_title">Creative Lead at <strong>DesignStudio</strong>®</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="testimonials_card-marquee">
+                        <div class="testimonials_wrap">
+                          <div class="testimonials_stars"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"></div>
+                          <blockquote class="testimonials_quote">"Professional, innovative, and results-driven. Brand Brewing Company elevated our brand to new heights with their strategic approach."</blockquote>
+                          <div class="testimonials_author-wrap">
+                            <div class="testimonials_author">James Thompson</div>
+                            <div class="testimonials_title">VP Marketing at <strong>GlobalTech</strong>®</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="testimonials_card-marquee">
+                        <div class="testimonials_wrap">
+                          <div class="testimonials_stars"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"></div>
+                          <blockquote class="testimonials_quote">"BBC's creative team brought fresh perspectives and delivered beyond our expectations. Highly recommend their services!"</blockquote>
+                          <div class="testimonials_author-wrap">
+                            <div class="testimonials_author">Sophie Anderson</div>
+                            <div class="testimonials_title">Brand Manager at <strong>LuxuryBrand</strong>®</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="testimonials_card-marquee">
+                        <div class="testimonials_wrap">
+                          <div class="testimonials_stars"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"></div>
+                          <blockquote class="testimonials_quote">"The collaboration was seamless, and the final deliverables were outstanding. BBC truly understands modern branding."</blockquote>
+                          <div class="testimonials_author-wrap">
+                            <div class="testimonials_author">Ryan Park</div>
+                            <div class="testimonials_title">Product Director at <strong>NextGen</strong>®</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="testimonials_marquee-track" aria-hidden="true">
+                      <div class="testimonials_card-marquee">
+                        <div class="testimonials_wrap">
+                          <div class="testimonials_stars"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"></div>
+                          <blockquote class="testimonials_quote">"Working with Brand Brewing Company transformed our brand identity completely. Their attention to detail and creative vision exceeded all expectations."</blockquote>
+                          <div class="testimonials_author-wrap">
+                            <div class="testimonials_author">Alexandra Chen</div>
+                            <div class="testimonials_title">Marketing Director at <strong>TechFlow</strong>®</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="testimonials_card-marquee">
+                        <div class="testimonials_wrap">
+                          <div class="testimonials_stars"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"></div>
+                          <blockquote class="testimonials_quote">"The team at BBC understood our vision from day one. They delivered a stunning rebrand that perfectly captured our company's essence."</blockquote>
+                          <div class="testimonials_author-wrap">
+                            <div class="testimonials_author">David Martinez</div>
+                            <div class="testimonials_title">Founder & CEO at <strong>InnovateLab</strong>®</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="testimonials_card-marquee">
+                        <div class="testimonials_wrap">
+                          <div class="testimonials_stars"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"></div>
+                          <blockquote class="testimonials_quote">"Exceptional service and outstanding results. BBC helped us create a cohesive brand experience across all touchpoints."</blockquote>
+                          <div class="testimonials_author-wrap">
+                            <div class="testimonials_author">Emily Rodriguez</div>
+                            <div class="testimonials_title">Creative Lead at <strong>DesignStudio</strong>®</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="testimonials_card-marquee">
+                        <div class="testimonials_wrap">
+                          <div class="testimonials_stars"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"></div>
+                          <blockquote class="testimonials_quote">"Professional, innovative, and results-driven. Brand Brewing Company elevated our brand to new heights with their strategic approach."</blockquote>
+                          <div class="testimonials_author-wrap">
+                            <div class="testimonials_author">James Thompson</div>
+                            <div class="testimonials_title">VP Marketing at <strong>GlobalTech</strong>®</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="testimonials_card-marquee">
+                        <div class="testimonials_wrap">
+                          <div class="testimonials_stars"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"></div>
+                          <blockquote class="testimonials_quote">"BBC's creative team brought fresh perspectives and delivered beyond our expectations. Highly recommend their services!"</blockquote>
+                          <div class="testimonials_author-wrap">
+                            <div class="testimonials_author">Sophie Anderson</div>
+                            <div class="testimonials_title">Brand Manager at <strong>LuxuryBrand</strong>®</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="testimonials_card-marquee">
+                        <div class="testimonials_wrap">
+                          <div class="testimonials_stars"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"><img
+                              src="6840876d4d1ed0e8e2a330b9/685d853e8a624d6b7c006e29_star.svg" loading="lazy" alt=""
+                              class="testimonials_star"></div>
+                          <blockquote class="testimonials_quote">"The collaboration was seamless, and the final deliverables were outstanding. BBC truly understands modern branding."</blockquote>
+                          <div class="testimonials_author-wrap">
+                            <div class="testimonials_author">Ryan Park</div>
+                            <div class="testimonials_title">Product Director at <strong>NextGen</strong>®</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="testimonials_items">
+                <div class="testimonials_items" style="display: none;">
                   <div id="w-node-_527d699e-9019-9e28-e295-ff2a629887e1-e2a330fc"
                     data-w-id="527d699e-9019-9e28-e295-ff2a629887e1" class="testimonials_cover"><img
                       src="6840876d4d1ed0e8e2a330b9/685d7cd873015f0e3dd10afb_Elderly%20Man%20in%20Winter%20Attire.jpeg"
@@ -2269,144 +3011,13 @@
                   </div>
                 </div>
               </div>
-              <div class="padding-section-large"></div>
-              <div data-w-id="f47586ce-ea30-5c4f-ed5b-579217ab53c9" class="testimonials_numbers">
-                <div class="testimonials_numbers-main">
-                  <div class="number_block">
-                    <div class="number_wrap">
-                      <div class="number_group">
-                        <div class="number_number">2</div>
-                      </div>
-                      <div class="number_group _1">
-                        <div class="number_main">
-                          <div class="number_number">4</div>
-                        </div>
-                        <div
-                          style="-webkit-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
-                          class="number_others _1">
-                          <div class="number_number">1</div>
-                          <div class="number_number">2</div>
-                          <div class="number_number">3</div>
-                          <div class="number_number final-number">4</div>
-                        </div>
-                      </div>
-                      <div class="number_group _2">
-                        <div class="number_main">
-                          <div class="number_number">8</div>
-                        </div>
-                        <div
-                          style="-webkit-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
-                          class="number_others _2">
-                          <div class="number_number">1</div>
-                          <div class="number_number">2</div>
-                          <div class="number_number">3</div>
-                          <div class="number_number">4</div>
-                          <div class="number_number">5</div>
-                          <div class="number_number">6</div>
-                          <div class="number_number">7</div>
-                          <div class="number_number final-number">8</div>
-                        </div>
-                      </div>
-                    </div>
-                    <p class="number_desc">Projects completed</p>
-                  </div>
-                  <div class="number_block">
-                    <div class="number_wrap">
-                      <div class="number_group _3">
-                        <div class="number_main">
-                          <div class="number_number">8</div>
-                        </div>
-                        <div
-                          style="-webkit-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
-                          class="number_others _3">
-                          <div class="number_number">6</div>
-                          <div class="number_number">7</div>
-                          <div class="number_number final-number">8</div>
-                        </div>
-                      </div>
-                      <div class="number_group _4">
-                        <div class="number_main">
-                          <div class="number_number">6</div>
-                        </div>
-                        <div
-                          style="-webkit-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
-                          class="number_others _4">
-                          <div class="number_number">4</div>
-                          <div class="number_number">5</div>
-                          <div class="number_number">6</div>
-                          <div class="number_number final-number">7</div>
-                        </div>
-                      </div>
-                      <div class="number_group">
-                        <div class="number_number">K</div>
-                      </div>
-                    </div>
-                    <p class="number_desc">Leads generated for our clients</p>
-                  </div>
-                  <div class="number_block">
-                    <div class="number_wrap">
-                      <div class="number_group _5">
-                        <div class="number_main">
-                          <div class="number_number">2</div>
-                        </div>
-                        <div
-                          style="-webkit-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
-                          class="number_others _5">
-                          <div class="number_number">1</div>
-                          <div class="number_number">1</div>
-                          <div class="number_number">1</div>
-                          <div class="number_number">1</div>
-                          <div class="number_number final-number">2</div>
-                        </div>
-                      </div>
-                      <div class="number_group _6">
-                        <div class="number_main">
-                          <div class="number_number">6</div>
-                        </div>
-                        <div
-                          style="-webkit-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
-                          class="number_others _6">
-                          <div class="number_number">1</div>
-                          <div class="number_number">2</div>
-                          <div class="number_number">3</div>
-                          <div class="number_number">4</div>
-                          <div class="number_number">5</div>
-                          <div class="number_number final-number">6</div>
-                        </div>
-                      </div>
-                      <div class="number_group _7">
-                        <div class="number_main">
-                          <div class="number_number">8</div>
-                        </div>
-                        <div
-                          style="-webkit-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
-                          class="number_others _7">
-                          <div class="number_number">2</div>
-                          <div class="number_number">3</div>
-                          <div class="number_number">4</div>
-                          <div class="number_number">5</div>
-                          <div class="number_number">6</div>
-                          <div class="number_number">7</div>
-                          <div class="number_number final-number">8</div>
-                        </div>
-                      </div>
-                    </div>
-                    <p class="number_desc">Brands we&#x27;ve partnered with</p>
-                  </div>
-                </div>
-                <div class="spacer-large"></div>
                 <div class="testimonials_infos">
                   <div data-w-id="67a1b9b9-adae-bae0-1f89-3d2a565093fc" style="width:0%" class="line"></div>
-                  <div class="spacer-small"></div>
-                  <p class="testimonials_legal-text">1 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse varius enim in eros elementum tristique. <br>2 - Duis cursus, mi quis viverra ornare,
-                    eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="padding-section-medium"></div>
       </section>
       <!-- <section class="section_pricing">
         <div class="padding-global is-tiny">
@@ -2772,13 +3383,19 @@
     </main>
     <footer class="footer">
       <div class="padding-global is-tiny">
-        <div class="footer_wrap" style="background-color: #005283 !important;">
+        <div class="footer_wrap" style="background-color: #234A9E !important;">
           <div class="footer_component">
             <div class="footer_main">
               <div class="footer_links-groups">
                 <div id="w-node-_49f89e0f-c321-7bff-a29b-8acdeddf7dc8-eddf7dc2" class="footer_group">
+                  <div class="footer_link-label">About</div>
+                  <div class="footer_about-text" style="max-width: 400px; margin-top: 1rem;">
+                    <p style="color: rgba(255, 255, 255, 0.85); font-size: 0.9rem; line-height: 1.7; margin: 0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Brand Brewing Company is dedicated to crafting exceptional brand experiences that resonate with audiences and drive meaningful connections.</p>
+                  </div>
+                </div>
+                <div class="footer_group">
                   <div class="footer_link-label">Pages</div>
-                  <div class="footer_lists" style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 1.5rem;">
+                  <div class="footer_lists" style="display: flex; flex-direction: column; gap: 0.75rem;">
                     <a href="index.htm" aria-current="page"
                         class="footer_link w--current">Home</a>
                     <a href="index.htm" class="footer_link">Works</a>
@@ -2786,6 +3403,7 @@
                     <a href="index.htm" class="footer_link">Contact</a>
                   </div>
                 </div>
+               
               </div>
               <div class="footer_secondary">
                 <div class="footer_social"><a href="index.htm" target="_blank"
@@ -2911,6 +3529,132 @@
         }
       });
     });
+    
+    // Hamburger logo animation on menu open/close
+    (function() {
+      // Wait for DOM to be ready
+      function initLogoAnimation() {
+        const hamburgerLogo = document.querySelector('.hamburger-logo-img');
+        const menu = document.querySelector('.menu');
+        const hamburgerButton = document.querySelector('.hamburger-logo');
+        
+        if (!hamburgerLogo || !menu) {
+          console.log('Logo animation: Elements not found', { hamburgerLogo, menu });
+          return;
+        }
+        
+        console.log('Logo animation: Initialized', { hamburgerLogo, menu, hamburgerButton });
+        
+        // Function to add open animation
+        function animateLogoOpen() {
+          console.log('Logo animation: Opening');
+          hamburgerLogo.classList.remove('animating-close', 'menu-open');
+          // Force reflow to restart animation
+          hamburgerLogo.offsetHeight;
+          hamburgerLogo.classList.add('animating-open');
+          setTimeout(() => {
+            hamburgerLogo.classList.remove('animating-open');
+            hamburgerLogo.classList.add('menu-open');
+          }, 600);
+        }
+        
+        // Function to add close animation
+        function animateLogoClose() {
+          console.log('Logo animation: Closing');
+          hamburgerLogo.classList.remove('animating-open', 'menu-open');
+          // Force reflow to restart animation
+          hamburgerLogo.offsetHeight;
+          hamburgerLogo.classList.add('animating-close');
+          setTimeout(() => {
+            hamburgerLogo.classList.remove('animating-close');
+          }, 600);
+        }
+        
+        // Function to check if menu is actually open (check display style)
+        function isMenuOpen() {
+          const menuStyle = window.getComputedStyle(menu);
+          const isDisplayed = menuStyle.display !== 'none' && menuStyle.display !== '';
+          const hasOpenClass = menu.classList.contains('w--open') || hamburgerButton.classList.contains('w--open');
+          return isDisplayed || hasOpenClass;
+        }
+        
+        // Track previous state to avoid duplicate animations
+        let lastMenuState = isMenuOpen();
+        
+        // Watch for menu state changes using MutationObserver - watch both class and style
+        const observer = new MutationObserver(function(mutations) {
+          const currentState = isMenuOpen();
+          // Only animate if state actually changed
+          if (currentState !== lastMenuState) {
+            console.log('Logo animation: Menu state changed from', lastMenuState, 'to', currentState);
+            if (currentState) {
+              animateLogoOpen();
+            } else {
+              animateLogoClose();
+            }
+            lastMenuState = currentState;
+          }
+        });
+        
+        // Observe the menu element for class and style changes
+        observer.observe(menu, {
+          attributes: true,
+          attributeFilter: ['class', 'style']
+        });
+        
+        // Also watch the hamburger button
+        if (hamburgerButton) {
+          observer.observe(hamburgerButton, {
+            attributes: true,
+            attributeFilter: ['class']
+          });
+          
+          // Track previous state to detect changes
+          let previousMenuState = isMenuOpen();
+          
+          // Listen for click events and check state after Webflow has time to update
+          hamburgerButton.addEventListener('click', function(e) {
+            console.log('Logo animation: Hamburger clicked, previous state:', previousMenuState);
+            // Check multiple times to catch the state change
+            const checkInterval = setInterval(function() {
+              const currentState = isMenuOpen();
+              console.log('Logo animation: Checking state - isOpen:', currentState, 'menu display:', window.getComputedStyle(menu).display);
+              
+              // If state changed, animate and stop checking
+              if (currentState !== previousMenuState) {
+                console.log('Logo animation: State changed to', currentState);
+                if (currentState) {
+                  animateLogoOpen();
+                } else {
+                  animateLogoClose();
+                }
+                previousMenuState = currentState;
+                clearInterval(checkInterval);
+              }
+            }, 50);
+            
+            // Stop checking after 1 second
+            setTimeout(function() {
+              clearInterval(checkInterval);
+            }, 1000);
+          });
+        }
+        
+        // Initial check
+        if (isMenuOpen()) {
+          animateLogoOpen();
+          lastMenuState = true;
+        }
+      }
+      
+      // Initialize when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initLogoAnimation);
+      } else {
+        // DOM already ready, but wait a bit for Webflow to initialize
+        setTimeout(initLogoAnimation, 100);
+      }
+    })();
   </script>
 </body>
 
