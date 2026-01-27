@@ -2835,7 +2835,7 @@ blockquote {
 
 .text-style-label {
   font-family: var(--_typography---font-family--detail);
-  font-size: var(--fixed--0-875rem);
+  font-size: var(--fixed--0-95rem);
   font-weight: var(--_typography---font-weight--semibold);
   letter-spacing: .05em;
   text-transform: uppercase;
@@ -4344,10 +4344,10 @@ blockquote {
 }
 
 .label_dot {
-  background-color: var(--_colors---primary--accent);
+  background-color: #FFC319;
   border-radius: 50%;
-  width: .25rem;
-  height: .25rem;
+  width: .4rem;
+  height: .4rem;
 }
 
 .home-grid_component {
@@ -5135,6 +5135,7 @@ blockquote {
 }
 
 .number_desc {
+  color: #FFC319 !important;
   font-size: var(--fixed--1-5rem);
   line-height: 1.2;
   font-weight: var(--_typography---font-weight--semibold);
@@ -5328,6 +5329,7 @@ blockquote {
 }
 
 .number_number {
+  color: #234A9E !important;
   font-family: var(--_typography---font-family--primary);
   font-size: var(--fixed--10rem);
   line-height: 1;
@@ -5342,6 +5344,7 @@ blockquote {
 }
 
 .testimonials_numbers-main {
+  margin: 1rem;
   grid-column-gap: var(--fixed--2-5rem);
   grid-row-gap: var(--fixed--2-5rem);
   flex-flow: wrap;

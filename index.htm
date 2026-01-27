@@ -952,26 +952,149 @@
       color: #234A9E !important;
     }
     
-    /* ===== BUTTON SHAPES - Change from oval to square/rectangle ===== */
+    /* ===== BUTTON SHAPES - Rounded rectangle (Dribbble-style) ===== */
     .button-secondary,
     .button-gradient,
     .w-button {
-      border-radius: 4px !important;
+      border-radius: 8px !important;
     }
     
     .button-secondary::before,
     .button-gradient::before {
-      border-radius: 4px !important;
+      border-radius: 6px !important;
     }
     
     [style*="box-shadow"][style*="#3898ec"] {
       box-shadow: 0 0 3px 1px #234A9E !important;
     }
     
+    /* ===== CTA BUTTONS - Dribbble-style hover (FFC319 / 234A9E) ===== */
+    .button-secondary,
+    .button-gradient,
+    .footer_newsletter-button,
+    .home-header_contact-cta {
+      background-color: #FFC319 !important;
+      color: #234A9E !important;
+      border: 2px solid #234A9E !important;
+      position: relative !important;
+      overflow: hidden !important;
+      transition: color 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease !important;
+      box-shadow: 0 4px 14px rgba(35, 74, 158, 0.25) !important;
+    }
+    
+    .home-header_contact-cta {
+      cursor: pointer !important;
+      display: inline-block !important;
+      padding: 0.5em 1em !important;
+      border-radius: 8px !important;
+    }
+    
+    .button-secondary::before,
+    .button-gradient .button-grad_inner::after,
+    .home-header_contact-cta::before {
+      content: '' !important;
+      position: absolute !important;
+      inset: 0 !important;
+      background-color: #234A9E !important;
+      z-index: 0 !important;
+      transform: translateX(-100%) !important;
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      border-radius: 6px !important;
+    }
+    
+    .button-gradient .button-grad_inner {
+      position: relative !important;
+      overflow: hidden !important;
+    }
+    
+    .button-gradient .button-grad_inner::after {
+      left: 0 !important;
+      right: auto !important;
+      width: 100% !important;
+    }
+    
+    .button-secondary:hover,
+    .button-gradient:hover .button-grad_text,
+    .footer_newsletter-button:hover,
+    .home-header_contact-cta:hover {
+      color: #FFC319 !important;
+      box-shadow: 0 6px 20px rgba(35, 74, 158, 0.4) !important;
+    }
+    
+    .button-secondary:hover .button_text,
+    .button-secondary:hover .button_text._1,
+    .button-secondary:hover .button_text._2 {
+      color: #FFC319 !important;
+    }
+    
+    .button-secondary::before,
+    .button-secondary:hover::before,
+    .button-gradient .button-grad_inner::after,
+    .button-gradient:hover .button-grad_inner::after,
+    .home-header_contact-cta::before,
+    .home-header_contact-cta:hover::before {
+      pointer-events: none !important;
+    }
+    
+    .button-secondary:hover::before {
+      transform: translateX(0) !important;
+    }
+    
+    .button-gradient:hover .button-grad_inner::after {
+      transform: translateX(0) !important;
+    }
+    
+    .home-header_contact-cta:hover::before {
+      transform: translateX(0) !important;
+    }
+    
+    .footer_newsletter-button:hover {
+      background-color: #234A9E !important;
+    }
+    
+    .button_texts,
+    .button-grad_text {
+      position: relative !important;
+      z-index: 1 !important;
+    }
+    
+    .button-gradient,
+    .button-gradient .button-grad_inner {
+      border: none !important;
+    }
+    
+    .button-gradient .button-grad_inner {
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+    
+    .button-gradient {
+      background-color: #FFC319 !important;
+      border: 2px solid #234A9E !important;
+      color: #234A9E !important;
+    }
+    
+    .button-gradient .button-grad_text {
+      color: inherit !important;
+    }
+    
+    .button-secondary.w-variant-084c35ac-0c40-f906-a9cd-0d43386a2d5d,
+    .button-secondary.white {
+      background-color: #FFC319 !important;
+      border-color: #234A9E !important;
+      color: #234A9E !important;
+    }
+    
+    .button-secondary.w-variant-084c35ac-0c40-f906-a9cd-0d43386a2d5d:hover .button_text,
+    .button-secondary.white:hover .button_text {
+      color: #FFC319 !important;
+    }
+    
     /* ===== NAVBAR - Dark blue with white text ===== */
     .navbar,
     .navbar_component {
-      background-color: #234A9E !important;
+      background-color: #FFC319 !important;
+      color: #234A9E !important;
       backdrop-filter: blur(10px) !important;
     }
     
@@ -981,7 +1104,7 @@
       color: #ffffff !important;
     }
     
-    /* ===== NAVBAR LAYOUT - Logo left, text center, hamburger right ===== */
+    /* ===== NAVBAR LAYOUT - Logo left, links center, hamburger right ===== */
     .navbar_content {
       display: flex !important;
       justify-content: space-between !important;
@@ -991,10 +1114,11 @@
     }
     
     .navbar_logo-center {
+      margin: auto;
       display: flex !important;
-      justify-content: center !important;
+      justify-content: flex-start !important;
       align-items: center !important;
-      flex: 1 !important;
+      flex: 0 1 auto !important;
     }
     
     .navbar_center-logo {
@@ -1004,12 +1128,72 @@
       object-fit: contain !important;
     }
     
-    .navbar_links-menu {
+    /* Centered nav links with dividers */
+    .navbar_links-inline {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0 !important;
       position: absolute !important;
-      right: 0 !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
     }
     
-    /* ===== HAMBURGER LOGO STYLING ===== */
+    .navbar_links-inline .navbar_link,
+    .navbar_links-inline .navbar_link .navbar_link-text {
+      color: #234A9E !important;
+    }
+    
+    .navbar_links-inline .navbar_link {
+      padding: 0.5rem 1rem !important;
+      font-weight: 600 !important;
+      text-decoration: none !important;
+      transition: color 0.25s ease, transform 0.25s ease !important;
+      position: relative !important;
+    }
+    
+    .navbar_links-inline .navbar_link::after {
+      content: '' !important;
+      position: absolute !important;
+      bottom: 0 !important;
+      left: 50% !important;
+      width: 0 !important;
+      height: 2px !important;
+      background: #234A9E !important;
+      transition: width 0.25s ease, left 0.25s ease !important;
+    }
+    
+    .navbar_links-inline .navbar_link:hover {
+      color: #234A9E !important;
+      transform: translateY(-2px) !important;
+    }
+    
+    .navbar_links-inline .navbar_link:hover::after {
+      width: 80% !important;
+      left: 10% !important;
+    }
+    
+    .navbar_link-divider {
+      width: 1px !important;
+      height: 1.25rem !important;
+      background: rgba(35, 74, 158, 0.4) !important;
+      margin: 0 0.25rem !important;
+      flex-shrink: 0 !important;
+    }
+    
+    @media (max-width: 991px) {
+      .navbar_links-inline {
+        display: none !important;
+      }
+    }
+    
+    .navbar_links-menu {
+      position: absolute !important;
+      right: auto !important;
+      left: 0 !important;
+    }
+    
+    /* ===== HAMBURGER LOGO STYLING + HOVER IMAGE ANIMATIONS ===== */
     .hamburger-logo {
       display: flex !important;
       align-items: center !important;
@@ -1021,89 +1205,110 @@
     }
     
     .hamburger-logo:hover {
-      transform: scale(1.1) !important;
+      transform: scale(1.05) !important;
     }
     
-    /* Logo default state (menu closed) */
+    /* Logo default state (menu closed) - smooth rotation via transition */
     .hamburger-logo-img {
       max-height: 50px !important;
       height: 50px !important;
       width: auto !important;
       object-fit: contain !important;
       display: block !important;
-      /* Remove transition to avoid conflicts with animation */
-      transition: none !important;
       transform: rotate(0deg) scale(1) !important;
       opacity: 1 !important;
-      filter: brightness(1) !important;
-      will-change: transform, opacity, filter !important;
+      filter: brightness(1) drop-shadow(0 0 0 transparent) !important;
+      will-change: transform !important;
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                  filter 0.3s ease,
+                  scale 0.3s ease !important;
     }
     
-    /* Logo when menu is open - will be toggled by JavaScript */
+    /* Hover image animation - subtle lift and glow */
+    .hamburger-logo:hover .hamburger-logo-img {
+      filter: brightness(1.08) drop-shadow(0 4px 12px rgba(35, 74, 158, 0.25)) !important;
+      transform: rotate(0deg) scale(1.08) !important;
+    }
+    
+    .hamburger-logo:hover .hamburger-logo-img.menu-open {
+      transform: rotate(-90deg) scale(1.08) !important;
+    }
+    
+    /* Menu open state - smooth rotation to -90deg */
     .hamburger-logo-img.menu-open {
-      transform: rotate(360deg) scale(0.8) !important;
-      opacity: 0.6 !important;
-      filter: brightness(1.5) contrast(1.2) !important;
+      transform: rotate(-90deg) scale(1) !important;
+      opacity: 1 !important;
+      filter: brightness(1) drop-shadow(0 0 0 transparent) !important;
     }
     
-    /* Smooth, elegant rotation animation for opening */
-    @keyframes logo-rotate-open {
-      0% {
-        transform: rotate(0deg) scale(1) !important;
-        opacity: 1 !important;
-        filter: brightness(1) saturate(1) !important;
-      }
-      30% {
-        transform: rotate(90deg) scale(1.1) !important;
-        opacity: 0.9 !important;
-        filter: brightness(1.2) saturate(1.1) !important;
-      }
-      60% {
-        transform: rotate(270deg) scale(0.95) !important;
-        opacity: 0.85 !important;
-        filter: brightness(1.3) saturate(1.2) !important;
-      }
-      100% {
-        transform: rotate(360deg) scale(0.9) !important;
-        opacity: 0.8 !important;
-        filter: brightness(1.4) saturate(1.3) !important;
-      }
+    /* ===== MENU POSITIONING - Move to left side ===== */
+    .menu {
+      inset: 0% auto auto 0% !important;
     }
     
-    /* Smooth, elegant rotation animation for closing */
-    @keyframes logo-rotate-close {
-      0% {
-        transform: rotate(360deg) scale(0.9) !important;
-        opacity: 0.8 !important;
-        filter: brightness(1.4) saturate(1.3) !important;
-      }
-      30% {
-        transform: rotate(270deg) scale(0.95) !important;
-        opacity: 0.85 !important;
-        filter: brightness(1.3) saturate(1.2) !important;
-      }
-      60% {
-        transform: rotate(90deg) scale(1.05) !important;
-        opacity: 0.95 !important;
-        filter: brightness(1.1) saturate(1.05) !important;
-      }
-      100% {
-        transform: rotate(0deg) scale(1) !important;
-        opacity: 1 !important;
-        filter: brightness(1) saturate(1) !important;
-      }
+    .menu_in {
+      perspective-origin: 0% 0% !important;
+      transform-origin: 0% 0% !important;
     }
     
-    /* Apply opening animation - smooth and elegant */
-    .hamburger-logo-img.animating-open {
-      animation: logo-rotate-open 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
-      transition: none !important;
+    /* ===== MENU LAYOUT - Cross button on left, menu items centered ===== */
+    .menu_content {
+      display: flex !important;
+      flex-direction: row !important;
+      justify-content: flex-start !important;
+      align-items: flex-start !important;
+      position: relative !important;
     }
     
-    /* Apply closing animation - smooth and elegant */
-    .hamburger-logo-img.animating-close {
-      animation: logo-rotate-close 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
-      transition: none !important;
+    .menu_content > div:nth-child(2) {
+      align-items: center !important;
+      width: 100% !important;
+    }
+    
+    .menu_links {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      width: 100% !important;
+      gap: 0.5rem !important;
+    }
+    
+    .menu_link {
+      position: relative !important;
+      padding: 0.75rem 1.5rem !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+      width: 100% !important;
+      max-width: 280px !important;
+      text-align: center !important;
+      transition: transform 0.25s ease, background 0.25s ease !important;
+    }
+    
+    .menu_link:hover {
+      transform: translateX(6px) !important;
+      background: rgba(255, 255, 255, 0.06) !important;
+    }
+    
+    .menu_close {
+      position: absolute !important;
+      left: 1rem !important;
+      top: 1rem !important;
+      right: auto !important;
+      bottom: auto !important;
+      z-index: 10 !important;
+    }
+    
+    /* Menu image hover animations */
+    .menu_social-icon,
+    .menu_contact-img {
+      transition: transform 0.3s ease, filter 0.3s ease !important;
+    }
+    .menu_social-link:hover .menu_social-icon {
+      transform: scale(1.15) !important;
+      filter: brightness(1.2) !important;
+    }
+    .menu_contact:hover .menu_contact-img {
+      transform: scale(1.03) !important;
+      filter: brightness(1.1) !important;
     }
     
     /* ===== FOOTER - Dark blue background ===== */
@@ -1253,15 +1458,18 @@
     .footer_newsletter-button {
       background-color: #FFC319 !important;
       color: #234A9E !important;
+      border: 2px solid #234A9E !important;
       border-radius: 8px !important;
       font-weight: 600 !important;
-      transition: all 0.3s ease !important;
+      transition: all 0.35s ease !important;
+      box-shadow: 0 4px 14px rgba(35, 74, 158, 0.25) !important;
     }
     
     .footer_newsletter-button:hover {
-      background-color: #ffd649 !important;
+      background-color: #234A9E !important;
+      color: #FFC319 !important;
       transform: translateY(-2px) !important;
-      box-shadow: 0 4px 12px rgba(255, 195, 25, 0.3) !important;
+      box-shadow: 0 6px 20px rgba(35, 74, 158, 0.4) !important;
     }
     
     /* Footer brand text */
@@ -1442,8 +1650,11 @@
       overflow: visible !important;
       position: relative !important;
       flex-wrap: nowrap !important;
-      animation: marquee-scroll 40s linear infinite !important;
       will-change: transform !important;
+      animation: marquee-scroll 40s linear infinite !important;
+      animation-delay: 0s !important;
+      animation-fill-mode: both !important;
+      animation-play-state: running !important;
     }
     
     .testimonials_marquee-track {
@@ -1459,15 +1670,19 @@
     }
     
     @keyframes marquee-scroll {
-      0% {
-        transform: translateX(-50%) !important;
+      from {
+        transform: translate3d(0, 0, 0) !important;
       }
-      100% {
-        transform: translateX(0) !important;
+      to {
+        transform: translate3d(calc(-50% - 0.75rem), 0, 0) !important;
       }
     }
     
     .testimonials_marquee:hover {
+      animation-play-state: paused !important;
+    }
+    
+    .testimonials_marquee-wrapper:hover .testimonials_marquee {
       animation-play-state: paused !important;
     }
     
@@ -1596,8 +1811,17 @@
         <div class="navbar_component">
           <div class="navbar_content">
             <div class="navbar_logo-center">
-              <h3 class="heading-style-h3 font-weight-medium" style="color: #FFC319 !important;">Brand Brewing Company</h3>
+              <h3 class="heading-style-h3 font-weight-medium" style="color: #234A9E !important;">BRAND BREWING COMPANY</h3>
             </div>
+            <!-- <div class="navbar_links navbar_links-inline">
+              <a href="index.htm" class="navbar_link w-inline-block"><span class="navbar_link-text _1">Home</span></a>
+              <span class="navbar_link-divider"></span>
+              <a href="index.htm" class="navbar_link w-inline-block"><span class="navbar_link-text _1">Work</span></a>
+              <span class="navbar_link-divider"></span>
+              <a href="blog/2.html" class="navbar_link w-inline-block"><span class="navbar_link-text _1">Blog</span></a>
+              <span class="navbar_link-divider"></span>
+              <a href="contact/2.html" class="navbar_link w-inline-block"><span class="navbar_link-text _1">Contact</span></a>
+            </div> -->
             <div class="navbar_links-menu">
               <div class="menu_component">
                 <div fs-scrolldisable-media="(max-width: 767px)" fs-scrolldisable-element="toggle"
@@ -1605,91 +1829,92 @@
                   <img src="/logo.jpg" loading="lazy" alt="BBC Logo" class="hamburger-logo-img">
                 </div>
                 <div class="menu">
-                  <div class="menu_in">
+                  <div class="menu_in" style="left: 3rem;">
                     <div class="menu_content" style="background-color: #234A9E !important;">
-                      <div class="menu_links"><a href="index.htm" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
-                          aria-current="page" class="menu_link w-inline-block w--current">
-                          <div class="menu_link-texts">
-                            <div class="menu_link-text _1">Home</div>
-                            <div class="menu_link-text _2">Home</div>
-                          </div>
-                          <div class="menu_link-dot"></div>
-                        </a>
-                        </a><a href="index.htm" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
-                          class="menu_link w-inline-block">
-                          <div class="menu_link-texts">
-                            <div class="menu_link-text _1">Work</div>
-                            <div class="menu_link-text _2">Work</div>
-                          </div>
-                          <div class="menu_link-dot"></div>
-                        </a><a href="index.htm" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
-                          class="menu_link w-inline-block">
-                          <div class="menu_link-texts">
-                            <div class="menu_link-text _1">Blog</div>
-                            <div class="menu_link-text _2">Blog</div>
-                          </div>
-                          <div class="menu_link-dot"></div>
-                        </a><a href="index.htm" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
-                          class="menu_link w-inline-block">
-                          <div class="menu_link-texts">
-                            <div class="menu_link-text _1">Contact</div>
-                            <div class="menu_link-text _2">Contact</div>
-                          </div>
-                          <div class="menu_link-dot"></div>
-                        </a></div>
-                      <div class="menu_about-text" style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 2rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                        <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; line-height: 1.6; margin: 0;">ABOUT THE COMPANY. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Brand Brewing Company is dedicated to crafting exceptional brand experiences that resonate with audiences and drive meaningful connections.</p>
-                      </div>
-                      <div class="menu_actions">
-                        <div class="menu_social-wrap">
-                          <div class="menu_buttons">
-                            <!-- <a href="https://webflow.com/templates/designers/templatesupply"
-                              data-wf--button--variant="grey" data-w-id="059e00b0-f64e-1901-eae8-f1971aea4566"
-                              class="button-secondary w-inline-block">
-                              <div class="button-line_space blue-dark-36"></div>
-                              <div class="button-line_dot blue-dark-37">
-                                <div class="button_dot"></div>
-                                <div class="button_dot-scale"></div>
-                              </div>
-                            </a><a href="https://www.template.supply/" data-wf--button--variant="grey"
-                              data-w-id="059e00b0-f64e-1901-eae8-f1971aea4566" target="_blank"
-                              class="button-secondary w-inline-block">
-                              <div class="button_texts">
-                                <div class="button_text _1">More templates</div>
-                                <div class="button_text _2">More templates</div>
-                              </div> -->
-                              <!-- <div class="button-line_space blue-dark-36"></div> -->
-                              <!-- <div class="button-line_dot blue-dark-37">
-                                <div class="button_dot"></div>
-                                <div class="button_dot-scale"></div>
-                              </div> -->
-                            </a></div>
-                          <div class="menu_social"><a href="index.htm" target="_blank"
-                              class="menu_social-link w-inline-block"><img loading="lazy"
-                                src="6840876d4d1ed0e8e2a330b9/68642b559d94bcc3773fc317_social-insta.svg" alt=""
-                                class="menu_social-icon"></a><a href="index.htm" target="_blank"
-                              class="menu_social-link w-inline-block"><img loading="lazy"
-                                src="6840876d4d1ed0e8e2a330b9/68642b569d94bcc3773fc318_social-x.svg" alt=""
-                                class="menu_social-icon"></a><a href="index.htm" target="_blank"
-                              class="menu_social-link w-inline-block"><img loading="lazy"
-                                src="6840876d4d1ed0e8e2a330b9/686464e5c7256ddd81c074ee_dribble.svg" alt=""
-                                class="menu_social-icon"></a></div>
-                        </div><a data-w-id="5fdd110c-b4dc-4c3b-f311-33bd343dda97" href="index.htm"
-                          class="menu_contact w-inline-block"><img
-                            src="6840876d4d1ed0e8e2a330b9/68474f06add2ed267a218556_link.png" loading="lazy"
-                            sizes="(max-width: 1400px) 100vw, 1400px"
-                            srcset="6840876d4d1ed0e8e2a330b9/68474f06add2ed267a218556_link-p-500.png 500w, 6840876d4d1ed0e8e2a330b9/68474f06add2ed267a218556_link-p-800.png 800w, 6840876d4d1ed0e8e2a330b9/68474f06add2ed267a218556_link-p-1080.png 1080w, 6840876d4d1ed0e8e2a330b9/68474f06add2ed267a218556_link.png 1400w"
-                            alt="" class="menu_contact-img">
-                          <div class="menu-contact-link">
-                            <div class="menu_contact-text">Contact</div><img
-                              src="6840876d4d1ed0e8e2a330b9/6847494a49644635f62a1bc0_arrow-white-diagonal.svg"
-                              loading="lazy" alt="" class="menu_contact-arrow">
-                          </div>
-                        </a>
-                      </div>
                       <div data-w-id="5fdd110c-b4dc-4c3b-f311-33bd343ddaa2" class="menu_close"><img
                           src="6840876d4d1ed0e8e2a330b9/68474e628bed528dd7a4be9e_close.svg" loading="lazy" alt=""
                           class="menu_close-icon"></div>
+                      <div style="flex: 1; display: flex; flex-direction: column; align-items: flex-end; padding-left: 4rem;">
+                        <div class="menu_links"><a href="index.htm" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
+                            aria-current="page" class="menu_link w-inline-block w--current">
+                            <div class="menu_link-texts">
+                              <div class="menu_link-text _1">Home</div>
+                              <div class="menu_link-text _2">Home</div>
+                            </div>
+                            <div class="menu_link-dot"></div>
+                          </a>
+                          </a><a href="index.htm" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
+                            class="menu_link w-inline-block">
+                            <div class="menu_link-texts">
+                              <div class="menu_link-text _1">Work</div>
+                              <div class="menu_link-text _2">Work</div>
+                            </div>
+                            <div class="menu_link-dot"></div>
+                          </a><a href="blog/2.html" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
+                            class="menu_link w-inline-block">
+                            <div class="menu_link-texts">
+                              <div class="menu_link-text _1">Blog</div>
+                              <div class="menu_link-text _2">Blog</div>
+                            </div>
+                            <div class="menu_link-dot"></div>
+                          </a><a href="contact/2.html" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
+                            class="menu_link w-inline-block">
+                            <div class="menu_link-texts">
+                              <div class="menu_link-text _1">Contact</div>
+                              <div class="menu_link-text _2">Contact</div>
+                            </div>
+                            <div class="menu_link-dot"></div>
+                          </a></div>
+                        <div class="menu_about-text" style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 2rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                        </div>
+                        <div class="menu_actions">
+                          <div class="menu_social-wrap">
+                            <div class="menu_buttons">
+                              <!-- <a href="https://webflow.com/templates/designers/templatesupply"
+                                data-wf--button--variant="grey" data-w-id="059e00b0-f64e-1901-eae8-f1971aea4566"
+                                class="button-secondary w-inline-block">
+                                <div class="button-line_space blue-dark-36"></div>
+                                <div class="button-line_dot blue-dark-37">
+                                  <div class="button_dot"></div>
+                                  <div class="button_dot-scale"></div>
+                                </div>
+                              </a><a href="https://www.template.supply/" data-wf--button--variant="grey"
+                                data-w-id="059e00b0-f64e-1901-eae8-f1971aea4566" target="_blank"
+                                class="button-secondary w-inline-block">
+                                <div class="button_texts">
+                                  <div class="button_text _1">More templates</div>
+                                  <div class="button_text _2">More templates</div>
+                                </div> -->
+                                <!-- <div class="button-line_space blue-dark-36"></div> -->
+                                <!-- <div class="button-line_dot blue-dark-37">
+                                  <div class="button_dot"></div>
+                                  <div class="button_dot-scale"></div>
+                                </div> -->
+                              </a></div>
+                            <div class="menu_social"><a href="index.htm" target="_blank"
+                                class="menu_social-link w-inline-block"><img loading="lazy"
+                                  src="6840876d4d1ed0e8e2a330b9/68642b559d94bcc3773fc317_social-insta.svg" alt=""
+                                  class="menu_social-icon"></a><a href="index.htm" target="_blank"
+                                class="menu_social-link w-inline-block"><img loading="lazy"
+                                  src="6840876d4d1ed0e8e2a330b9/68642b569d94bcc3773fc318_social-x.svg" alt=""
+                                  class="menu_social-icon"></a><a href="index.htm" target="_blank"
+                                class="menu_social-link w-inline-block"><img loading="lazy"
+                                  src="6840876d4d1ed0e8e2a330b9/686464e5c7256ddd81c074ee_dribble.svg" alt=""
+                                  class="menu_social-icon"></a></div>
+                          </div><a data-w-id="5fdd110c-b4dc-4c3b-f311-33bd343dda97" href="contact/2.html"
+                            class="menu_contact w-inline-block"><img
+                              src="6840876d4d1ed0e8e2a330b9/68474f06add2ed267a218556_link.png" loading="lazy"
+                              sizes="(max-width: 1400px) 100vw, 1400px"
+                              srcset="6840876d4d1ed0e8e2a330b9/68474f06add2ed267a218556_link-p-500.png 500w, 6840876d4d1ed0e8e2a330b9/68474f06add2ed267a218556_link-p-800.png 800w, 6840876d4d1ed0e8e2a330b9/68474f06add2ed267a218556_link-p-1080.png 1080w, 6840876d4d1ed0e8e2a330b9/68474f06add2ed267a218556_link.png 1400w"
+                              alt="" class="menu_contact-img">
+                            <div class="menu-contact-link">
+                              <div class="menu_contact-text">Contact</div><img
+                                src="6840876d4d1ed0e8e2a330b9/6847494a49644635f62a1bc0_arrow-white-diagonal.svg"
+                                loading="lazy" alt="" class="menu_contact-arrow">
+                            </div>
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1839,7 +2064,7 @@
               <div class="cta_content">
                 <div data-w-id="a96576e7-0ca7-fa5e-89ee-4643797a680f" class="text-align-center">
                   <div class="text-color-white">
-                    <h2 class="heading-style-h1 font-weight-medium">Start your project with BBC</h2>
+                    <h2 class="heading-style-h1 font-weight-medium">Turning Ideas Into Brands</h2>
                   </div>
                 </div>
                 <div class="spacer-large"></div>
@@ -1898,9 +2123,133 @@
         </div>
       </section>
       <section data-w-id="0f16d970-3858-501c-35ad-50ff5a2db9ca" class="section_brands">
-        <div class="padding-section-medium"></div>
         <div class="padding-global">
           <div class="container-medium">
+          
+            <div class="spacer-large"></div>
+            <div class="head-grid">
+              <div data-w-id="815e1567-e8d8-3887-7b4f-e61b59defca3" class="label_wrap">
+                <div class="label_dot"></div>
+                <h2 class="text-style-label">Partners</h2>
+              </div>
+              <div data-w-id="0f16d970-3858-501c-35ad-50ff5a2db9d4" class="brands_heading">
+                <h3 class="heading-style-h4">We collaborate with forward-thinking brands to build lasting creative
+                  impact.</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="spacer-xlarge"></div> -->
+        <div data-w-id="0f16d970-3858-501c-35ad-50ff5a2db9d9" class="brands_list-wrapper">
+          <div
+            style="-webkit-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+            class="brands_list">
+            <div class="brands_item-block">
+              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68483fd8df02d2a2a16059d2_logo-1.svg"
+                  loading="lazy" alt="" class="brands_item-logo"></div>
+            </div>
+            <div class="brands_item-block">
+              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848402b2b7a4408294ff7c4_logo-2.svg"
+                  loading="lazy" alt="" class="brands_item-logo"></div>
+            </div>
+            <div class="brands_item-block">
+              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848403301c0b927354b0f45_logo-3.svg"
+                  loading="lazy" alt="" class="brands_item-logo"></div>
+            </div>
+            <div class="brands_item-block">
+              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848403a5135f3b8335421d2_logo-4.svg"
+                  loading="lazy" alt="" class="brands_item-logo"></div>
+            </div>
+            <div class="brands_item-block">
+              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484040114a88fbe9ea899b_logo-5.svg"
+                  loading="lazy" alt="" class="brands_item-logo"></div>
+            </div>
+            <div class="brands_item-block">
+              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484048be11ba231a546a2e_logo-6.svg"
+                  loading="lazy" alt="" class="brands_item-logo"></div>
+            </div>
+            <div class="brands_item-block">
+              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484050852d017199f1ad66_logo-7.svg"
+                  loading="lazy" alt="" class="brands_item-logo"></div>
+            </div>
+            <div class="brands_item-block">
+              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484058d2638513af23d247_logo-8.svg"
+                  loading="lazy" alt="" class="brands_item-logo"></div>
+            </div>
+          </div>
+          <div
+            style="-webkit-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+            class="brands_list">
+            <div class="brands_item-block">
+              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68483fd8df02d2a2a16059d2_logo-1.svg"
+                  loading="lazy" alt="" class="brands_item-logo"></div>
+            </div>
+            <div class="brands_item-block">
+              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848402b2b7a4408294ff7c4_logo-2.svg"
+                  loading="lazy" alt="" class="brands_item-logo"></div>
+            </div>
+            <div class="brands_item-block">
+              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848403301c0b927354b0f45_logo-3.svg"
+                  loading="lazy" alt="" class="brands_item-logo"></div>
+            </div>
+            <div class="brands_item-block">
+              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848403a5135f3b8335421d2_logo-4.svg"
+                  loading="lazy" alt="" class="brands_item-logo"></div>
+            </div>
+            <div class="brands_item-block">
+              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484040114a88fbe9ea899b_logo-5.svg"
+                  loading="lazy" alt="" class="brands_item-logo"></div>
+            </div>
+            <div class="brands_item-block">
+              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484048be11ba231a546a2e_logo-6.svg"
+                  loading="lazy" alt="" class="brands_item-logo"></div>
+            </div>
+            <div class="brands_item-block">
+              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484050852d017199f1ad66_logo-7.svg"
+                  loading="lazy" alt="" class="brands_item-logo"></div>
+            </div>
+            <div class="brands_item-block">
+              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484058d2638513af23d247_logo-8.svg"
+                  loading="lazy" alt="" class="brands_item-logo"></div>
+            </div>
+          </div>
+          <div
+            style="-webkit-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+            class="brands_list">
+            <div class="brands_item-block">
+              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68483fd8df02d2a2a16059d2_logo-1.svg"
+                  loading="lazy" alt="" class="brands_item-logo"></div>
+            </div>
+            <div class="brands_item-block">
+              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848402b2b7a4408294ff7c4_logo-2.svg"
+                  loading="lazy" alt="" class="brands_item-logo"></div>
+            </div>
+            <div class="brands_item-block">
+              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848403301c0b927354b0f45_logo-3.svg"
+                  loading="lazy" alt="" class="brands_item-logo"></div>
+            </div>
+            <div class="brands_item-block">
+              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848403a5135f3b8335421d2_logo-4.svg"
+                  loading="lazy" alt="" class="brands_item-logo"></div>
+            </div>
+            <div class="brands_item-block">
+              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484040114a88fbe9ea899b_logo-5.svg"
+                  loading="lazy" alt="" class="brands_item-logo"></div>
+            </div>
+            <div class="brands_item-block">
+              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484048be11ba231a546a2e_logo-6.svg"
+                  loading="lazy" alt="" class="brands_item-logo"></div>
+            </div>
+            <div class="brands_item-block">
+              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484050852d017199f1ad66_logo-7.svg"
+                  loading="lazy" alt="" class="brands_item-logo"></div>
+            </div>
+            <div class="brands_item-block">
+              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484058d2638513af23d247_logo-8.svg"
+                  loading="lazy" alt="" class="brands_item-logo"></div>
+              </div>
+            </div>
+          </div>
             <div data-w-id="f47586ce-ea30-5c4f-ed5b-579217ab53c9" class="testimonials_numbers">
               <div class="testimonials_numbers-main">
                 <div class="number_block">
@@ -2026,130 +2375,8 @@
                 </div>
               </div>
             </div>
-            <div class="spacer-large"></div>
-            <div class="head-grid">
-              <div data-w-id="815e1567-e8d8-3887-7b4f-e61b59defca3" class="label_wrap">
-                <div class="label_dot"></div>
-                <h2 class="text-style-label">Partners</h2>
-              </div>
-              <div data-w-id="0f16d970-3858-501c-35ad-50ff5a2db9d4" class="brands_heading">
-                <h3 class="heading-style-h4">We collaborate with forward-thinking brands to build lasting creative
-                  impact.</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="spacer-xlarge"></div>
-        <div data-w-id="0f16d970-3858-501c-35ad-50ff5a2db9d9" class="brands_list-wrapper">
-          <div
-            style="-webkit-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
-            class="brands_list">
-            <div class="brands_item-block">
-              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68483fd8df02d2a2a16059d2_logo-1.svg"
-                  loading="lazy" alt="" class="brands_item-logo"></div>
-            </div>
-            <div class="brands_item-block">
-              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848402b2b7a4408294ff7c4_logo-2.svg"
-                  loading="lazy" alt="" class="brands_item-logo"></div>
-            </div>
-            <div class="brands_item-block">
-              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848403301c0b927354b0f45_logo-3.svg"
-                  loading="lazy" alt="" class="brands_item-logo"></div>
-            </div>
-            <div class="brands_item-block">
-              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848403a5135f3b8335421d2_logo-4.svg"
-                  loading="lazy" alt="" class="brands_item-logo"></div>
-            </div>
-            <div class="brands_item-block">
-              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484040114a88fbe9ea899b_logo-5.svg"
-                  loading="lazy" alt="" class="brands_item-logo"></div>
-            </div>
-            <div class="brands_item-block">
-              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484048be11ba231a546a2e_logo-6.svg"
-                  loading="lazy" alt="" class="brands_item-logo"></div>
-            </div>
-            <div class="brands_item-block">
-              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484050852d017199f1ad66_logo-7.svg"
-                  loading="lazy" alt="" class="brands_item-logo"></div>
-            </div>
-            <div class="brands_item-block">
-              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484058d2638513af23d247_logo-8.svg"
-                  loading="lazy" alt="" class="brands_item-logo"></div>
-            </div>
-          </div>
-          <div
-            style="-webkit-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
-            class="brands_list">
-            <div class="brands_item-block">
-              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68483fd8df02d2a2a16059d2_logo-1.svg"
-                  loading="lazy" alt="" class="brands_item-logo"></div>
-            </div>
-            <div class="brands_item-block">
-              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848402b2b7a4408294ff7c4_logo-2.svg"
-                  loading="lazy" alt="" class="brands_item-logo"></div>
-            </div>
-            <div class="brands_item-block">
-              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848403301c0b927354b0f45_logo-3.svg"
-                  loading="lazy" alt="" class="brands_item-logo"></div>
-            </div>
-            <div class="brands_item-block">
-              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848403a5135f3b8335421d2_logo-4.svg"
-                  loading="lazy" alt="" class="brands_item-logo"></div>
-            </div>
-            <div class="brands_item-block">
-              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484040114a88fbe9ea899b_logo-5.svg"
-                  loading="lazy" alt="" class="brands_item-logo"></div>
-            </div>
-            <div class="brands_item-block">
-              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484048be11ba231a546a2e_logo-6.svg"
-                  loading="lazy" alt="" class="brands_item-logo"></div>
-            </div>
-            <div class="brands_item-block">
-              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484050852d017199f1ad66_logo-7.svg"
-                  loading="lazy" alt="" class="brands_item-logo"></div>
-            </div>
-            <div class="brands_item-block">
-              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484058d2638513af23d247_logo-8.svg"
-                  loading="lazy" alt="" class="brands_item-logo"></div>
-            </div>
-          </div>
-          <div
-            style="-webkit-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
-            class="brands_list">
-            <div class="brands_item-block">
-              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68483fd8df02d2a2a16059d2_logo-1.svg"
-                  loading="lazy" alt="" class="brands_item-logo"></div>
-            </div>
-            <div class="brands_item-block">
-              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848402b2b7a4408294ff7c4_logo-2.svg"
-                  loading="lazy" alt="" class="brands_item-logo"></div>
-            </div>
-            <div class="brands_item-block">
-              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848403301c0b927354b0f45_logo-3.svg"
-                  loading="lazy" alt="" class="brands_item-logo"></div>
-            </div>
-            <div class="brands_item-block">
-              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/6848403a5135f3b8335421d2_logo-4.svg"
-                  loading="lazy" alt="" class="brands_item-logo"></div>
-            </div>
-            <div class="brands_item-block">
-              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484040114a88fbe9ea899b_logo-5.svg"
-                  loading="lazy" alt="" class="brands_item-logo"></div>
-            </div>
-            <div class="brands_item-block">
-              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484048be11ba231a546a2e_logo-6.svg"
-                  loading="lazy" alt="" class="brands_item-logo"></div>
-            </div>
-            <div class="brands_item-block">
-              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484050852d017199f1ad66_logo-7.svg"
-                  loading="lazy" alt="" class="brands_item-logo"></div>
-            </div>
-            <div class="brands_item-block">
-              <div class="brands_item-logo-wrap"><img src="6840876d4d1ed0e8e2a330b9/68484058d2638513af23d247_logo-8.svg"
-                  loading="lazy" alt="" class="brands_item-logo"></div>
-              </div>
-            </div>
-          </div>
+            <div class="padding-section-medium"></div>
+
       </section>
       <section id="works-section" class="section_work-list">
         <div class="padding-global is-tiny">
@@ -2243,7 +2470,7 @@
               </a></div>
           </div>
         </div>
-        <div class="padding-section-medium"></div>
+        
       </section>
       <section class="section_showreel">
         <div data-w-id="54958a20-ac41-e719-19b6-10b9a9315b9a" class="showreel_wrap">
@@ -3177,6 +3404,8 @@
           </div>
         </div>
       </section> -->
+      <!-- FAQ Section Commented Out -->
+      <!--
       <section class="section_faq">
         <div class="padding-section-medium"></div>
         <div class="padding-global">
@@ -3321,15 +3550,15 @@
                       <div class="button_text _1">View all</div>
                       <div class="button_text _2">View all</div>
                     </div>
-                    <!-- <div class="button-line_space blue-dark-36"></div>
+                     <div class="button-line_space blue-dark-36"></div>
                     <div class="button-line_dot blue-dark-37">
                       <div class="button_dot"></div>
                       <div class="button_dot-scale"></div>
                     </div> -->
                   </a></div>
               </div>
-              <div class="spacer-large"></div>
-              <div class="blog-list_wrapper w-dyn-list">
+              <!-- <div class="spacer-large"></div> -->
+              <!-- <div class="blog-list_wrapper w-dyn-list">
                 <div role="list" class="blog-list_list w-dyn-items">
                   <div role="listitem" class="blog-list_item w-dyn-item"><a aria-label="link to article"
                       data-w-id="e54ed1fa-e78d-d77e-f756-db263144049f"
@@ -3374,11 +3603,11 @@
                       </div>
                     </a></div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
-        <div class="padding-section-medium"></div>
+    
       </section>
     </main>
     <footer class="footer">
@@ -3399,8 +3628,8 @@
                     <a href="index.htm" aria-current="page"
                         class="footer_link w--current">Home</a>
                     <a href="index.htm" class="footer_link">Works</a>
-                    <a href="index.htm" class="footer_link">Blog</a>
-                    <a href="index.htm" class="footer_link">Contact</a>
+                    <a href="blog/2.html" class="footer_link">Blog</a>
+                    <a href="contact/2.html" class="footer_link">Contact</a>
                   </div>
                 </div>
                
@@ -3530,128 +3759,36 @@
       });
     });
     
-    // Hamburger logo animation on menu open/close
+    // Hamburger logo – smooth rotation via CSS transition (toggle .menu-open only)
     (function() {
-      // Wait for DOM to be ready
       function initLogoAnimation() {
         const hamburgerLogo = document.querySelector('.hamburger-logo-img');
         const menu = document.querySelector('.menu');
         const hamburgerButton = document.querySelector('.hamburger-logo');
-        
-        if (!hamburgerLogo || !menu) {
-          console.log('Logo animation: Elements not found', { hamburgerLogo, menu });
-          return;
-        }
-        
-        console.log('Logo animation: Initialized', { hamburgerLogo, menu, hamburgerButton });
-        
-        // Function to add open animation
-        function animateLogoOpen() {
-          console.log('Logo animation: Opening');
-          hamburgerLogo.classList.remove('animating-close', 'menu-open');
-          // Force reflow to restart animation
-          hamburgerLogo.offsetHeight;
-          hamburgerLogo.classList.add('animating-open');
-          setTimeout(() => {
-            hamburgerLogo.classList.remove('animating-open');
-            hamburgerLogo.classList.add('menu-open');
-          }, 600);
-        }
-        
-        // Function to add close animation
-        function animateLogoClose() {
-          console.log('Logo animation: Closing');
-          hamburgerLogo.classList.remove('animating-open', 'menu-open');
-          // Force reflow to restart animation
-          hamburgerLogo.offsetHeight;
-          hamburgerLogo.classList.add('animating-close');
-          setTimeout(() => {
-            hamburgerLogo.classList.remove('animating-close');
-          }, 600);
-        }
-        
-        // Function to check if menu is actually open (check display style)
+        if (!hamburgerLogo || !menu) return;
+
         function isMenuOpen() {
-          const menuStyle = window.getComputedStyle(menu);
-          const isDisplayed = menuStyle.display !== 'none' && menuStyle.display !== '';
-          const hasOpenClass = menu.classList.contains('w--open') || hamburgerButton.classList.contains('w--open');
-          return isDisplayed || hasOpenClass;
+          const s = window.getComputedStyle(menu);
+          return (s.display !== 'none' && s.display !== '') ||
+            menu.classList.contains('w--open') || (hamburgerButton && hamburgerButton.classList.contains('w--open'));
         }
-        
-        // Track previous state to avoid duplicate animations
-        let lastMenuState = isMenuOpen();
-        
-        // Watch for menu state changes using MutationObserver - watch both class and style
-        const observer = new MutationObserver(function(mutations) {
-          const currentState = isMenuOpen();
-          // Only animate if state actually changed
-          if (currentState !== lastMenuState) {
-            console.log('Logo animation: Menu state changed from', lastMenuState, 'to', currentState);
-            if (currentState) {
-              animateLogoOpen();
-            } else {
-              animateLogoClose();
-            }
-            lastMenuState = currentState;
-          }
-        });
-        
-        // Observe the menu element for class and style changes
-        observer.observe(menu, {
-          attributes: true,
-          attributeFilter: ['class', 'style']
-        });
-        
-        // Also watch the hamburger button
+        function syncClass() {
+          hamburgerLogo.classList.toggle('menu-open', isMenuOpen());
+        }
+        const observer = new MutationObserver(syncClass);
+        observer.observe(menu, { attributes: true, attributeFilter: ['class', 'style'] });
         if (hamburgerButton) {
-          observer.observe(hamburgerButton, {
-            attributes: true,
-            attributeFilter: ['class']
-          });
-          
-          // Track previous state to detect changes
-          let previousMenuState = isMenuOpen();
-          
-          // Listen for click events and check state after Webflow has time to update
-          hamburgerButton.addEventListener('click', function(e) {
-            console.log('Logo animation: Hamburger clicked, previous state:', previousMenuState);
-            // Check multiple times to catch the state change
-            const checkInterval = setInterval(function() {
-              const currentState = isMenuOpen();
-              console.log('Logo animation: Checking state - isOpen:', currentState, 'menu display:', window.getComputedStyle(menu).display);
-              
-              // If state changed, animate and stop checking
-              if (currentState !== previousMenuState) {
-                console.log('Logo animation: State changed to', currentState);
-                if (currentState) {
-                  animateLogoOpen();
-                } else {
-                  animateLogoClose();
-                }
-                previousMenuState = currentState;
-                clearInterval(checkInterval);
-              }
-            }, 50);
-            
-            // Stop checking after 1 second
-            setTimeout(function() {
-              clearInterval(checkInterval);
-            }, 1000);
+          observer.observe(hamburgerButton, { attributes: true, attributeFilter: ['class'] });
+          hamburgerButton.addEventListener('click', function() {
+            setTimeout(syncClass, 20);
+            setTimeout(syncClass, 150);
           });
         }
-        
-        // Initial check
-        if (isMenuOpen()) {
-          animateLogoOpen();
-          lastMenuState = true;
-        }
+        syncClass();
       }
-      
-      // Initialize when DOM is ready
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initLogoAnimation);
       } else {
-        // DOM already ready, but wait a bit for Webflow to initialize
         setTimeout(initLogoAnimation, 100);
       }
     })();
