@@ -58,8 +58,10 @@
 <style>
   :root { --_colors---primary--accent: #FFC319; --_colors---primary--blue: #234A9E; }
   .navbar, .navbar_component { background-color: #FFC319 !important; color: #234A9E !important; }
-  .navbar_content { display: flex !important; justify-content: space-between !important; align-items: center !important; position: relative !important; width: 100% !important; }
-  .navbar_logo-center { display: flex !important; justify-content: center !important; align-items: center !important; flex: 1 !important; }
+  .navbar_component { min-height: 60px !important; }
+  .navbar_content { display: flex !important; justify-content: space-between !important; align-items: center !important; position: relative !important; width: 100% !important; min-height: 60px !important; }
+  .navbar_logo-center { position: absolute !important; left: 50% !important; transform: translateX(-50%) !important; display: flex !important; justify-content: center !important; align-items: center !important; }
+  .navbar_logo-center .heading-style-h3 { font-size: 1.1rem !important; white-space: nowrap !important; }
   .navbar_links-menu { position: absolute !important; left: 0 !important; right: auto !important; }
   .hamburger-logo { display: flex !important; align-items: center !important; justify-content: center !important; padding: 0.5rem !important; cursor: pointer !important; }
   .hamburger-logo-img { max-height: 50px !important; height: 50px !important; width: auto !important; object-fit: contain !important; }
@@ -339,20 +341,31 @@
   }
   
   /* ===== NAVBAR LAYOUT - Logo left, links center, hamburger right ===== */
+  .navbar_component {
+    min-height: 60px !important;
+  }
+
   .navbar_content {
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
     position: relative !important;
     width: 100% !important;
+    min-height: 60px !important;
   }
-  
+
   .navbar_logo-center {
-    margin: auto;
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
     display: flex !important;
-    justify-content: flex-start !important;
+    justify-content: center !important;
     align-items: center !important;
-    flex: 0 1 auto !important;
+  }
+
+  .navbar_logo-center .heading-style-h3 {
+    font-size: 1.1rem !important;
+    white-space: nowrap !important;
   }
   
   .navbar_center-logo {
@@ -1125,8 +1138,17 @@
         <div class="navbar_component">
           <div class="navbar_content">
             <div class="navbar_logo-center">
-              <h3 class="heading-style-h3 font-weight-medium" style="color: #234A9E !important;">BRAND BREWING COMPANY</h3>
+              <h3 class="heading-style-h3 font-weight-medium" style="color: #234A9E !important; letter-spacing: 0.15em;">BRAND BREWING COMPANY</h3>
             </div>
+            <!-- <div class="navbar_links navbar_links-inline">
+              <a href="../index.htm" class="navbar_link w-inline-block"><span class="navbar_link-text _1">Home</span></a>
+              <span class="navbar_link-divider"></span>
+              <a href="../works/1.html" class="navbar_link w-inline-block"><span class="navbar_link-text _1">Work</span></a>
+              <span class="navbar_link-divider"></span>
+              <a href="../blog/2.html" class="navbar_link w-inline-block"><span class="navbar_link-text _1">Blog</span></a>
+              <span class="navbar_link-divider"></span>
+              <a href="../contact/2.html" class="navbar_link w-inline-block"><span class="navbar_link-text _1">Contact</span></a>
+            </div> -->
             <div class="navbar_links-menu">
               <div class="menu_component">
                 <div fs-scrolldisable-media="(max-width: 767px)" fs-scrolldisable-element="toggle"
@@ -1147,7 +1169,7 @@
                               <div class="menu_link-text _2">Home</div>
                             </div>
                             <div class="menu_link-dot"></div>
-                          </a><a href="../index.htm" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
+                          </a><a href="../works/1.html" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
                             class="menu_link w-inline-block">
                             <div class="menu_link-texts">
                               <div class="menu_link-text _1">Work</div>

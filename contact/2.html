@@ -50,7 +50,11 @@
       color: #234A9E !important;
       backdrop-filter: blur(10px) !important;
     }
-    
+
+    .navbar_component {
+      min-height: 60px !important;
+    }
+
     /* ===== NAVBAR LAYOUT - Logo center, hamburger left ===== */
     .navbar_content {
       display: flex !important;
@@ -58,15 +62,23 @@
       align-items: center !important;
       position: relative !important;
       width: 100% !important;
+      min-height: 60px !important;
     }
     
     .navbar_logo-center {
+      position: absolute !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
       display: flex !important;
       justify-content: center !important;
       align-items: center !important;
-      flex: 1 !important;
     }
-    
+
+    .navbar_logo-center .heading-style-h3 {
+      font-size: 1.1rem !important;
+      white-space: nowrap !important;
+    }
+
     .navbar_links-menu {
       position: absolute !important;
       left: 0 !important;
@@ -476,20 +488,31 @@
       }
       
       /* ===== NAVBAR LAYOUT - Logo left, links center, hamburger right ===== */
+      .navbar_component {
+        min-height: 60px !important;
+      }
+
       .navbar_content {
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
         position: relative !important;
         width: 100% !important;
+        min-height: 60px !important;
       }
-      
+
       .navbar_logo-center {
-        margin: auto;
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
         display: flex !important;
-        justify-content: flex-start !important;
+        justify-content: center !important;
         align-items: center !important;
-        flex: 0 1 auto !important;
+      }
+
+      .navbar_logo-center .heading-style-h3 {
+        font-size: 1.1rem !important;
+        white-space: nowrap !important;
       }
       
       .navbar_center-logo {
@@ -1261,8 +1284,17 @@
         <div class="navbar_component">
           <div class="navbar_content">
             <div class="navbar_logo-center">
-              <h3 class="heading-style-h3 font-weight-medium" style="color: #234A9E !important;">BRAND BREWING COMPANY</h3>
+              <h3 class="heading-style-h3 font-weight-medium" style="color: #234A9E !important; letter-spacing: 0.15em;">BRAND BREWING COMPANY</h3>
             </div>
+            <!-- <div class="navbar_links navbar_links-inline">
+              <a href="../index.htm" class="navbar_link w-inline-block"><span class="navbar_link-text _1">Home</span></a>
+              <span class="navbar_link-divider"></span>
+              <a href="../works/1.html" class="navbar_link w-inline-block"><span class="navbar_link-text _1">Work</span></a>
+              <span class="navbar_link-divider"></span>
+              <a href="../blog/2.html" class="navbar_link w-inline-block"><span class="navbar_link-text _1">Blog</span></a>
+              <span class="navbar_link-divider"></span>
+              <a href="2.html" class="navbar_link w-inline-block"><span class="navbar_link-text _1">Contact</span></a>
+            </div> -->
             <div class="navbar_links-menu">
               <div class="menu_component">
                 <div fs-scrolldisable-media="(max-width: 767px)" fs-scrolldisable-element="toggle"
@@ -1283,7 +1315,7 @@
                               <div class="menu_link-text _2">Home</div>
                             </div>
                             <div class="menu_link-dot"></div>
-                          </a><a href="../index.htm" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
+                          </a><a href="../works/1.html" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
                             class="menu_link w-inline-block">
                             <div class="menu_link-texts">
                               <div class="menu_link-text _1">Work</div>
@@ -1297,8 +1329,8 @@
                               <div class="menu_link-text _2">Blog</div>
                             </div>
                             <div class="menu_link-dot"></div>
-                          </a><a href="2.html" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
-                            class="menu_link w-inline-block">
+                          </a><a href="2.html" aria-current="page" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
+                            class="menu_link w-inline-block w--current">
                             <div class="menu_link-texts">
                               <div class="menu_link-text _1">Contact</div>
                               <div class="menu_link-text _2">Contact</div>
@@ -1310,7 +1342,27 @@
                         <div class="menu_actions">
                           <div class="menu_social-wrap">
                             <div class="menu_buttons">
-                            </div>
+                              <!-- <a href="https://webflow.com/templates/designers/templatesupply"
+                                data-wf--button--variant="grey" data-w-id="059e00b0-f64e-1901-eae8-f1971aea4566"
+                                class="button-secondary w-inline-block">
+                                <div class="button-line_space blue-dark-36"></div>
+                                <div class="button-line_dot blue-dark-37">
+                                  <div class="button_dot"></div>
+                                  <div class="button_dot-scale"></div>
+                                </div>
+                              </a><a href="https://www.template.supply/" data-wf--button--variant="grey"
+                                data-w-id="059e00b0-f64e-1901-eae8-f1971aea4566" target="_blank"
+                                class="button-secondary w-inline-block">
+                                <div class="button_texts">
+                                  <div class="button_text _1">More templates</div>
+                                  <div class="button_text _2">More templates</div>
+                                </div> -->
+                                <!-- <div class="button-line_space blue-dark-36"></div> -->
+                                <!-- <div class="button-line_dot blue-dark-37">
+                                  <div class="button_dot"></div>
+                                  <div class="button_dot-scale"></div>
+                                </div> -->
+                              </a></div>
                             <div class="menu_social"><a href="../index.htm" target="_blank"
                                 class="menu_social-link w-inline-block"><img loading="lazy"
                                   src="../6840876d4d1ed0e8e2a330b9/68642b559d94bcc3773fc317_social-insta.svg" alt=""
@@ -1321,7 +1373,7 @@
                                 class="menu_social-link w-inline-block"><img loading="lazy"
                                   src="../6840876d4d1ed0e8e2a330b9/686464e5c7256ddd81c074ee_dribble.svg" alt=""
                                   class="menu_social-icon"></a></div>
-                          </div><a data-w-id="5fdd110c-b4dc-4c3b-f311-33bd343dda97" href="../index.htm"
+                          </div><a data-w-id="5fdd110c-b4dc-4c3b-f311-33bd343dda97" href="../contact/2.html"
                             class="menu_contact w-inline-block"><img
                               src="../6840876d4d1ed0e8e2a330b9/68474f06add2ed267a218556_link.png" loading="lazy"
                               sizes="(max-width: 1400px) 100vw, 1400px"
@@ -1527,11 +1579,11 @@
                 <div class="footer_group">
                   <div class="footer_link-label">Pages</div>
                   <div class="footer_lists" style="display: flex; flex-direction: column; gap: 0.75rem;">
-                    <a href="index.htm" aria-current="page"
+                    <a href="/index.htm" aria-current="page"
                         class="footer_link w--current">Home</a>
-                    <a href="index.htm" class="footer_link">Works</a>
-                    <a href="blog/2.html" class="footer_link">Blog</a>
-                    <a href="contact/2.html" class="footer_link">Contact</a>
+                    <a href="/work/1.html" class="footer_link">Works</a>
+                    <a href="/blog/2.html" class="footer_link">Blog</a>
+                    <a href="/contact/2.html" class="footer_link">Contact</a>
                   </div>
                 </div>
                
