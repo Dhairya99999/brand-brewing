@@ -3689,7 +3689,7 @@ blockquote {
   background-color: var(--_colors---primary--white);
   perspective-origin: 100% 0;
   transform-origin: 100% 0;
-  width: 100%;
+  width: 180%;
   height: 100%;
   position: relative;
   overflow: clip;
@@ -5344,7 +5344,7 @@ blockquote {
 }
 
 .testimonials_numbers-main {
-  margin: 1rem;
+  margin: 3rem;
   grid-column-gap: var(--fixed--2-5rem);
   grid-row-gap: var(--fixed--2-5rem);
   flex-flow: wrap;

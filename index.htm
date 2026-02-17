@@ -968,65 +968,96 @@
       box-shadow: 0 0 3px 1px #234A9E !important;
     }
     
-    /* ===== CTA BUTTONS - Dribbble-style hover (FFC319 / 234A9E) ===== */
+    /* ===== CTA BUTTONS - Glass / Frosted effect ===== */
     .button-secondary,
     .button-gradient,
     .footer_newsletter-button,
     .home-header_contact-cta {
-      background-color: #FFC319 !important;
+      background: rgba(255, 255, 255, 0.15) !important;
       color: #234A9E !important;
-      border: 2px solid #234A9E !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.35) !important;
       position: relative !important;
       overflow: hidden !important;
-      transition: color 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease !important;
-      box-shadow: 0 4px 14px rgba(35, 74, 158, 0.25) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      box-shadow: 0 4px 20px rgba(35, 74, 158, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+      transition: all 0.35s ease !important;
     }
-    
+
     .home-header_contact-cta {
       cursor: pointer !important;
       display: inline-block !important;
       padding: 0.5em 1em !important;
       border-radius: 8px !important;
     }
-    
+
+    /* Glass buttons on dark backgrounds get light text */
+    .section_cta .button-secondary,
+    .section_home-services .button-secondary,
+    .section_pricing .button-secondary {
+      background: rgba(255, 255, 255, 0.12) !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+      color: #ffffff !important;
+    }
+
+    .section_cta .button-secondary .button_text,
+    .section_cta .button-secondary .button_text._1,
+    .section_cta .button-secondary .button_text._2 {
+      color: #234A9E !important;
+    }
+
     .button-secondary::before,
     .button-gradient .button-grad_inner::after,
     .home-header_contact-cta::before {
       content: '' !important;
       position: absolute !important;
       inset: 0 !important;
-      background-color: #234A9E !important;
+      background: linear-gradient(135deg, rgba(255, 195, 25, 0.4) 0%, rgba(35, 74, 158, 0.3) 100%) !important;
       z-index: 0 !important;
       transform: translateX(-100%) !important;
       transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
       border-radius: 6px !important;
     }
-    
+
     .button-gradient .button-grad_inner {
       position: relative !important;
       overflow: hidden !important;
     }
-    
+
     .button-gradient .button-grad_inner::after {
       left: 0 !important;
       right: auto !important;
       width: 100% !important;
     }
-    
+
     .button-secondary:hover,
     .button-gradient:hover .button-grad_text,
     .footer_newsletter-button:hover,
     .home-header_contact-cta:hover {
-      color: #FFC319 !important;
-      box-shadow: 0 6px 20px rgba(35, 74, 158, 0.4) !important;
+      background: rgba(255, 195, 25, 0.25) !important;
+      color: #234A9E !important;
+      border-color: rgba(255, 195, 25, 0.5) !important;
+      box-shadow: 0 8px 32px rgba(255, 195, 25, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
     }
-    
+
+    .section_cta .button-secondary:hover,
+    .section_home-services .button-secondary:hover,
+    .section_pricing .button-secondary:hover {
+      color: #ffffff !important;
+    }
+
     .button-secondary:hover .button_text,
     .button-secondary:hover .button_text._1,
     .button-secondary:hover .button_text._2 {
-      color: #FFC319 !important;
+      color: #234A9E !important;
     }
-    
+
+    .section_cta .button-secondary:hover .button_text,
+    .section_cta .button-secondary:hover .button_text._1,
+    .section_cta .button-secondary:hover .button_text._2 {
+      color: #ffffff !important;
+    }
+
     .button-secondary::before,
     .button-secondary:hover::before,
     .button-gradient .button-grad_inner::after,
@@ -1035,15 +1066,15 @@
     .home-header_contact-cta:hover::before {
       pointer-events: none !important;
     }
-    
+
     .button-secondary:hover::before {
       transform: translateX(0) !important;
     }
-    
+
     .button-gradient:hover .button-grad_inner::after {
       transform: translateX(0) !important;
     }
-    
+
     .home-header_contact-cta:hover::before {
       transform: translateX(0) !important;
     }
@@ -1097,28 +1128,39 @@
       color: #234A9E !important;
       backdrop-filter: blur(10px) !important;
     }
-    
+
     .navbar_link-text,
     .navbar_logo-wrap,
     .navbar_creative-text {
       color: #ffffff !important;
     }
-    
+
     /* ===== NAVBAR LAYOUT - Logo left, links center, hamburger right ===== */
+    .navbar_component {
+      min-height: 60px !important;
+    }
+
     .navbar_content {
       display: flex !important;
       justify-content: space-between !important;
       align-items: center !important;
       position: relative !important;
       width: 100% !important;
+      min-height: 60px !important;
     }
-    
+
     .navbar_logo-center {
-      margin: auto;
+      position: absolute !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
       display: flex !important;
-      justify-content: flex-start !important;
+      justify-content: center !important;
       align-items: center !important;
-      flex: 0 1 auto !important;
+    }
+
+    .navbar_logo-center .heading-style-h3 {
+      font-size: 1.1rem !important;
+      white-space: nowrap !important;
     }
     
     .navbar_center-logo {
@@ -1510,9 +1552,9 @@
     .section_brands p,
     .section_work-list p,
     .section_home-grid p,
-    .section_home-about p,
+    .section_home-about p
     /* Remove extra spacing from testimonials section */
-    .section_testimonials {
+     {
       padding-bottom: 0 !important;
       margin-bottom: 0 !important;
     }
@@ -1540,7 +1582,10 @@
       color: #234A9E !important;
       opacity: 0.8 !important;
     }
-    
+    .section_testimonials{
+      padding-bottom: 3rem !important;
+      padding-top: 3rem !important;
+    }
     /* Service text on light backgrounds */
     .home-header_service-text {
       color: #234A9E !important;
@@ -1642,50 +1687,29 @@
       margin-top: 2rem !important;
       margin-bottom: 0 !important;
     }
-    
+
     .testimonials_marquee {
       display: flex !important;
       width: max-content !important;
-      white-space: nowrap !important;
       overflow: visible !important;
       position: relative !important;
       flex-wrap: nowrap !important;
       will-change: transform !important;
-      animation: marquee-scroll 40s linear infinite !important;
-      animation-delay: 0s !important;
-      animation-fill-mode: both !important;
-      animation-play-state: running !important;
     }
-    
+
     .testimonials_marquee-track {
       display: flex !important;
       gap: 1.5rem !important;
       flex-shrink: 0 !important;
       width: max-content !important;
       min-width: max-content !important;
+      padding-right: 1.5rem !important;
     }
-    
+
     .testimonials_marquee-track[aria-hidden="true"] {
       position: relative !important;
     }
-    
-    @keyframes marquee-scroll {
-      from {
-        transform: translate3d(0, 0, 0) !important;
-      }
-      to {
-        transform: translate3d(calc(-50% - 0.75rem), 0, 0) !important;
-      }
-    }
-    
-    .testimonials_marquee:hover {
-      animation-play-state: paused !important;
-    }
-    
-    .testimonials_marquee-wrapper:hover .testimonials_marquee {
-      animation-play-state: paused !important;
-    }
-    
+
     /* Ensure marquee is always visible and moving */
     .testimonials_marquee-wrapper,
     .testimonials_marquee,
@@ -1792,6 +1816,393 @@
       box-sizing: border-box !important;
       overflow: hidden !important;
     }
+
+    /* ===== RESPONSIVE - TABLET (max-width: 991px) ===== */
+    @media (max-width: 991px) {
+      /* Navbar */
+      .navbar_logo-center .heading-style-h3 {
+        font-size: 0.95rem !important;
+        letter-spacing: 0.1em !important;
+      }
+
+      .navbar_content {
+        min-height: 50px !important;
+      }
+
+      .navbar_component {
+        min-height: 50px !important;
+      }
+
+      .hamburger-logo-img {
+        max-height: 42px !important;
+        height: 42px !important;
+      }
+
+      /* Menu - full width on tablet */
+      .menu {
+        width: 100vw !important;
+      }
+
+      .menu_in {
+        width: 100% !important;
+        left: -0.5rem !important;
+      }
+
+      .menu_content {
+        padding: 2rem !important;
+      }
+
+      .menu_content > div:nth-child(2) {
+        padding-left: 2rem !important;
+      }
+
+      .menu_link-text {
+        font-size: 1.75rem !important;
+      }
+
+      .menu_contact {
+        height: auto !important;
+      }
+
+      /* Footer */
+      .footer_wrap {
+        padding: 3rem 2rem !important;
+      }
+
+      .footer_links-groups {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 2rem !important;
+      }
+
+      .footer_main {
+        flex-direction: column !important;
+        gap: 2rem !important;
+      }
+
+      .footer_secondary {
+        align-items: flex-start !important;
+        width: 100% !important;
+      }
+
+      .footer_newsletter {
+        min-width: unset !important;
+        width: 100% !important;
+      }
+
+      .footer_brand {
+        font-size: 20vw !important;
+        bottom: -6vw !important;
+      }
+
+      /* Testimonials marquee */
+      .testimonials_card-marquee {
+        min-width: 300px !important;
+        max-width: 340px !important;
+        width: 320px !important;
+        padding: 1.5rem !important;
+      }
+
+      .testimonials_marquee-track {
+        gap: 1rem !important;
+        padding-right: 1rem !important;
+      }
+
+      .testimonials_card-marquee .testimonials_quote {
+        font-size: 0.925rem !important;
+      }
+    }
+
+    /* ===== RESPONSIVE - MOBILE LANDSCAPE (max-width: 767px) ===== */
+    @media (max-width: 767px) {
+      /* Navbar */
+      .navbar_logo-center .heading-style-h3 {
+        font-size: 0.8rem !important;
+        letter-spacing: 0.08em !important;
+      }
+
+      .navbar_content {
+        min-height: 48px !important;
+        padding: 0 !important;
+      }
+
+      .navbar_component {
+        min-height: 48px !important;
+      }
+
+      .hamburger-logo-img {
+        max-height: 38px !important;
+        height: 38px !important;
+      }
+
+      .hamburger-logo {
+        padding: 0.35rem !important;
+      }
+
+      /* Menu - mobile landscape */
+      .menu {
+        width: 100vw !important;
+      }
+
+      .menu_in {
+        width: 100% !important;
+        left: 0 !important;
+      }
+
+      .menu_content {
+        flex-direction: column !important;
+        padding: 1.5rem !important;
+      }
+
+      .menu_content > div:nth-child(2) {
+        padding-left: 0 !important;
+        align-items: center !important;
+      }
+
+      .menu_link {
+        padding: 0.6rem 1rem !important;
+        max-width: 100% !important;
+      }
+
+      .menu_link-text {
+        font-size: 1.5rem !important;
+      }
+
+      .menu_close {
+        left: 0.75rem !important;
+        top: 0.75rem !important;
+      }
+
+      .menu_contact {
+        height: auto !important;
+        aspect-ratio: auto !important;
+      }
+
+      .menu_actions {
+        width: 100% !important;
+      }
+
+      .menu_social-wrap {
+        width: 100% !important;
+      }
+
+      /* Footer */
+      .footer_wrap {
+        padding: 2.5rem 1.5rem !important;
+        border-radius: 16px !important;
+      }
+
+      .footer_links-groups {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+
+      .footer_brand {
+        font-size: 25vw !important;
+        bottom: -4vw !important;
+        right: 1rem !important;
+      }
+
+      .footer_legal-links {
+        padding-top: 1.5rem !important;
+        margin-top: 2rem !important;
+      }
+
+      .footer_field-wrap {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+      }
+
+      .footer_social {
+        gap: 0.75rem !important;
+      }
+
+      /* Testimonials marquee */
+      .testimonials_card-marquee {
+        min-width: 260px !important;
+        max-width: 300px !important;
+        width: 280px !important;
+        padding: 1.25rem !important;
+      }
+
+      .testimonials_marquee-track {
+        gap: 0.75rem !important;
+        padding-right: 0.75rem !important;
+      }
+
+      .testimonials_marquee-wrapper {
+        margin-top: 1.5rem !important;
+      }
+
+      .testimonials_card-marquee .testimonials_quote {
+        font-size: 0.875rem !important;
+        line-height: 1.45 !important;
+      }
+
+      .testimonials_card-marquee .testimonials_author {
+        font-size: 0.9rem !important;
+      }
+
+      .testimonials_card-marquee .testimonials_title {
+        font-size: 0.825rem !important;
+      }
+
+      .testimonials_card-marquee .testimonials_star {
+        width: 15px !important;
+        height: 15px !important;
+      }
+
+      .section_testimonials {
+        padding-bottom: 2rem !important;
+        padding-top: 2rem !important;
+      }
+    }
+
+    /* ===== RESPONSIVE - MOBILE PORTRAIT (max-width: 479px) ===== */
+    @media (max-width: 479px) {
+      /* Navbar */
+      .navbar_logo-center .heading-style-h3 {
+        font-size: 0.65rem !important;
+        letter-spacing: 0.05em !important;
+      }
+
+      .navbar_content {
+        min-height: 44px !important;
+      }
+
+      .navbar_component {
+        min-height: 44px !important;
+      }
+
+      .hamburger-logo-img {
+        max-height: 32px !important;
+        height: 32px !important;
+      }
+
+      .hamburger-logo {
+        padding: 0.25rem !important;
+      }
+
+      .padding-global.is-small {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+      }
+
+      /* Menu - mobile portrait */
+      .menu_content {
+        padding: 1rem !important;
+      }
+
+      .menu_link-text {
+        font-size: 1.25rem !important;
+      }
+
+      .menu_link {
+        padding: 0.5rem 0.75rem !important;
+      }
+
+      .menu_close {
+        left: 0.5rem !important;
+        top: 0.5rem !important;
+      }
+
+      .menu_close-icon {
+        width: 0.75rem !important;
+      }
+
+      .menu_contact-text {
+        font-size: 0.9rem !important;
+      }
+
+      .menu_social {
+        gap: 0.75rem !important;
+        justify-content: center !important;
+      }
+
+      .menu_social-icon {
+        width: 20px !important;
+        height: 20px !important;
+      }
+
+      /* Footer */
+      .footer_wrap {
+        padding: 2rem 1rem !important;
+        border-radius: 12px !important;
+      }
+
+      .footer_about-text p {
+        font-size: 0.85rem !important;
+        line-height: 1.6 !important;
+      }
+
+      .footer_brand {
+        font-size: 30vw !important;
+        bottom: -3vw !important;
+        right: 0.5rem !important;
+      }
+
+      .footer_copyright {
+        font-size: 0.75rem !important;
+      }
+
+      .footer_newsletter-button {
+        width: 100% !important;
+      }
+
+      .footer_field {
+        padding: 0.75rem 0.875rem !important;
+        font-size: 0.875rem !important;
+      }
+
+      /* Testimonials marquee */
+      .testimonials_card-marquee {
+        min-width: 230px !important;
+        max-width: 270px !important;
+        width: 250px !important;
+        padding: 1rem !important;
+        border-radius: 12px !important;
+      }
+
+      .testimonials_marquee-track {
+        gap: 0.6rem !important;
+        padding-right: 0.6rem !important;
+      }
+
+      .testimonials_marquee-wrapper {
+        margin-top: 1rem !important;
+      }
+
+      .testimonials_card-marquee .testimonials_quote {
+        font-size: 0.825rem !important;
+        line-height: 1.4 !important;
+      }
+
+      .testimonials_card-marquee .testimonials_wrap {
+        gap: 1rem !important;
+      }
+
+      .testimonials_card-marquee .testimonials_author {
+        font-size: 0.85rem !important;
+      }
+
+      .testimonials_card-marquee .testimonials_title {
+        font-size: 0.8rem !important;
+      }
+
+      .testimonials_card-marquee .testimonials_star {
+        width: 14px !important;
+        height: 14px !important;
+      }
+
+      .testimonials_card-marquee .testimonials_stars {
+        gap: 0.2rem !important;
+        margin-bottom: 0.5rem !important;
+      }
+
+      .section_testimonials {
+        padding-bottom: 1.5rem !important;
+        padding-top: 1.5rem !important;
+      }
+    }
   </style>
 
   <!-- Lennis script and styles -->
@@ -1811,12 +2222,12 @@
         <div class="navbar_component">
           <div class="navbar_content">
             <div class="navbar_logo-center">
-              <h3 class="heading-style-h3 font-weight-medium" style="color: #234A9E !important;">BRAND BREWING COMPANY</h3>
+              <h3 class="heading-style-h3 font-weight-medium" style="color: #234A9E !important; letter-spacing: 0.15em;">BRAND BREWING COMPANY</h3>
             </div>
             <!-- <div class="navbar_links navbar_links-inline">
               <a href="index.htm" class="navbar_link w-inline-block"><span class="navbar_link-text _1">Home</span></a>
               <span class="navbar_link-divider"></span>
-              <a href="index.htm" class="navbar_link w-inline-block"><span class="navbar_link-text _1">Work</span></a>
+              <a href="works/1.html" class="navbar_link w-inline-block"><span class="navbar_link-text _1">Work</span></a>
               <span class="navbar_link-divider"></span>
               <a href="blog/2.html" class="navbar_link w-inline-block"><span class="navbar_link-text _1">Blog</span></a>
               <span class="navbar_link-divider"></span>
@@ -1843,7 +2254,7 @@
                             </div>
                             <div class="menu_link-dot"></div>
                           </a>
-                          </a><a href="index.htm" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
+                          </a><a href="works/1.html" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
                             class="menu_link w-inline-block">
                             <div class="menu_link-texts">
                               <div class="menu_link-text _1">Work</div>
@@ -2064,16 +2475,16 @@
               <div class="cta_content">
                 <div data-w-id="a96576e7-0ca7-fa5e-89ee-4643797a680f" class="text-align-center">
                   <div class="text-color-white">
-                    <h2 class="heading-style-h1 font-weight-medium">Turning Ideas Into Brands</h2>
+                    <h2 class="heading-style-h1 font-weight-medium" style="font-size: clamp(3rem, 6vw, 5.5rem); line-height: 1.1;">Turning Ideas Into Brands That&nbsp;Leave&nbsp;a&nbsp;Mark</h2>
                   </div>
                 </div>
                 <div class="spacer-large"></div>
-                <div data-w-id="a96576e7-0ca7-fa5e-89ee-4643797a6814" class="fade-in"><a href="#works-section"
+                <div data-w-id="a96576e7-0ca7-fa5e-89ee-4643797a6814" class="fade-in"><a href="contact/2.html"
                     data-wf--button--variant="white" data-w-id="059e00b0-f64e-1901-eae8-f1971aea4566"
                     class="button-secondary w-variant-084c35ac-0c40-f906-a9cd-0d43386a2d5d w-inline-block works-scroll-btn">
                     <div class="button_texts">
-                      <div class="button_text _1">Works</div>
-                      <div class="button_text _2">Works</div>
+                      <div class="button_text _1">Get in Touch</div>
+                      <div class="button_text _2">Get in Touch</div>
                     </div>
                     <!-- <div class="button-line_space blue-dark-36"></div>
                     <div class="button-line_dot blue-dark-37">
@@ -2419,7 +2830,7 @@
                 <div role="listitem" class="work-list_item w-dyn-item">
                   <div data-w-id="488e7777-71b2-7e36-4789-2206a7bd01df" class="work-list_block"><a
                       aria-label="link to work page" data-w-id="488e7777-71b2-7e36-4789-2206a7bd01e0"
-                      href="index.htm" class="work-list_link w-inline-block"><img loading="eager"
+                      href="work/bronx.html" class="work-list_link w-inline-block"><img loading="eager"
                         src="684847f3b88d34cd4726e23a/684848090da5d4141867355b_man-1-final.webp" alt=""
                         class="work-list_img">
                       <div class="work-list_name">
@@ -2431,7 +2842,7 @@
                 <div role="listitem" class="work-list_item w-dyn-item">
                   <div data-w-id="488e7777-71b2-7e36-4789-2206a7bd01df" class="work-list_block"><a
                       aria-label="link to work page" data-w-id="488e7777-71b2-7e36-4789-2206a7bd01e0"
-                      href="index.htm" class="work-list_link w-inline-block"><img loading="eager"
+                      href="work/bronx.html" class="work-list_link w-inline-block"><img loading="eager"
                         src="684847f3b88d34cd4726e23a/684852292b8c525af2aede64_Dynamic%20Motion%20Blur.webp" alt=""
                         class="work-list_img">
                       <div class="work-list_name">
@@ -2443,7 +2854,7 @@
                 <div role="listitem" class="work-list_item w-dyn-item">
                   <div data-w-id="488e7777-71b2-7e36-4789-2206a7bd01df" class="work-list_block"><a
                       aria-label="link to work page" data-w-id="488e7777-71b2-7e36-4789-2206a7bd01e0"
-                      href="index.htm" class="work-list_link w-inline-block"><img loading="eager"
+                      href="work/bronx.html" class="work-list_link w-inline-block"><img loading="eager"
                         src="684847f3b88d34cd4726e23a/68484dda7fed2cd1d39a2ec8_Golden%20Adorned%20Person.webp" alt=""
                         class="work-list_img">
                       <div class="work-list_name">
@@ -2455,7 +2866,7 @@
               </div>
             </div>
             <div class="spacer-large"></div>
-            <div data-w-id="86b9f3af-cb4f-5a69-3de4-8d0df7f0b23e" class="fade-in"><a href="index.htm"
+            <div data-w-id="86b9f3af-cb4f-5a69-3de4-8d0df7f0b23e" class="fade-in"><a href="works/1.html"
                 data-wf--button--variant="black" data-w-id="059e00b0-f64e-1901-eae8-f1971aea4566"
                 class="button-secondary w-variant-f874b9ba-24b5-50ff-0733-53dd5363b8cf w-inline-block">
                 <div class="button_texts">
@@ -2851,7 +3262,6 @@
         </div>
       </section>
       <section class="section_testimonials">
-        <div class="padding-section-medium"></div>
         <div class="padding-global">
           <div class="container-medium">
             <div class="testimonials_component">
@@ -3239,7 +3649,6 @@
                 </div>
               </div>
                 <div class="testimonials_infos">
-                  <div data-w-id="67a1b9b9-adae-bae0-1f89-3d2a565093fc" style="width:0%" class="line"></div>
                 </div>
               </div>
             </div>
@@ -3627,7 +4036,7 @@
                   <div class="footer_lists" style="display: flex; flex-direction: column; gap: 0.75rem;">
                     <a href="index.htm" aria-current="page"
                         class="footer_link w--current">Home</a>
-                    <a href="index.htm" class="footer_link">Works</a>
+                    <a href="works/1.html" class="footer_link">Works</a>
                     <a href="blog/2.html" class="footer_link">Blog</a>
                     <a href="contact/2.html" class="footer_link">Contact</a>
                   </div>
@@ -3790,6 +4199,53 @@
         document.addEventListener('DOMContentLoaded', initLogoAnimation);
       } else {
         setTimeout(initLogoAnimation, 100);
+      }
+    })();
+  </script>
+  <!-- Testimonials marquee animation powered by GSAP -->
+  <script>
+    (function() {
+      function initMarquee() {
+        const marquee = document.querySelector('.testimonials_marquee');
+        if (!marquee) return;
+        const tracks = marquee.querySelectorAll('.testimonials_marquee-track');
+        if (!tracks.length) return;
+        // Force visibility in case Webflow interactions hid them
+        marquee.style.opacity = '1';
+        marquee.style.visibility = 'visible';
+        tracks.forEach(function(t) { t.style.opacity = '1'; t.style.visibility = 'visible'; });
+        // Measure one track width (including gap)
+        const trackWidth = tracks[0].scrollWidth;
+        // GSAP infinite scroll: move left by one track width, then snap back
+        gsap.set(marquee, { x: 0 });
+        gsap.to(marquee, {
+          x: -trackWidth,
+          duration: 40,
+          ease: 'none',
+          repeat: -1,
+          modifiers: {
+            x: function(x) {
+              return (parseFloat(x) % trackWidth) + 'px';
+            }
+          }
+        });
+        // Pause on hover
+        var wrapper = document.querySelector('.testimonials_marquee-wrapper');
+        if (wrapper) {
+          wrapper.addEventListener('mouseenter', function() { gsap.getById && gsap.getById(marquee) ? gsap.getById(marquee).pause() : null; marquee._gsapTween && marquee._gsapTween.pause(); });
+          wrapper.addEventListener('mouseleave', function() { marquee._gsapTween && marquee._gsapTween.resume(); });
+        }
+        // Store tween reference for pause/resume
+        marquee._gsapTween = gsap.getTweensOf(marquee)[0];
+        if (wrapper) {
+          wrapper.addEventListener('mouseenter', function() { if (marquee._gsapTween) marquee._gsapTween.pause(); });
+          wrapper.addEventListener('mouseleave', function() { if (marquee._gsapTween) marquee._gsapTween.resume(); });
+        }
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() { setTimeout(initMarquee, 500); });
+      } else {
+        setTimeout(initMarquee, 500);
       }
     })();
   </script>

@@ -32,6 +32,212 @@
     }
   </style>
 
+  <!-- BBC Brand color overrides -->
+  <style>
+    :root {
+      --_colors---primary--accent: #FFC319;
+      --_colors---primary--blue: #234A9E;
+    }
+    body, .page-wrapper { background-color: #ffffff !important; }
+
+    /* Dark sections */
+    .section_cta, .cta_component { background-color: #234A9E !important; }
+    .section_cta h1, .section_cta h2, .section_cta h3, .cta_content h2,
+    .text-color-white { color: #ffffff !important; }
+
+    /* Text on light backgrounds */
+    .heading-style-h1, .heading-style-h2, .heading-style-h3, .heading-style-h4,
+    .heading-style-display, .work-list_title,
+    .section_work-list h2, .section_work-list h3 { color: #234A9E !important; }
+
+    /* Accent elements */
+    .button-secondary.w-variant-f874b9ba-24b5-50ff-0733-53dd5363b8cf,
+    .label_dot, .button-line_dot, .button_dot,
+    .navbar_link-dot, .menu_link-dot, .work-list_dot,
+    .navbar_works-number-wrap, .work-list_number { background-color: #FFC319 !important; color: #234A9E !important; }
+    .text-color-accent, .home-header_mark { color: #FFC319 !important; }
+
+    /* Interactive elements */
+    .w-button, .button-secondary:not(.w-variant-f874b9ba-24b5-50ff-0733-53dd5363b8cf):not(.white),
+    .hamburger_line { background-color: #FFC319 !important; border-color: #234A9E !important; color: #234A9E !important; }
+
+    /* Button shapes */
+    .button-secondary, .button-gradient, .w-button { border-radius: 8px !important; }
+    .button-secondary::before, .button-gradient::before { border-radius: 6px !important; }
+
+    /* CTA Buttons - Glass effect */
+    .button-secondary, .button-gradient, .footer_newsletter-button {
+      background: rgba(255, 255, 255, 0.15) !important; color: #234A9E !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.35) !important; position: relative !important;
+      overflow: hidden !important; backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      box-shadow: 0 4px 20px rgba(35, 74, 158, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+      transition: all 0.35s ease !important;
+    }
+    .section_cta .button-secondary { background: rgba(255, 255, 255, 0.12) !important; border: 1.5px solid rgba(255, 255, 255, 0.3) !important; color: #ffffff !important; }
+    .section_cta .button-secondary .button_text { color: #ffffff !important; }
+    .button-secondary::before, .button-gradient .button-grad_inner::after {
+      content: '' !important; position: absolute !important; inset: 0 !important;
+      background: linear-gradient(135deg, rgba(255, 195, 25, 0.4) 0%, rgba(35, 74, 158, 0.3) 100%) !important;
+      z-index: 0 !important; transform: translateX(-100%) !important;
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important; border-radius: 6px !important;
+    }
+    .button-secondary:hover, .footer_newsletter-button:hover {
+      background: rgba(255, 195, 25, 0.25) !important; color: #234A9E !important;
+      border-color: rgba(255, 195, 25, 0.5) !important;
+      box-shadow: 0 8px 32px rgba(255, 195, 25, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+    }
+    .button-secondary:hover .button_text { color: #234A9E !important; }
+    .section_cta .button-secondary:hover { color: #ffffff !important; }
+    .section_cta .button-secondary:hover .button_text { color: #ffffff !important; }
+    .button-secondary:hover::before { transform: translateX(0) !important; }
+    .footer_newsletter-button:hover { background-color: #234A9E !important; }
+    .button_texts { position: relative !important; z-index: 1 !important; }
+    .button-gradient { background-color: #FFC319 !important; border: 2px solid #234A9E !important; color: #234A9E !important; }
+    .button-secondary.w-variant-084c35ac-0c40-f906-a9cd-0d43386a2d5d,
+    .button-secondary.white { background-color: #FFC319 !important; border-color: #234A9E !important; color: #234A9E !important; }
+
+    /* ===== NAVBAR ===== */
+    .navbar, .navbar_component { background-color: #FFC319 !important; color: #234A9E !important; backdrop-filter: blur(10px) !important; }
+    .navbar_link-text, .navbar_logo-wrap, .navbar_creative-text { color: #ffffff !important; }
+    .navbar_component { min-height: 60px !important; }
+    .navbar_content { display: flex !important; justify-content: space-between !important; align-items: center !important; position: relative !important; width: 100% !important; min-height: 60px !important; }
+    .navbar_logo-center { position: absolute !important; left: 50% !important; transform: translateX(-50%) !important; display: flex !important; justify-content: center !important; align-items: center !important; }
+    .navbar_logo-center .heading-style-h3 { font-size: 1.1rem !important; white-space: nowrap !important; }
+    .navbar_links-menu { position: absolute !important; right: auto !important; left: 0 !important; }
+
+    /* Hamburger logo */
+    .hamburger-logo { display: flex !important; align-items: center !important; justify-content: center !important; padding: 0.5rem !important; cursor: pointer !important; transition: transform 0.3s ease !important; position: relative !important; }
+    .hamburger-logo:hover { transform: scale(1.05) !important; }
+    .hamburger-logo-img { max-height: 50px !important; height: 50px !important; width: auto !important; object-fit: contain !important; display: block !important; transform: rotate(0deg) scale(1) !important; opacity: 1 !important; filter: brightness(1) drop-shadow(0 0 0 transparent) !important; will-change: transform !important; transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease, scale 0.3s ease !important; }
+    .hamburger-logo:hover .hamburger-logo-img { filter: brightness(1.08) drop-shadow(0 4px 12px rgba(35, 74, 158, 0.25)) !important; transform: rotate(0deg) scale(1.08) !important; }
+    .hamburger-logo:hover .hamburger-logo-img.menu-open { transform: rotate(-90deg) scale(1.08) !important; }
+    .hamburger-logo-img.menu-open { transform: rotate(-90deg) scale(1) !important; opacity: 1 !important; filter: brightness(1) drop-shadow(0 0 0 transparent) !important; }
+
+    /* Menu positioning */
+    .menu { inset: 0% auto auto 0% !important; }
+    .menu_in { perspective-origin: 0% 0% !important; transform-origin: 0% 0% !important; }
+    .menu_content { display: flex !important; flex-direction: row !important; justify-content: flex-start !important; align-items: flex-start !important; position: relative !important; }
+    .menu_content > div:nth-child(2) { align-items: center !important; width: 100% !important; }
+    .menu_links { display: flex !important; flex-direction: column !important; align-items: center !important; width: 100% !important; gap: 0.5rem !important; }
+    .menu_link { position: relative !important; padding: 0.75rem 1.5rem !important; border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important; width: 100% !important; max-width: 280px !important; text-align: center !important; transition: transform 0.25s ease, background 0.25s ease !important; }
+    .menu_link:hover { transform: translateX(6px) !important; background: rgba(255, 255, 255, 0.06) !important; }
+    .menu_close { position: absolute !important; left: 1rem !important; top: 1rem !important; right: auto !important; bottom: auto !important; z-index: 10 !important; }
+    .menu_social-icon, .menu_contact-img { transition: transform 0.3s ease, filter 0.3s ease !important; }
+    .menu_social-link:hover .menu_social-icon { transform: scale(1.15) !important; filter: brightness(1.2) !important; }
+    .menu_contact:hover .menu_contact-img { transform: scale(1.03) !important; filter: brightness(1.1) !important; }
+
+    /* ===== FOOTER ===== */
+    .footer, .footer_component { background-color: #234A9E !important; }
+    .footer_wrap { background-color: #234A9E !important; border-radius: 24px !important; padding: 4rem 3rem !important; position: relative !important; overflow: hidden !important; }
+    .footer_wrap::before { content: '' !important; position: absolute !important; top: 0 !important; left: 0 !important; right: 0 !important; height: 1px !important; background: linear-gradient(90deg, transparent, rgba(255, 195, 25, 0.3), transparent) !important; }
+    .footer_link, .footer_copyright, .footer_template-link { color: rgba(255, 255, 255, 0.9) !important; transition: color 0.3s ease !important; }
+    .footer_link:hover { color: #FFC319 !important; transform: translateX(4px) !important; }
+    .footer_link-label { color: #FFC319 !important; font-weight: 600 !important; font-size: 1rem !important; margin-bottom: 1rem !important; letter-spacing: 0.05em !important; }
+    .footer_lists { display: flex !important; flex-direction: column !important; gap: 0.75rem !important; }
+    .footer_links-list { display: flex !important; flex-direction: column !important; gap: 0.75rem !important; }
+    .footer_group { display: flex !important; flex-direction: column !important; gap: 1rem !important; }
+    .footer_links-groups { display: grid !important; grid-template-columns: 1.5fr 1fr 1fr !important; gap: 3rem !important; width: 100% !important; }
+    .footer_about-text { max-width: 100% !important; }
+    .footer_about-text p { color: rgba(255, 255, 255, 0.85) !important; font-size: 0.95rem !important; line-height: 1.7 !important; margin: 0 !important; }
+    .footer_secondary { display: flex !important; flex-direction: column !important; gap: 2rem !important; align-items: flex-end !important; }
+    .footer_social { display: flex !important; gap: 1rem !important; }
+    .footer_social-link { transition: transform 0.3s ease, opacity 0.3s ease !important; }
+    .footer_social-link:hover { transform: translateY(-3px) scale(1.1) !important; opacity: 0.8 !important; }
+    .footer_social-icon { filter: brightness(0) invert(1) !important; transition: filter 0.3s ease !important; }
+    .footer_social-link:hover .footer_social-icon { filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(0deg) !important; }
+    .footer_newsletter { min-width: 280px !important; }
+    .footer_newsletter-form { display: flex !important; flex-direction: column !important; gap: 1rem !important; }
+    .footer_field { background-color: rgba(255, 255, 255, 0.1) !important; border: 1px solid rgba(255, 255, 255, 0.2) !important; border-radius: 8px !important; color: #ffffff !important; padding: 0.875rem 1rem !important; }
+    .footer_field::placeholder { color: rgba(255, 255, 255, 0.6) !important; }
+    .footer_field:focus { border-color: #FFC319 !important; outline: none !important; background-color: rgba(255, 255, 255, 0.15) !important; }
+    .footer_newsletter-button { background-color: #FFC319 !important; color: #234A9E !important; border: 2px solid #234A9E !important; border-radius: 8px !important; font-weight: 600 !important; transition: all 0.35s ease !important; box-shadow: 0 4px 14px rgba(35, 74, 158, 0.25) !important; }
+    .footer_newsletter-button:hover { background-color: #234A9E !important; color: #FFC319 !important; transform: translateY(-2px) !important; box-shadow: 0 6px 20px rgba(35, 74, 158, 0.4) !important; }
+    .footer_brand { color: #FFC319 !important; opacity: 0.15 !important; font-size: 15vw !important; font-weight: 700 !important; position: absolute !important; bottom: -5vw !important; right: 2rem !important; pointer-events: none !important; z-index: 0 !important; }
+    .footer_legal-links { border-top: 1px solid rgba(255, 255, 255, 0.1) !important; padding-top: 2rem !important; margin-top: 3rem !important; position: relative !important; z-index: 1 !important; }
+    .footer_copyright { color: rgba(255, 255, 255, 0.7) !important; font-size: 0.875rem !important; }
+
+    /* Links and hover */
+    a:hover, .navbar_link:hover, .menu_link:hover, .footer_link:hover, .footer_link-label, .field-label { color: #FFC319 !important; }
+    .line, .navbar_line { background-color: #ffffff !important; }
+    .navbar_line { width: 100vw !important; margin-left: calc(-50vw + 50%) !important; position: relative !important; }
+    *:focus-visible { outline-color: #234A9E !important; }
+    html { scroll-behavior: smooth !important; }
+
+    /* Work page specific */
+    .text-style-label { color: #234A9E !important; }
+    .work-content_heading { color: #234A9E !important; }
+    .work-header_info-text { color: #234A9E !important; opacity: 0.7; }
+    .pill_wrap .text-style-label { color: #FFC319 !important; }
+
+    /* ===== RESPONSIVE - TABLET ===== */
+    @media (max-width: 991px) {
+      .navbar_logo-center .heading-style-h3 { font-size: 0.95rem !important; letter-spacing: 0.1em !important; }
+      .navbar_content, .navbar_component { min-height: 50px !important; }
+      .hamburger-logo-img { max-height: 42px !important; height: 42px !important; }
+      .menu { width: 100vw !important; }
+      .menu_in { width: 100% !important; left: -0.5rem !important;  }
+      .menu_content { padding: 2rem !important; }
+      .menu_content > div:nth-child(2) { padding-left: 2rem !important; }
+      .menu_link-text { font-size: 1.75rem !important; }
+      .menu_contact { height: auto !important; }
+      .footer_wrap { padding: 3rem 2rem !important; }
+      .footer_links-groups { grid-template-columns: 1fr 1fr !important; gap: 2rem !important; }
+      .footer_main { flex-direction: column !important; gap: 2rem !important; }
+      .footer_secondary { align-items: flex-start !important; width: 100% !important; }
+      .footer_newsletter { min-width: unset !important; width: 100% !important; }
+      .footer_brand { font-size: 20vw !important; bottom: -6vw !important; }
+    }
+
+    /* ===== RESPONSIVE - MOBILE LANDSCAPE ===== */
+    @media (max-width: 767px) {
+      .navbar_logo-center .heading-style-h3 { font-size: 0.8rem !important; letter-spacing: 0.08em !important; }
+      .navbar_content { min-height: 48px !important; padding: 0 !important; }
+      .navbar_component { min-height: 48px !important; }
+      .hamburger-logo-img { max-height: 38px !important; height: 38px !important; }
+      .hamburger-logo { padding: 0.35rem !important; }
+      .menu { width: 100vw !important; }
+      .menu_in { width: 100% !important; left: -0.5rem !important;  }
+      .menu_content { flex-direction: column !important; padding: 1.5rem !important; }
+      .menu_content > div:nth-child(2) { padding-left: 0 !important; align-items: center !important; }
+      .menu_link { padding: 0.6rem 1rem !important; max-width: 100% !important; }
+      .menu_link-text { font-size: 1.5rem !important; }
+      .menu_close { left: 0.75rem !important; top: 0.75rem !important; }
+      .menu_contact { height: auto !important; aspect-ratio: auto !important; }
+      .menu_actions { width: 100% !important; }
+      .menu_social-wrap { width: 100% !important; }
+      .footer_wrap { padding: 2.5rem 1.5rem !important; border-radius: 16px !important; }
+      .footer_links-groups { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+      .footer_brand { font-size: 25vw !important; bottom: -4vw !important; right: 1rem !important; }
+      .footer_legal-links { padding-top: 1.5rem !important; margin-top: 2rem !important; }
+      .footer_field-wrap { flex-direction: column !important; gap: 0.75rem !important; }
+      .footer_social { gap: 0.75rem !important; }
+    }
+
+    /* ===== RESPONSIVE - MOBILE PORTRAIT ===== */
+    @media (max-width: 479px) {
+      .navbar_logo-center .heading-style-h3 { font-size: 0.65rem !important; letter-spacing: 0.05em !important; }
+      .navbar_content, .navbar_component { min-height: 44px !important; }
+      .hamburger-logo-img { max-height: 32px !important; height: 32px !important; }
+      .hamburger-logo { padding: 0.25rem !important; }
+      .padding-global.is-small { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+      .menu_content { padding: 1rem !important; }
+      .menu_link-text { font-size: 1.25rem !important; }
+      .menu_link { padding: 0.5rem 0.75rem !important; }
+      .menu_close { left: 0.5rem !important; top: 0.5rem !important; }
+      .menu_close-icon { width: 0.75rem !important; }
+      .menu_contact-text { font-size: 0.9rem !important; }
+      .menu_social { gap: 0.75rem !important; justify-content: center !important; }
+      .menu_social-icon { width: 20px !important; height: 20px !important; }
+      .footer_wrap { padding: 2rem 1rem !important; border-radius: 12px !important; }
+      .footer_about-text p { font-size: 0.85rem !important; line-height: 1.6 !important; }
+      .footer_brand { font-size: 30vw !important; bottom: -3vw !important; right: 0.5rem !important; }
+      .footer_copyright { font-size: 0.75rem !important; }
+      .footer_newsletter-button { width: 100% !important; }
+      .footer_field { padding: 0.75rem 0.875rem !important; font-size: 0.875rem !important; }
+    }
+  </style>
+
   <!-- Lennis script and styles -->
   <script src="../lenis%401.3.4/dist/lenis.min.js"></script>
   <link rel="stylesheet" href="../lenis%401.3.4/dist/lenis.css">
@@ -43,161 +249,82 @@
       <div class="padding-global is-small">
         <div class="navbar_component">
           <div class="navbar_content">
-            <div class="navbar_brand"><a href="../index.htm" class="navbar_logo-wrap w-inline-block"><img
-                  src="../" loading="lazy" alt=""
-                  class="navbar_logo"></a>
-              <div class="navbar_creative"><img
-                  src="../6840876d4d1ed0e8e2a330b9/6840ad47034f7c5148f8b56b_bar-code-1.svg" loading="lazy" alt=""
-                  class="navbar_barcode">
-                    <div class="navbar_creative-text">Brand Brewing Company</div>
-              </div>
+            <div class="navbar_logo-center">
+              <h3 class="heading-style-h3 font-weight-medium" style="color: #234A9E !important; letter-spacing: 0.15em;">BRAND BREWING COMPANY</h3>
             </div>
             <div class="navbar_links-menu">
-              <div class="navbar_links"><a href="../index.htm" data-w-id="df70bfa9-fec6-06b6-1b9f-9402e5712ace"
-                  class="navbar_link w-inline-block">
-                  <div class="navbar_link-texts">
-                    <div class="navbar_link-text _1">Home</div>
-                    <div class="navbar_link-text _2">Home</div>
-                  </div>
-                  <div class="navbar_link-dot"></div>
-                </a><a href="../studio.html" data-w-id="df70bfa9-fec6-06b6-1b9f-9402e5712ace"
-                  class="navbar_link w-inline-block">
-                  <div class="navbar_link-texts">
-                    <div class="navbar_link-text _1">Studio</div>
-                    <div class="navbar_link-text _2">Studio</div>
-                  </div>
-                  <div class="navbar_link-dot"></div>
-                </a>
-                <div class="navbar_works-link"><a href="../works/1.html"
-                    data-w-id="df70bfa9-fec6-06b6-1b9f-9402e5712ace" class="navbar_link w-inline-block">
-                    <div class="navbar_link-texts">
-                      <div class="navbar_link-text _1">Work</div>
-                      <div class="navbar_link-text _2">Work</div>
-                    </div>
-                  </a>
-                  <div class="navbar_works-number-wrap">
-                    <div class="navbar_works-number">3</div>
-                  </div>
-                </div><a href="1.html" data-w-id="df70bfa9-fec6-06b6-1b9f-9402e5712ace"
-                  class="navbar_link w-inline-block">
-                  <div class="navbar_link-texts">
-                    <div class="navbar_link-text _1">Blog</div>
-                    <div class="navbar_link-text _2">Blog</div>
-                  </div>
-                  <div class="navbar_link-dot"></div>
-                </a><a href="../contact/1.html" data-w-id="df70bfa9-fec6-06b6-1b9f-9402e5712ace"
-                  class="navbar_link w-inline-block">
-                  <div class="navbar_link-texts">
-                    <div class="navbar_link-text _1">Contact</div>
-                    <div class="navbar_link-text _2">Contact</div>
-                  </div>
-                  <div class="navbar_link-dot"></div>
-                </a>
-              </div>
               <div class="menu_component">
                 <div fs-scrolldisable-media="(max-width: 767px)" fs-scrolldisable-element="toggle"
-                  data-w-id="5fdd110c-b4dc-4c3b-f311-33bd343dda78" class="hamburger">
-                  <div class="hamburger_line _1"></div>
-                  <div class="hamburger_line _2"></div>
+                  data-w-id="5fdd110c-b4dc-4c3b-f311-33bd343dda78" class="hamburger hamburger-logo">
+                  <img src="/logo.jpg" loading="lazy" alt="BBC Logo" class="hamburger-logo-img">
                 </div>
                 <div class="menu">
-                  <div class="menu_in">
-                    <div class="menu_content">
-                      <div class="menu_links"><a href="../index.htm" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
-                          class="menu_link w-inline-block">
-                          <div class="menu_link-texts">
-                            <div class="menu_link-text _1">Home</div>
-                            <div class="menu_link-text _2">Home</div>
-                          </div>
-                          <div class="menu_link-dot"></div>
-                        </a><a href="../studio.html" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
-                          class="menu_link w-inline-block">
-                          <div class="menu_link-texts">
-                            <div class="menu_link-text _1">Studio</div>
-                            <div class="menu_link-text _2">Studio</div>
-                          </div>
-                          <div class="menu_link-dot"></div>
-                        </a><a href="../works/1.html" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
-                          class="menu_link w-inline-block">
-                          <div class="menu_link-texts">
-                            <div class="menu_link-text _1">Work</div>
-                            <div class="menu_link-text _2">Work</div>
-                          </div>
-                          <div class="menu_link-dot"></div>
-                        </a><a href="1.html" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
-                          class="menu_link w-inline-block">
-                          <div class="menu_link-texts">
-                            <div class="menu_link-text _1">Blog</div>
-                            <div class="menu_link-text _2">Blog</div>
-                          </div>
-                          <div class="menu_link-dot"></div>
-                        </a><a href="../contact/1.html" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
-                          class="menu_link w-inline-block">
-                          <div class="menu_link-texts">
-                            <div class="menu_link-text _1">Contact</div>
-                            <div class="menu_link-text _2">Contact</div>
-                          </div>
-                          <div class="menu_link-dot"></div>
-                        </a></div>
-                      <div class="menu_actions">
-                        <div class="menu_social-wrap">
-                          <div class="menu_buttons"><a href="https://webflow.com/templates/designers/templatesupply"
-                              data-wf--button--variant="grey" data-w-id="059e00b0-f64e-1901-eae8-f1971aea4566"
-                              class="button-secondary w-inline-block">
-
-                              <div class="button-line_space blue-dark-36"></div>
-                              <div class="button-line_dot blue-dark-37">
-                                <div class="button_dot"></div>
-                                <div class="button_dot-scale"></div>
-                              </div>
-                            </a><a href="https://www.template.supply/" data-wf--button--variant="grey"
-                              data-w-id="059e00b0-f64e-1901-eae8-f1971aea4566" target="_blank"
-                              class="button-secondary w-inline-block">
-                              <div class="button_texts">
-                                <div class="button_text _1">More templates</div>
-                                <div class="button_text _2">More templates</div>
-                              </div>
-                              <div class="button-line_space blue-dark-36"></div>
-                              <div class="button-line_dot blue-dark-37">
-                                <div class="button_dot"></div>
-                                <div class="button_dot-scale"></div>
-                              </div>
-                            </a></div>
-                          <div class="menu_social"><a href="https://instagram.com" target="_blank"
-                              class="menu_social-link w-inline-block"><img loading="lazy"
-                                src="../6840876d4d1ed0e8e2a330b9/68642b559d94bcc3773fc317_social-insta.svg" alt=""
-                                class="menu_social-icon"></a><a href="https://x.com" target="_blank"
-                              class="menu_social-link w-inline-block"><img loading="lazy"
-                                src="../6840876d4d1ed0e8e2a330b9/68642b569d94bcc3773fc318_social-x.svg" alt=""
-                                class="menu_social-icon"></a><a href="https://dribbble.com" target="_blank"
-                              class="menu_social-link w-inline-block"><img loading="lazy"
-                                src="../6840876d4d1ed0e8e2a330b9/686464e5c7256ddd81c074ee_dribble.svg" alt=""
-                                class="menu_social-icon"></a></div>
-                        </div><a data-w-id="5fdd110c-b4dc-4c3b-f311-33bd343dda97" href="../contact/2.html"
-                          class="menu_contact w-inline-block"><img
-                            src="../6840876d4d1ed0e8e2a330b9/68474f06add2ed267a218556_link.png" loading="lazy"
-                            sizes="(max-width: 1400px) 100vw, 1400px"
-                            srcset="../6840876d4d1ed0e8e2a330b9/68474f06add2ed267a218556_link-p-500.png 500w, ../6840876d4d1ed0e8e2a330b9/68474f06add2ed267a218556_link-p-800.png 800w, ../6840876d4d1ed0e8e2a330b9/68474f06add2ed267a218556_link-p-1080.png 1080w, ../6840876d4d1ed0e8e2a330b9/68474f06add2ed267a218556_link.png 1400w"
-                            alt="" class="menu_contact-img">
-                          <div class="menu-contact-link">
-                            <div class="menu_contact-text">Contact</div><img
-                              src="../6840876d4d1ed0e8e2a330b9/6847494a49644635f62a1bc0_arrow-white-diagonal.svg"
-                              loading="lazy" alt="" class="menu_contact-arrow">
-                          </div>
-                        </a>
-                        <div class="menu_legal"><a href="../legal/privacy-policy.html"
-                            data-w-id="08715bc4-c4b7-73ba-45ba-b2d079cf51c2" class="menu_legal-link w-inline-block">
-                            <div class="menu_legal-text">Privacy Policy</div>
-                            <div class="menu_legal-line grey"></div>
-                          </a><a href="../legal/terms-of-use.html" data-w-id="08715bc4-c4b7-73ba-45ba-b2d079cf51c2"
-                            class="menu_legal-link w-inline-block">
-                            <div class="menu_legal-text">Terms of use</div>
-                            <div class="menu_legal-line grey"></div>
-                          </a></div>
-                      </div>
+                  <div class="menu_in" style="left: 3rem;">
+                    <div class="menu_content" style="background-color: #234A9E !important;">
                       <div data-w-id="5fdd110c-b4dc-4c3b-f311-33bd343ddaa2" class="menu_close"><img
                           src="../6840876d4d1ed0e8e2a330b9/68474e628bed528dd7a4be9e_close.svg" loading="lazy" alt=""
                           class="menu_close-icon"></div>
+                      <div style="flex: 1; display: flex; flex-direction: column; align-items: flex-end; padding-left: 4rem;">
+                        <div class="menu_links"><a href="../index.htm" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
+                            class="menu_link w-inline-block">
+                            <div class="menu_link-texts">
+                              <div class="menu_link-text _1">Home</div>
+                              <div class="menu_link-text _2">Home</div>
+                            </div>
+                            <div class="menu_link-dot"></div>
+                          </a>
+                          </a><a href="../works/1.html" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
+                            class="menu_link w-inline-block">
+                            <div class="menu_link-texts">
+                              <div class="menu_link-text _1">Work</div>
+                              <div class="menu_link-text _2">Work</div>
+                            </div>
+                            <div class="menu_link-dot"></div>
+                          </a><a href="../blog/2.html" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
+                            class="menu_link w-inline-block">
+                            <div class="menu_link-texts">
+                              <div class="menu_link-text _1">Blog</div>
+                              <div class="menu_link-text _2">Blog</div>
+                            </div>
+                            <div class="menu_link-dot"></div>
+                          </a><a href="../contact/2.html" data-w-id="34ea61be-4150-c0ab-66d0-326592b2e049"
+                            class="menu_link w-inline-block">
+                            <div class="menu_link-texts">
+                              <div class="menu_link-text _1">Contact</div>
+                              <div class="menu_link-text _2">Contact</div>
+                            </div>
+                            <div class="menu_link-dot"></div>
+                          </a></div>
+                        <div class="menu_about-text" style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 2rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                        </div>
+                        <div class="menu_actions">
+                          <div class="menu_social-wrap">
+                            <div class="menu_buttons">
+                              </a></div>
+                            <div class="menu_social"><a href="../index.htm" target="_blank"
+                                class="menu_social-link w-inline-block"><img loading="lazy"
+                                  src="../6840876d4d1ed0e8e2a330b9/68642b559d94bcc3773fc317_social-insta.svg" alt=""
+                                  class="menu_social-icon"></a><a href="../index.htm" target="_blank"
+                                class="menu_social-link w-inline-block"><img loading="lazy"
+                                  src="../6840876d4d1ed0e8e2a330b9/68642b569d94bcc3773fc318_social-x.svg" alt=""
+                                  class="menu_social-icon"></a><a href="../index.htm" target="_blank"
+                                class="menu_social-link w-inline-block"><img loading="lazy"
+                                  src="../6840876d4d1ed0e8e2a330b9/686464e5c7256ddd81c074ee_dribble.svg" alt=""
+                                  class="menu_social-icon"></a></div>
+                          </div><a data-w-id="5fdd110c-b4dc-4c3b-f311-33bd343dda97" href="../contact/2.html"
+                            class="menu_contact w-inline-block"><img
+                              src="../6840876d4d1ed0e8e2a330b9/68474f06add2ed267a218556_link.png" loading="lazy"
+                              sizes="(max-width: 1400px) 100vw, 1400px"
+                              srcset="../6840876d4d1ed0e8e2a330b9/68474f06add2ed267a218556_link-p-500.png 500w, ../6840876d4d1ed0e8e2a330b9/68474f06add2ed267a218556_link-p-800.png 800w, ../6840876d4d1ed0e8e2a330b9/68474f06add2ed267a218556_link-p-1080.png 1080w, ../6840876d4d1ed0e8e2a330b9/68474f06add2ed267a218556_link.png 1400w"
+                              alt="" class="menu_contact-img">
+                            <div class="menu-contact-link">
+                              <div class="menu_contact-text">Contact</div><img
+                                src="../6840876d4d1ed0e8e2a330b9/6847494a49644635f62a1bc0_arrow-white-diagonal.svg"
+                                loading="lazy" alt="" class="menu_contact-arrow">
+                            </div>
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -308,42 +435,40 @@
     </div>
     <footer class="footer">
       <div class="padding-global is-tiny">
-        <div class="footer_wrap">
+        <div class="footer_wrap" style="background-color: #234A9E !important;">
           <div class="footer_component">
             <div class="footer_main">
               <div class="footer_links-groups">
                 <div id="w-node-_49f89e0f-c321-7bff-a29b-8acdeddf7dc8-eddf7dc2" class="footer_group">
+                  <div class="footer_link-label">About</div>
+                  <div class="footer_about-text" style="max-width: 400px; margin-top: 1rem;">
+                    <p style="color: rgba(255, 255, 255, 0.85); font-size: 0.9rem; line-height: 1.7; margin: 0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Brand Brewing Company is dedicated to crafting exceptional brand experiences that resonate with audiences and drive meaningful connections.</p>
+                  </div>
+                </div>
+                <div class="footer_group">
                   <div class="footer_link-label">Pages</div>
-                  <div class="footer_lists">
-                    <div class="footer_links-list"><a href="../index.htm" class="footer_link">Home</a><a
-                        href="../studio.html" class="footer_link">Studio</a><a href="#" class="footer_link">Work
-                        item</a></div>
-                    <div class="footer_links-list"><a href="../works/1.html" class="footer_link">Works 1</a><a
-                        href="../works/2.html" class="footer_link">Works 2</a><a href="../works/3.html"
-                        class="footer_link">Works 3</a></div>
-                    <div class="footer_links-list"><a href="1.html" class="footer_link">Blog 1</a><a href="2.html"
-                        class="footer_link">Blog 2</a><a href="3.html" aria-current="page"
-                        class="footer_link w--current">Blog 3</a></div>
-                    <div class="footer_links-list"><a href="../contact/1.html" class="footer_link">Contact 1</a><a
-                        href="../contact/2.html" class="footer_link">Contact 2</a><a href="../contact/3.html"
-                        class="footer_link">Contact 3</a></div>
+                  <div class="footer_lists" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <a href="../index.htm" class="footer_link">Home</a>
+                    <a href="../works/1.html" class="footer_link">Works</a>
+                    <a href="../blog/2.html" class="footer_link">Blog</a>
+                    <a href="../contact/2.html" class="footer_link">Contact</a>
                   </div>
                 </div>
               </div>
               <div class="footer_secondary">
-                <div class="footer_social"><a href="https://instagram.com" target="_blank"
+                <div class="footer_social"><a href="../index.htm" target="_blank"
                     class="footer_social-link w-inline-block"><img loading="lazy"
                       src="../6840876d4d1ed0e8e2a330b9/68642b559d94bcc3773fc317_social-insta.svg" alt=""
-                      class="footer_social-icon"></a><a href="https://x.com" target="_blank"
+                      class="footer_social-icon"></a><a href="../index.htm" target="_blank"
                     class="footer_social-link w-inline-block"><img loading="lazy"
                       src="../6840876d4d1ed0e8e2a330b9/68642b569d94bcc3773fc318_social-x.svg" alt=""
-                      class="footer_social-icon"></a><a href="https://dribbble.com/" target="_blank"
+                      class="footer_social-icon"></a><a href="../index.htm" target="_blank"
                     class="footer_social-link w-inline-block"><img loading="lazy"
                       src="../6840876d4d1ed0e8e2a330b9/686464e5c7256ddd81c074ee_dribble.svg" alt=""
                       class="footer_social-icon"></a></div>
                 <div class="footer_newsletter w-form">
                   <form id="wf-form-Newsletter-form" name="wf-form-Newsletter-form" data-name="Newsletter form"
-                    method="get" class="footer_newsletter-form" data-wf-page-id="686c39a6fe51467aea53d714"
+                    method="get" class="footer_newsletter-form"
                     data-wf-element-id="49f89e0f-c321-7bff-a29b-8acdeddf7df1"><label for="email-3"
                       class="field-label">Join the newsletter</label>
                     <div class="footer_field-wrap"><input class="footer_field w-input" maxlength="256" name="Email"
@@ -361,12 +486,11 @@
             </div>
             <div class="footer_legal-links">
               <div id="w-node-_49f89e0f-c321-7bff-a29b-8acdeddf7dfe-eddf7dc2" class="footer_legal-wrap">
-                <div class="footer_copyright">© 2025 BBC</div>
-                <div class="footer_legal-divider"></div>
+                <div class="footer_copyright">© 2025 Brand Brewing Company</div>
               </div>
             </div>
           </div>
-          <div class="footer_brand">Brand Brewing Company<span class="footer_mark">®</span></div>
+          <div class="footer_brand" style="color: #FFC319 !important;">BBC<span class="footer_mark">®</span></div>
         </div>
       </div>
     </footer>
@@ -393,6 +517,40 @@
     }
 
     requestAnimationFrame(raf);
+  </script>
+  <!-- Hamburger logo toggle -->
+  <script>
+    (function() {
+      function initLogoAnimation() {
+        const hamburgerLogo = document.querySelector('.hamburger-logo-img');
+        const menu = document.querySelector('.menu');
+        const hamburgerButton = document.querySelector('.hamburger-logo');
+        if (!hamburgerLogo || !menu) return;
+        function isMenuOpen() {
+          const s = window.getComputedStyle(menu);
+          return (s.display !== 'none' && s.display !== '') ||
+            menu.classList.contains('w--open') || (hamburgerButton && hamburgerButton.classList.contains('w--open'));
+        }
+        function syncClass() {
+          hamburgerLogo.classList.toggle('menu-open', isMenuOpen());
+        }
+        const observer = new MutationObserver(syncClass);
+        observer.observe(menu, { attributes: true, attributeFilter: ['class', 'style'] });
+        if (hamburgerButton) {
+          observer.observe(hamburgerButton, { attributes: true, attributeFilter: ['class'] });
+          hamburgerButton.addEventListener('click', function() {
+            setTimeout(syncClass, 20);
+            setTimeout(syncClass, 150);
+          });
+        }
+        syncClass();
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initLogoAnimation);
+      } else {
+        setTimeout(initLogoAnimation, 100);
+      }
+    })();
   </script>
 </body>
 
